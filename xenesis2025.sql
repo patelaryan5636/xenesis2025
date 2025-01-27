@@ -3,18 +3,15 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 27, 2025 at 06:34 AM
+-- Generation Time: Jan 27, 2025 at 07:15 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
-
--- DROP DATABASE IF EXISTS `xenesis2025`;
--- CREATE DATABASE `xenesis2025`;
-USE `xenesis2025`;
-
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
+
+
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -35,30 +32,30 @@ SET time_zone = "+00:00";
 CREATE TABLE `event_master` (
   `event_id` int(11) NOT NULL,
   `event_name` varchar(20) NOT NULL,
-  `team_name` varchar(20) NOT NULL,
-  `event_price` int(11) NOT NULL,
-  `event_location` text NOT NULL,
-  `event_date` date NOT NULL,
-  `event_description` text NOT NULL,
   `tagline` text NOT NULL,
-  `poster_image` text NOT NULL,
-  `is_teamevent` int(11) NOT NULL DEFAULT 0,
-  `team_size` int(11) NOT NULL,
-  `event_size` int(11) NOT NULL,
-  `is_closed` int(11) NOT NULL DEFAULT 0,
-  `status` int(11) NOT NULL DEFAULT 1,
-  `team_leader_id` int(11) NOT NULL,
-  `round1` text NOT NULL,
-  `round2` text NOT NULL,
-  `round3` text NOT NULL,
-  `rules` text NOT NULL,
+  `department_name` varchar(20) NOT NULL,
+  `team_name` varchar(20) NOT NULL,
+  `participation_price` int(11) NOT NULL,
+  `participation_price_team` int(11) NOT NULL,
+  `team_member_count` int(11) NOT NULL,
   `winner_price1` int(11) NOT NULL,
   `winner_price2` int(11) NOT NULL,
-  `round1_title` text NOT NULL,
-  `round2_title` text NOT NULL,
-  `round3_title` text NOT NULL,
-  `team_price` int(11) NOT NULL,
-  `min_team_participant_count` int(11) NOT NULL,
+  `winner_price3` int(11) NOT NULL,
+  `location` varchar(20) NOT NULL,
+  `date` date NOT NULL,
+  `event_description` text NOT NULL,
+  `rules` text NOT NULL,
+  `round1_title` varchar(50) NOT NULL,
+  `round1_description` text DEFAULT NULL,
+  `round2_title` varchar(50) NOT NULL,
+  `round2_description` text DEFAULT NULL,
+  `round3_title` varchar(50) NOT NULL,
+  `round3_description` text DEFAULT NULL,
+  `round4_title` varchar(50) DEFAULT NULL,
+  `round4_description` text DEFAULT NULL,
+  `round5_title` varchar(50) DEFAULT NULL,
+  `round5_description` text DEFAULT NULL,
+  `images` varchar(50) NOT NULL,
   `max_tickets` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -76,7 +73,8 @@ CREATE TABLE `user_master` (
   `user_role` int(11) NOT NULL DEFAULT 3,
   `joined_date` datetime NOT NULL DEFAULT current_timestamp(),
   `full_name` varchar(25) NOT NULL,
-  `phone` bigint(10) NOT NULL
+  `phone` bigint(10) NOT NULL,
+  `isVerified` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -105,7 +103,7 @@ ALTER TABLE `user_master`
 -- AUTO_INCREMENT for table `event_master`
 --
 ALTER TABLE `event_master`
-  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `user_master`
