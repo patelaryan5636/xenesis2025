@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   //for count of enrollment
   $sql = "SELECT COUNT(*) FROM `user_master` WHERE `user_name` = '$enrollment'";
   $res = mysqli_query($conn, $sql);
-
+  
   if($res) {
     $row = mysqli_fetch_array($res);
     $count = $row[0]; // Number of rows with the specified email
@@ -29,6 +29,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit(); // Always exit after a header redirect
     }
   }
+  // for count of email id
+  $sql1 = "SELECT COUNT(*) FROM `user_master` WHERE `email` = '$email'";
+  $result = mysqli_query($conn, $sql1);
+
+  if($result) {
+    $row = mysqli_fetch_array($result);
+    $count = $row[0]; // Number of rows with the specified email
+    
+    if($count > 0) {
+        $_SESSION['xenesis_error_message'] = "email is already exists.";
+        header("Location: ../../sign-up.php");
+        exit(); // Always exit after a header redirect
+    }
+  }
+
 
   // to check all fields are empty or not
   if (empty($fullname) || empty($email) || empty($enrollment) || empty($phone) || empty($password) || empty($confirmPassword)) {

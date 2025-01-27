@@ -173,6 +173,9 @@
         <img src="/logo.png" alt="logo" />
         <h3>BE A PART OF XENESIS</h3>
       </div>
+
+      
+    
       <form action="includes/scripts/signmeup.php" method="post">
         <p>
         <?php
@@ -187,9 +190,20 @@
 
         ?>
         </p>
-        <input type="text" name="user_enrollment" placeholder="Enrollment Number" required />
+        <input type="text"
+         name="user_enrollment"
+         placeholder="Enrollment Number" 
+         
+         pattern="^[A-Z0-9]{10,14}$"
+         title="Enrollment number must be in only uppercase letters and digits."
+          required 
+          />
         <input type="email" name="user_email" placeholder="Email ID" required />
-        <input type="tel" name="user_phone" placeholder="Mobile Number" required />
+        <input type="tel" name="user_phone"
+         placeholder="Mobile Number"
+         pattern="^[0-9]{10}$" 
+          title="Mobile number must be 10 digits. "
+         required />
 
         <div class="row">
           <input type="text" name="full_name" placeholder="Full Name" required />
@@ -199,6 +213,9 @@
               id="password"
               name="user_password"
               placeholder="Password"
+              pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_])[A-Za-z\d\W_]{8,12}$"
+              title="Password must be 8 to 12 characters, contain at least one uppercase, lowercase, digit, and special character."
+
               required
             />
             <i class="fas fa-eye toggle-password" id="togglePassword"></i>
@@ -208,6 +225,7 @@
               type="password"
               id="password"
               name="user_confirm_password"
+              
               placeholder="confirm Password"
               required
             />
@@ -233,6 +251,8 @@
 
         togglePassword.classList.toggle("fa-eye-slash");
       });
+
+    
     </script>
   </body>
 </html>
