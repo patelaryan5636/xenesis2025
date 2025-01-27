@@ -7,8 +7,8 @@
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
-DROP DATABASE IF EXISTS `xenesis2025`;
-CREATE DATABASE `xenesis2025`;
+-- DROP DATABASE IF EXISTS `xenesis2025`;
+-- CREATE DATABASE `xenesis2025`;
 USE `xenesis2025`;
 
 
