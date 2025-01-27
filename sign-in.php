@@ -170,15 +170,10 @@
         </h3>
       </div>
       <form action="includes/scripts/signmein.php" method="post">
-        <input type="text" name="xenesis_login_email" placeholder="Enrollment Number" required />
+        <input type="text" name="xenesis_login_enrollment" placeholder="Enrollment Number" required />
 
         <div class="password-wrapper">
-          <input
-            type="password"
-            name="xenesis_login_password"
-            id="password"
-            placeholder="Password"
-            required
+          <input type="password" name="xenesis_login_password" id="password" placeholder="Password" required
           />
           <i class="fas fa-eye toggle-password" id="togglePassword"></i>
         </div>
