@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $email = $_POST["user_email"];
   $enrollment = $_POST["user_enrollment"];
   $password = $_POST["user_password"];
-  // $hashedpassword = password_hash($_POST["user_password"], PASSWORD_DEFAULT); // Hash the password
+  $hashedpassword = password_hash($_POST["user_password"], PASSWORD_DEFAULT); // Hash the password
   $confirmPassword = $_POST["user_confirm_password"];
   $registrationDate = date("d-m-Y");
   $phone = $_POST["user_phone"];
@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
   
   // insert into database
-   $insertQuery = "INSERT INTO `user_master` ( `user_name`, `email`, `password`, `user_role`, `joined_date`, `full_name`, `phone`) VALUES ( '$enrollment', '$email', '$password', '3', current_timestamp(), '$fullname', '$phone')";
+   $insertQuery = "INSERT INTO `user_master` ( `user_name`, `email`, `password`, `user_role`, `joined_date`, `full_name`, `phone`) VALUES ( '$enrollment', '$email', '$hashedpassword', '3', current_timestamp(), '$fullname', '$phone')";
 
   // check insert query ir not
    if ($conn->query($insertQuery) === TRUE) {

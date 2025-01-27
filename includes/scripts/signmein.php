@@ -22,28 +22,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $hashedPasswordFromDB = $row["password"];
       $isVerified = $row["isVerified"];
       $userId = $row["user_id"];
-      // $check = $hashedPasswordFromDB == $loginPassword
-      // echo $loginPassword;
-      // echo $hashedPasswordFromDB;
      
       // Verify the provided password against the stored hashed password
-      if ($loginPassword == $hashedPasswordFromDB){
+      if (password_verify($loginPassword, $hashedPasswordFromDB)) {
         // Password is correct, set session variables or perform other actions as needed
-       
-        //  if ($isVerified == 0) {
-        //   // Password is correct and the user is verified
-        //   $_SESSION['xenesis_logedin_user_id'] = $row["user_id"];
-                          
-        //   // header("Location: ../../404.php");
-        //  }
-          // header("Location: ../../404.php");
-          echo "Hello";
-
-      }else{
+        $isVerified = 1;
+        $sql = "UPDATE `user_master` SET `isVerified`='$isVerified' WHERE `user_id` = $userId";
+        $result = mysqli_query($conn,$sql);
+          if ($isVerified == 1) {
+            
+            // Password is correct and the user is verified
+            $_SESSION['xenesis_logedin_user_id'] = $row["user_id"];
+            header("Location: ../../index.php");
+      }   
+    }else{
         // Password is incorrect
-        // $_SESSION['xensis_error_message'] = "Incorrect password.";
-        // header("Location: ../../index.php");
-        echo "error";
+        $_SESSION['xensis_error_message'] = "Incorrect password.";
+        header("Location: ../../sign-in.php");
+        echo "eror";
+        
 
       }
 
