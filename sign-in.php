@@ -1,3 +1,6 @@
+<?php 
+ session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -170,6 +173,21 @@
         </h3>
       </div>
       <form action="includes/scripts/signmein.php" method="post">
+        <p>
+        <?php
+         if(isset( $_SESSION['xenesis_error_message'])){
+          echo  $_SESSION['xenesis_error_message'];
+        }
+         if(isset( $_SESSION['xenesis_success_message'])){
+          echo  $_SESSION['xenesis_success_message'];
+        }
+
+        unset($_SESSION['xenesis_error_message']);
+        unset($_SESSION['xenesis_success_message']);
+        
+
+        ?>
+        </p>
         <input type="text" name="xenesis_login_enrollment" placeholder="Enrollment Number" required />
 
         <div class="password-wrapper">

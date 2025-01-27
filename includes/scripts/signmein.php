@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['xenesis_error_message'] = "enrollment number and password are required.";
         header("Location: sign-in.php");
     }
-      
+    
      // Retrieve hashed password from the database based on the provided email
      $selectQuery = "SELECT * FROM user_master WHERE user_name = '$login_user_name'";
      $result = $conn->query($selectQuery);

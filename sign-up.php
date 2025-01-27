@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+
+<?php 
+ session_start();
+?><!DOCTYPE html>
 <html lang="en">
   <head>
     <title>Register Page</title>
@@ -171,6 +174,19 @@
         <h3>BE A PART OF XENESIS</h3>
       </div>
       <form action="includes/scripts/signmeup.php" method="post">
+        <p>
+        <?php
+         if(isset( $_SESSION['xenesis_error_message'])){
+          echo  $_SESSION['xenesis_error_message'];
+        }
+         
+
+        unset($_SESSION['xenesis_error_message']);
+    
+        
+
+        ?>
+        </p>
         <input type="text" name="user_enrollment" placeholder="Enrollment Number" required />
         <input type="email" name="user_email" placeholder="Email ID" required />
         <input type="tel" name="user_phone" placeholder="Mobile Number" required />
