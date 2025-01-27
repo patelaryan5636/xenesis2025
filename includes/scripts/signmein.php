@@ -25,11 +25,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       // $check = $hashedPasswordFromDB == $loginPassword
       // echo $loginPassword;
       // echo $hashedPasswordFromDB;
-
-      $login = password_hash($_POST["xenesis_login_password"], PASSWORD_DEFAULT); 
      
       // Verify the provided password against the stored hashed password
-      if ($login ===  $hashedPasswordFromDB){
+      if ($loginPassword == $hashedPasswordFromDB){
         // Password is correct, set session variables or perform other actions as needed
        
         //  if ($isVerified == 0) {
@@ -38,16 +36,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                           
         //   // header("Location: ../../404.php");
         //  }
-          header("Location: ../../404.php");
-          echo $loginPassword;
-          echo $hashedPasswordFromDB;
+          // header("Location: ../../404.php");
+          echo "Hello";
 
       }else{
         // Password is incorrect
         // $_SESSION['xensis_error_message'] = "Incorrect password.";
         // header("Location: ../../index.php");
-        echo $loginPassword . '<BR>';
-        echo $hashedPasswordFromDB;
+        echo "error";
+
       }
 
     }else{
@@ -57,4 +54,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
   $conn->close();
 }
-?>  
+?>
