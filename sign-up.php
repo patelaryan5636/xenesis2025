@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Login Page</title>
+    <title>Register Page</title>
 
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap"
@@ -32,8 +32,8 @@
       .form-container {
         position: relative;
         background: rgba(255, 255, 255, 0.1);
-        padding: 40px;
-        width: 400px;
+        padding: 30px;
+        width: 500px;
         border-radius: 20px;
         box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
         backdrop-filter: blur(12px);
@@ -51,7 +51,6 @@
           transform: translateY(0);
         }
       }
-
       .header {
         display: flex;
         align-items: center;
@@ -69,7 +68,7 @@
       }
 
       .header h3 {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
         font-weight: 600;
         text-align: center;
         line-height: 1.2;
@@ -77,8 +76,8 @@
 
       input {
         width: 100%;
-        padding: 15px;
-        margin: 15px 0;
+        padding: 12px;
+        margin: 10px 0;
         background: rgba(255, 255, 255, 0.1);
         border: 1px solid rgba(255, 255, 255, 0.2);
         border-radius: 5px;
@@ -94,8 +93,18 @@
         box-shadow: 0 0 8px rgba(35, 162, 246, 0.6);
       }
 
-      .password-wrapper {
+      .row {
+        display: flex;
+        gap: 10px;
+      }
+
+      .row .password-wrapper {
+        flex: 1;
         position: relative;
+      }
+
+      .row input {
+        flex: 1;
       }
 
       .password-wrapper input {
@@ -119,8 +128,8 @@
 
       button {
         width: 100%;
-        padding: 15px;
-        margin-top: 20px;
+        padding: 12px;
+        margin-top: 15px;
         background: linear-gradient(135deg, #23a2f6, #ff512f);
         border: none;
         border-radius: 5px;
@@ -139,7 +148,7 @@
 
       .signup-link {
         text-align: center;
-        margin-top: 20px;
+        margin-top: 15px;
         font-size: 0.9rem;
         color: rgba(255, 255, 255, 0.7);
       }
@@ -153,40 +162,47 @@
       .signup-link a:hover {
         text-decoration: underline;
       }
-
-      .forgot_pass {
-        color: #ff512f;
-        text-decoration: none;
-      }
     </style>
   </head>
   <body>
     <div class="form-container">
       <div class="header">
         <img src="/logo.png" alt="logo" />
-        <h3>
-          LOGIN INTO <br />
-          XENESIS WORLD
-        </h3>
+        <h3>BE A PART OF XENESIS</h3>
       </div>
-      <form>
-        <input type="text" placeholder="Enrollment Number" required />
+      <form action="includes/scripts/signmeup.php" method="post">
+        <input type="text" name="user_enrollment" placeholder="Enrollment Number" required />
+        <input type="email" name="user_email" placeholder="Email ID" required />
+        <input type="tel" name="user_phone" placeholder="Mobile Number" required />
 
-        <div class="password-wrapper">
-          <input
-            type="password"
-            id="password"
-            placeholder="Password"
-            required
-          />
-          <i class="fas fa-eye toggle-password" id="togglePassword"></i>
+        <div class="row">
+          <input type="text" name="full_name" placeholder="Full Name" required />
+          <div class="password-wrapper">
+            <input
+              type="password"
+              id="password"
+              name="user_password"
+              placeholder="Password"
+              required
+            />
+            <i class="fas fa-eye toggle-password" id="togglePassword"></i>
+          </div>
+          <div class="password-wrapper">
+            <input
+              type="password"
+              id="password"
+              name="user_confirm_password"
+              placeholder="confirm Password"
+              required
+            />
+            <i class="fas fa-eye toggle-password" id="togglePassword"></i>
+          </div>
         </div>
-        <a href="#" class="forgot_pass">Forgot Password?</a>
 
-        <button type="submit">LOGIN</button>
+        <button type="submit">REGISTER</button>
 
         <p class="signup-link">
-          Don't have an account ? <a href="/register.html">Register</a>
+          Already have an account ?<a href="sign-in.php"> Login</a>
         </p>
       </form>
     </div>
