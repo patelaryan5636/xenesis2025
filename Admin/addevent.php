@@ -259,64 +259,64 @@
                                 </div>
                                 <div class="col-lg-4 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label>Round 2 Title<b style="color:red">*</b></label>
-                                        <input type="text" name="e_round2_title" class="form-control" require>
+                                        <label>Round 2 Title</label>
+                                        <input type="text" name="e_round2_title" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-lg-8 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label>Round 2 Description<b style="color:red">*</b></label>
-                                        <textarea name="e_round2_desc" class="form-control" required></textarea>
+                                        <textarea name="e_round2_desc" class="form-control"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label>Round 3 Title<b style="color:red">*</b></label>
-                                        <input type="text" name="e_round3_title" class="form-control" require>
+                                        <label>Round 3 Title</label>
+                                        <input type="text" name="e_round3_title" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-lg-8 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label>Round 3 Description<b style="color:red">*</b></label>
-                                        <textarea name="e_round3_desc" class="form-control" required></textarea>
+                                        <label>Round 3 Description</label>
+                                        <textarea name="e_round3_desc" class="form-control"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label>Round 4 Title<b style="color:red">*</b></label>
-                                        <input type="text" name="e_round4_title" class="form-control" require>
+                                        <label>Round 4 Title</label>
+                                        <input type="text" name="e_round4_title" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-lg-8 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label>Round 4 Description<b style="color:red">*</b></label>
-                                        <textarea name="e_round4_desc" class="form-control" required></textarea>
+                                        <label>Round 4 Description</label>
+                                        <textarea name="e_round4_desc" class="form-control"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label>Round 5 Title<b style="color:red">*</b></label>
-                                        <input type="text" name="e_round5_title" class="form-control" require>
+                                        <label>Round 5 Title</label>
+                                        <input type="text" name="e_round5_title" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-lg-8 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label>Round 5 Description<b style="color:red">*</b></label>
-                                        <textarea name="e_round5_desc" class="form-control" required></textarea>
+                                        <label>Round 5 Description</label>
+                                        <textarea name="e_round5_desc" class="form-control"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label>Max Tickets<b style="color:red">*</b></label>
+                                        <label>Max Tickets</label>
                                         <input type="number" name="e_max_ticket" class="form-control" require>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label>Product Image (Optional)</label>
+                                        <label>Event Image</label>
                                         <div>
                                             <input type="file" accept="image/jpeg, image/jpg" class="form-control"
-                                                name="productImage" id="fileUpload">
+                                                name="productImage" id="fileUpload" required>
                                         </div>
                                     </div>
                                 </div>

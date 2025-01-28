@@ -141,15 +141,15 @@
                         <h6>Upload CSV file</h6>
                     </div>
                 </div>
-                <form action="#" method="post" enctype="multipart/form-data">
+                <form action="import_csv.php" method="post" enctype="multipart/form-data">
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <label>Product Image (Optional)</label>
+                                        <label for="csv_file">Event Data</label>
                                         <div>
-                                            <input type="file" accept=".csv" class="form-control"
+                                            <input type="file" name="csv_file" id="csv_file" accept=".csv" class="form-control"
                                                 name="Eventimage" id="fileUpload">
                                         </div>
                                     </div>
