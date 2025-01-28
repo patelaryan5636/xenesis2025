@@ -147,17 +147,25 @@
                             <div class="row">
                                 <div class="col-lg-12 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label>Product Name <b style="color:red">*</b></label>
-                                        <input type="text" name="txt_product_name" require>
+                                        <label>Group Name <b style="color:red">*</b></label>
+                                        <input type="text" name="g_name" require>
                                     </div>
                                 </div>
-
                                 <div class="col-lg-2 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label>Category (Optional)</label>
-                                        <select class="select" name="cat_id">
-                                            <option value="asd">
-                                                asdasd
+                                        <label>Group Members</label>
+                                        <select class="select" name="g_member_count">
+                                            <option value="2">
+                                                2
+                                            </option>
+                                            <option value="3">
+                                                3
+                                            </option>
+                                            <option value="4">
+                                                4
+                                            </option>
+                                            <option value="5">
+                                                5
                                             </option>
                                         </select>
                                     </div>

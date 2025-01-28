@@ -146,11 +146,23 @@
                             <div class="row">
                                 <div class="col-lg-12 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label>Product Name <b style="color:red">*</b></label>
-                                        <input type="text" name="txt_product_name" require>
+                                        <label>User Name <b style="color:red">*</b></label>
+                                        <input type="text" name="u_name" require>
                                     </div>
                                 </div>
-
+                                <div class="col-lg-12 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label>User Email <b style="color:red">*</b></label>
+                                        <input type="email" name="u_name" require>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label>Password <b style="color:red">*</b></label>
+                                        <input type="email" name="u_name" require>
+                                    </div>
+                                </div>
+                                
                                 <div class="col-lg-2 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label>Category (Optional)</label>
@@ -159,15 +171,6 @@
                                                 asdasd
                                             </option>
                                         </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        <label>Product Image (Optional)</label>
-                                        <div>
-                                            <input type="file" accept="image/jpeg, image/jpg" class="form-control"
-                                                name="productImage" id="fileUpload">
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">

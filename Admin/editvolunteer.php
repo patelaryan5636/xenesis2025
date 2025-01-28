@@ -146,25 +146,24 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
-                            <div class="col-lg-6 col-sm-6 col-12">
+                                <div class="col-lg-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label>Volunteer Name <b style="color:red">*</b></label>
-                                        <input type="text" name="v_name" value="PYS" require>
+                                        <label>Volunteer Name</label>
+                                        <input type="text" name="v_name" value="PYS">
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label>Volunteer Mobile Number <b style="color:red">*</b></label>
-                                        <input type="tel" name="v_number" class="form-control" pattern="^[0-9]{10}$" title="Mobile number must be 10 digits" placeholder="Enter 10 digit number" value="1011121314" require>
+                                        <label>Volunteer User Name</label>
+                                        <input type="text" name="v_name" value="PYS">
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label>Volunteer wallet <b style="color:red">*</b></label>
-                                        <input type="number" name="v_wallet" class="form-control" value="10" require>
+                                        <label>Volunteer Mobile Number</label>
+                                        <input type="tel" name="v_number" class="form-control" pattern="^[0-9]{10}$" title="Mobile number must be 10 digits" placeholder="Enter 10 digit number" value="1011121314">
                                     </div>
                                 </div>
-                                
                                 <div class="col-lg-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label>volunteer Role</label>

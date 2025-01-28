@@ -41,7 +41,8 @@
         <div class="header bord">
 
             <div class="header-left active">
-                <a href="index.php" class="logo" style="font-size:35px; color: rgb(150, 0, 150); font-weight:bold; margin-left:23px;">
+                <a href="index.php" class="logo"
+                    style="font-size:35px; color: rgb(150, 0, 150); font-weight:bold; margin-left:23px;">
                     <span style="color: rgb(0, 0, 102)">X</span>enesis
                 </a>
                 <a href="index.php" class="logo-small" style="font-size:32px; font-weight:bold;">
@@ -84,8 +85,8 @@
                             <hr class="m-0">
                             <a class="dropdown-item" href="profile.php"> <i class="me-2" data-feather="user"></i> My
                                 Profile</a>
-                            <a class="dropdown-item logout pb-0" href="#"><img
-                                    src="../assets/img/icons/log-out.svg" class="me-2" alt="img">Logout</a>
+                            <a class="dropdown-item logout pb-0" href="#"><img src="../assets/img/icons/log-out.svg"
+                                    class="me-2" alt="img">Logout</a>
                         </div>
                     </div>
                 </li>
@@ -152,17 +153,18 @@
                                 </div>
                                 <div class="col-lg-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label>Volunteer Mobile Number <b style="color:red">*</b></label>
-                                        <input type="tel" name="v_number" class="form-control" pattern="^[0-9]{10}$" title="Mobile number must be 10 digits" placeholder="Enter 10 digit number" require>
+                                        <label>Volunteer User Name <b style="color:red">*</b></label>
+                                        <input type="text" name="v_name" require>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label>Volunteer wallet <b style="color:red">*</b></label>
-                                        <input type="number" name="v_wallet" class="form-control" require>
+                                        <label>Volunteer Mobile Number <b style="color:red">*</b></label>
+                                        <input type="tel" name="v_number" class="form-control" pattern="^[0-9]{10}$"
+                                            title="Mobile number must be 10 digits" placeholder="Enter 10 digit number"
+                                            require>
                                     </div>
                                 </div>
-                                
                                 <div class="col-lg-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label>volunteer Role</label>
@@ -176,8 +178,24 @@
                                         </select>
                                     </div>
                                 </div>
+                                <div class="col-lg-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label>Set Password <b style="color:red">*</b></label>
+                                        <input type="password" id="password" name="v_pass" class="form-control"
+                                            required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label>Confirm Password <b style="color:red">*</b></label>
+                                        <input type="password" id="confirmPassword" name="v_pass_confirm"
+                                            class="form-control" required>
+                                    </div>
+                                    <p id="passwordError" style="color: red; display: none;"><strong>Password Doesn't
+                                            Match</strong></p>
+                                </div>
                                 <div class="col-lg-12">
-                                    <input type="submit" value="Submit" name="submit" class="btn btn-submit me-2">
+                                    <input type="submit" value="Submit" id="submitButton" class="btn btn-submit me-2" disabled>
                                     <a href="volunteerlist.php" class="btn btn-cancel">Cancel</a>
                                 </div>
                             </div>
@@ -186,23 +204,45 @@
                 </form>
             </div>
         </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const password = document.getElementById("password");
+                const confirmPassword = document.getElementById("confirmPassword");
+                const passwordError = document.getElementById("passwordError");
+                const submitButton = document.getElementById("submitButton");
+
+                function validatePasswords() {
+                    if (password.value === confirmPassword.value && password.value !== "") {
+                        passwordError.style.display = "none";
+                        submitButton.disabled = false;
+                    } else {
+                        passwordError.style.display = "block";
+                        submitButton.disabled = true;
+                    }
+                }
+
+                password.addEventListener("input", validatePasswords);
+                confirmPassword.addEventListener("input", validatePasswords);
+            });
+        </script>
+        
 
         <script src="../assets/js/jquery-3.6.0.min.js"></script>
 
         <script src="../assets/js/feather.min.js"></script>
-    
+
         <script src="../assets/js/jquery.slimscroll.min.js"></script>
-    
+
         <script src="../assets/js/jquery.dataTables.min.js"></script>
         <script src="../assets/js/dataTables.bootstrap4.min.js"></script>
-    
+
         <script src="../assets/js/bootstrap.bundle.min.js"></script>
-    
+
         <script src="../assets/plugins/select2/js/select2.min.js"></script>
-    
+
         <script src="../assets/plugins/sweetalert/sweetalert2.all.min.js"></script>
         <script src="../assets/plugins/sweetalert/sweetalerts.min.js"></script>
-    
+
         <script src="../assets/js/script.js"></script>
 </body>
 

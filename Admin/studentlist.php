@@ -141,8 +141,8 @@
                         <h6>Manage your Students</h6>
                     </div>
                     <div class="page-btn">
-                        <a href="addevent.php" class="btn btn-added"><img src="../assets/img/icons/plus.svg" alt="img"
-                                class="me-1">Add New Event</a>
+                        <a href="addstudent.php" class="btn btn-added"><img src="../assets/img/icons/plus.svg" alt="img"
+                                class="me-1">Add New Student</a>
                     </div>
                 </div>
 
