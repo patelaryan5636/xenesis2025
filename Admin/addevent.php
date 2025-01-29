@@ -141,7 +141,7 @@
                         <h6>Create new Event</h6>
                     </div>
                 </div>
-                <form action="#" method="post" enctype="multipart/form-data">
+                <form action="./add_event_manually.php" method="post" enctype="multipart/form-data">
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
@@ -242,7 +242,7 @@
                                 <div class="col-lg4 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label>Event Rules<b style="color:red">*</b></label>
-                                        <textarea name="e_desc" class="form-control" required></textarea>
+                                        <textarea name="e_rules" class="form-control" required></textarea>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-sm-6 col-12">
@@ -308,7 +308,7 @@
                                 <div class="col-lg-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label>Max Tickets</label>
-                                        <input type="number" name="e_max_ticket" class="form-control" require>
+                                        <input type="number" name="e_max_ticket" class="form-control" value=0 require>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
