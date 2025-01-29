@@ -9,7 +9,7 @@
         content="admin, estimates, bootstrap, business, corporate, creative, invoice, html5, responsive, Projects">
     <meta name="author" content="Dreamguys - Bootstrap Admin Template">
     <meta name="robots" content="noindex, nofollow">
-    <title>Add product</title>
+    <title>Add Volunteer</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="../assets/img/Xenesis2025_logo.png">
 
@@ -153,29 +153,22 @@
                                 </div>
                                 <div class="col-lg-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label>Volunteer User Name <b style="color:red">*</b></label>
-                                        <input type="text" name="v_name" require>
+                                        <label>Volunteer Enrollment No. <b style="color:red">*</b></label>
+                                        <input type="text" name="v_enno" class="form-control" require>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label>Volunteer Mobile Number <b style="color:red">*</b></label>
                                         <input type="tel" name="v_number" class="form-control" pattern="^[0-9]{10}$"
-                                            title="Mobile number must be 10 digits" placeholder="Enter 10 digit number"
+                                            title="Mobile number must be 10 digits" placeholder="Enter 10 digit number" value="0987654321"
                                             require>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label>volunteer Role</label>
-                                        <select class="select" name="v_role">
-                                            <option value="Campaign">
-                                                Campaign
-                                            </option>
-                                            <option value="Account Setup">
-                                                Account Setup
-                                            </option>
-                                        </select>
+                                        <label>Volunteer Email <b style="color:red">*</b></label>
+                                        <input type="email" name="v_email" class="form-control" require>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-sm-6 col-12">
@@ -195,7 +188,8 @@
                                             Match</strong></p>
                                 </div>
                                 <div class="col-lg-12">
-                                    <input type="submit" value="Submit" id="submitButton" class="btn btn-submit me-2" disabled>
+                                    <input type="submit" value="Submit" id="submitButton" class="btn btn-submit me-2"
+                                        disabled>
                                     <a href="volunteerlist.php" class="btn btn-cancel">Cancel</a>
                                 </div>
                             </div>
@@ -225,7 +219,7 @@
                 confirmPassword.addEventListener("input", validatePasswords);
             });
         </script>
-        
+
 
         <script src="../assets/js/jquery-3.6.0.min.js"></script>
 

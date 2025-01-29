@@ -9,7 +9,7 @@
         content="admin, estimates, bootstrap, business, corporate, creative, invoice, html5, responsive, Projects">
     <meta name="author" content="Dreamguys - Bootstrap Admin Template">
     <meta name="robots" content="noindex, nofollow">
-    <title>Add product</title>
+    <title>Event List</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="../assets/img/Xenesis2025_logo.png">
 
@@ -191,9 +191,10 @@
                                 <thead>
                                     <tr>
                                         <th>Event Name</th>
-                                        <th>Department Name</th>
+                                        <th>Entry Fee</th>
                                         <th>Participents</th>
-                                        <th>Total Members</th>
+                                        <th>Event Size</th>
+                                        <th>Leader No.</th>
                                         <th>Date</th>
                                         <th>Action</th>
                                     </tr>
@@ -211,6 +212,9 @@
                                         </td>
                                         <td>
                                             5
+                                        </td>
+                                        <td>
+                                            0987654321
                                         </td>
                                         <td>
                                             21-02-2025

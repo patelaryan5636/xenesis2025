@@ -9,7 +9,7 @@
         content="admin, estimates, bootstrap, business, corporate, creative, invoice, html5, responsive, Projects">
     <meta name="author" content="Dreamguys - Bootstrap Admin Template">
     <meta name="robots" content="noindex, nofollow">
-    <title>Add product</title>
+    <title>Student List</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="../assets/img/Xenesis2025_logo.png">
 
@@ -140,10 +140,6 @@
                         <h4>Students List</h4>
                         <h6>Manage your Students</h6>
                     </div>
-                    <div class="page-btn">
-                        <a href="addstudent.php" class="btn btn-added"><img src="../assets/img/icons/plus.svg" alt="img"
-                                class="me-1">Add New Student</a>
-                    </div>
                 </div>
 
                 <div class="card">
@@ -169,7 +165,7 @@
                             <table class="table  datanew">
                                 <thead>
                                     <tr>
-                                        <th>Product Name</th>
+                                        <th>Participent Name</th>
                                         <th>Price</th>
                                         <th>Qty</th>
                                         <th>Date</th>

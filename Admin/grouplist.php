@@ -9,7 +9,7 @@
         content="admin, estimates, bootstrap, business, corporate, creative, invoice, html5, responsive, Projects">
     <meta name="author" content="Dreamguys - Bootstrap Admin Template">
     <meta name="robots" content="noindex, nofollow">
-    <title>Add product</title>
+    <title>Group List</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="../assets/img/Xenesis2025_logo.png">
 
@@ -169,15 +169,20 @@
                             <table class="table  datanew">
                                 <thead>
                                     <tr>
-                                        <th>Product Name</th>
-                                        <th>Price</th>
-                                        <th>Qty</th>
-                                        <th>Date</th>
+                                        <th>Event ID</th>
+                                        <th>Team Name</th>
+                                        <th>Event Name</th>
+                                        <th>Leader Name</th>
+                                        <th>Leader En.no</th>
+                                        <th>Leader Mo.no</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
+                                        <td>
+                                            10
+                                        </td>
                                         <td>
                                             PYS
                                         </td>
@@ -188,7 +193,41 @@
                                             1212
                                         </td>
                                         <td>
-                                            sdfsdf
+                                            1212
+                                        </td>
+                                        <td>
+                                            1212
+                                        </td>
+                                        <td>
+                                            <a class="me-3"
+                                                href="eventdetails.php">
+                                                <img src="../assets/img/icons/eye.svg" alt="img">
+                                            </a>
+                                            <a class="me-3" href="editevent.php">
+                                                <img src="../assets/img/icons/edit.svg" alt="img">
+                                            </a>
+                                            <a href="deleteevent.php">
+                                                <img src="../assets/img/icons/delete.svg" alt="img">
+                                            </a>
+                                        </td>
+                                    </tr><tr>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td>
+                                            PYS
+                                        </td>
+                                        <td>
+                                           1212
+                                        </td>
+                                        <td>
+                                            1212
+                                        </td>
+                                        <td>
+                                            1212
+                                        </td>
+                                        <td>
+                                            1212
                                         </td>
                                         <td>
                                             <a class="me-3"
