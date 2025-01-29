@@ -139,6 +139,21 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div> -->  
                 <!-- alert-box End -->
+                 <p><?php
+                       
+                        if(isset( $_SESSION['xenesis_error_message'])){
+                         echo  $_SESSION['xenesis_error_message'];
+                       }
+                        if(isset( $_SESSION['xenesis_success_message'])){
+                         echo  $_SESSION['xenesis_success_message'];
+                       }
+               
+                       unset($_SESSION['xenesis_error_message']);
+                       unset($_SESSION['xenesis_success_message']);
+                       
+               
+                       ?>
+                 </p>
                 <div class="page-header">
                     <div class="page-title">
                         <h4>Event List</h4>
