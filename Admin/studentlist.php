@@ -187,9 +187,6 @@
                                             PUBG
                                         </td>
                                         <td>
-                                            <a class="me-3" href="editstudent.php">
-                                                <img src="../assets/img/icons/edit.svg" alt="img">
-                                            </a>
                                             <a href="#">
                                                 <img src="../assets/img/icons/delete.svg" alt="img">
                                             </a>
