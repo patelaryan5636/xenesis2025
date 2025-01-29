@@ -4,12 +4,13 @@ require_once __DIR__ .'/../vendor/autoload.php';
 
 require "../includes/scripts/connection.php";
 
-$mpdf = new \Mpdf\Mpdf();
-$mpdf->WriteHTML('<h1>Hello world!</h1>');
-$mpdf->Output();
 
 
-    
+
+$html='
+  <h1> hello workd</h1>
+';
+
 
 
 // $html = "Hello User!";
@@ -25,6 +26,9 @@ $mpdf->Output();
 // $mpdf->WriteHTML($html); // To use php variables
 // $mpdf->WriteHTML('Insert yout html code here!!'); // To write html
 
+$mpdf = new \Mpdf\Mpdf();
 // Define a page using all default values except "L" for Landscape orientation
+$mpdf->WriteHTML($html);
+$mpdf->Output();
 
 ?>
