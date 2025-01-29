@@ -33,7 +33,20 @@ if (isset($_POST['submit'])) {
 
                 // Download the image and get the saved path
                 $image_path = downloadImage($image_link);
-
+                
+                $sql = "SELECT * FROM `department_master`";
+                $result = mysqli_query($conn,$sql);
+                    
+                if (mysqli_num_rows($result) > 0) {
+                        while($row = mysqli_fetch_assoc($result)){
+                            if($department_name==$row['department_name']){
+                                    $department_name = $row['department_id'];
+                            }
+                        }
+                    }else {
+                        echo "!";
+                    }
+               
                 // Insert data into the database
                 $sql = "INSERT INTO `event_master` 
                 (`event_name`, `tagline`, `department_name`, `team_name`, `participation_price`, `participation_price_team`, 
