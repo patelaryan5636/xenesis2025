@@ -117,7 +117,7 @@
                                     Events</span> <span class="menu-arrow"></span></a>
                             <ul>
                                 <li><a href="eventlist.php">Events</a></li>
-                                <li><a href="grouplist.php">Groups</a></li>
+                                <li><a href="grouplist.php">Organizer Groups</a></li>
                                 <li><a href="studentlist.php">Students</a></li>
                                 <li><a href="volunteerlist.php">Volunteer</a></li>
                             </ul>
@@ -177,7 +177,7 @@
                             </div>
                             <div class="dash-imgs">
                                 <i data-feather="file"></i>
-                            </div>
+                            </div>  
                         </div>
                     </div>
                 </div>
@@ -186,7 +186,7 @@
                     <div class="col-lg-7 col-sm-12 col-12 d-flex">
                         <div class="card flex-fill bord">
                             <div class="card-header pb-0 d-flex justify-content-between align-items-center">
-                                <h4 class="card-title mb-0">Recent Orders</h4>
+                                <h4 class="card-title mb-0">Recently Added Volunteer</h4>
                                 <div class="dropdown">
                                     <a href="javascript:void(0);" data-bs-toggle="dropdown" aria-expanded="false"
                                         class="dropset">
@@ -194,10 +194,10 @@
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <li>
-                                            <a href="saleslist.php" class="dropdown-item">Sales list</a>
+                                            <a href="eventlist.php" class="dropdown-item">Event list</a>
                                         </li>
                                         <li>
-                                            <a href="add-sales.php" class="dropdown-item">Add sale</a>
+                                            <a href="addevent.php" class="dropdown-item">Add Event</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -208,22 +208,17 @@
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Customer</th>
+                                                <th>Event Name</th>
+                                                <th>Entry fee</th>
                                                 <th>Date</th>
-                                                <th>Total</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>12</td>
-                                                <td class="productimgname">
-                                                    <!-- <a href="productlist.php" class="product-img">
-                                                        <img src="../assets/img/product/product22.jpg" alt="product">
-                                                    </a> -->
-                                                    <a href="productlist.php">PYS</a>
-                                                </td>
-                                                <td>12-12</td>
-                                                <td>1212</td>
+                                                <td>1</td>
+                                                <td>PUBG</td>
+                                                <td>50</td>
+                                                <td>6-6-6666</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -234,7 +229,7 @@
                     <div class="col-lg-5 col-sm-12 col-12 d-flex">
                         <div class="card flex-fill bord">
                             <div class="card-header pb-0 d-flex justify-content-between align-items-center">
-                                <h4 class="card-title mb-0">Recently Added Products</h4>
+                                <h4 class="card-title mb-0">Recently Added Groups</h4>
                                 <div class="dropdown">
                                     <a href="javascript:void(0);" data-bs-toggle="dropdown" aria-expanded="false"
                                         class="dropset">
@@ -277,15 +272,15 @@
                 </div>
                 <div class="card mb-0 bord">
                     <div class="card-body">
-                        <h4 class="card-title">Recent Expenses</h4>
+                        <h4 class="card-title">Recently Added Students</h4>
                         <div class="table-responsive dataview">
                             <table class="table datatable ">
                                 <thead>
 
                                     <tr>
                                         <th>#</th>
-                                        <th>Category Name</th>
-                                        <th>Reference</th>
+                                        <th>Event Name</th>
+                                        <th>Entry Fee</th>
                                         <th>Date</th>
                                         <th>Amount</th>
                                         <th>description</th>

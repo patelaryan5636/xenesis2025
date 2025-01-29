@@ -118,7 +118,7 @@
                                 Events</span> <span class="menu-arrow"></span></a>
                             <ul>
                                 <li><a href="eventlist.php">Events</a></li>
-                                <li><a href="grouplist.php">Groups</a></li>
+                                <li><a href="grouplist.php">Organizer Groups</a></li>
                                 <li><a href="studentlist.php" class="active">Students</a></li>
                                 <li><a href="volunteerlist.php">Volunteer</a></li>
                             </ul>
@@ -166,9 +166,9 @@
                                 <thead>
                                     <tr>
                                         <th>Participent Name</th>
-                                        <th>Price</th>
-                                        <th>Qty</th>
-                                        <th>Date</th>
+                                        <th>P_ID</th>
+                                        <th>Group_ID</th>
+                                        <th>Event</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -178,23 +178,19 @@
                                             PYS
                                         </td>
                                         <td>
-                                           1212
+                                           112
                                         </td>
                                         <td>
-                                            1212
+                                            1
                                         </td>
                                         <td>
-                                            sdfsdf
+                                            PUBG
                                         </td>
                                         <td>
-                                            <a class="me-3"
-                                                href="eventdetails.php">
-                                                <img src="../assets/img/icons/eye.svg" alt="img">
-                                            </a>
-                                            <a class="me-3" href="editevent.php">
+                                            <a class="me-3" href="editstudent.php">
                                                 <img src="../assets/img/icons/edit.svg" alt="img">
                                             </a>
-                                            <a href="deleteevent.php">
+                                            <a href="#">
                                                 <img src="../assets/img/icons/delete.svg" alt="img">
                                             </a>
                                         </td>

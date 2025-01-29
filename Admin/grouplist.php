@@ -118,7 +118,7 @@
                                 Events</span> <span class="menu-arrow"></span></a>
                             <ul>
                                 <li><a href="eventlist.php">Events</a></li>
-                                <li><a href="grouplist.php" class="active">Groups</a></li>
+                                <li><a href="grouplist.php" class="active">Organizer Group</a></li>
                                 <li><a href="studentlist.php">Students</a></li>
                                 <li><a href="volunteerlist.php">Volunteer</a></li>
                             </ul>
@@ -134,15 +134,15 @@
                     <strong>Je lakhvu hoy</strong> te lakho.
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div> -->
+                <!-- <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>Je lakhvu hoy</strong> te lakho.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div> -->
                 <!-- alert-box End -->
                 <div class="page-header">
                     <div class="page-title">
                         <h4>Group List</h4>
                         <h6>Manage your Groups</h6>
-                    </div>
-                    <div class="page-btn">
-                        <a href="addgroup.php" class="btn btn-added"><img src="../assets/img/icons/plus.svg" alt="img"
-                                class="me-1">Add New Group</a>
                     </div>
                 </div>
 
@@ -199,13 +199,6 @@
                                             1212
                                         </td>
                                         <td>
-                                            <a class="me-3"
-                                                href="eventdetails.php">
-                                                <img src="../assets/img/icons/eye.svg" alt="img">
-                                            </a>
-                                            <a class="me-3" href="editevent.php">
-                                                <img src="../assets/img/icons/edit.svg" alt="img">
-                                            </a>
                                             <a href="deleteevent.php">
                                                 <img src="../assets/img/icons/delete.svg" alt="img">
                                             </a>
@@ -230,13 +223,6 @@
                                             1212
                                         </td>
                                         <td>
-                                            <a class="me-3"
-                                                href="eventdetails.php">
-                                                <img src="../assets/img/icons/eye.svg" alt="img">
-                                            </a>
-                                            <a class="me-3" href="editevent.php">
-                                                <img src="../assets/img/icons/edit.svg" alt="img">
-                                            </a>
                                             <a href="deleteevent.php">
                                                 <img src="../assets/img/icons/delete.svg" alt="img">
                                             </a>

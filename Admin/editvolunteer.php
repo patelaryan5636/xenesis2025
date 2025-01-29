@@ -116,7 +116,7 @@
                                     Events</span> <span class="menu-arrow"></span></a>
                             <ul>
                                 <li><a href="eventlist.php">Events</a></li>
-                                <li><a href="grouplist.php">Groups</a></li>
+                                <li><a href="grouplist.php">Organizer Groups</a></li>
                                 <li><a href="studentlist.php">Students</a></li>
                                 <li><a href="volunteerlist.php" class="active">Volunteer</a></li>
                             </ul>
