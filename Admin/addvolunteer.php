@@ -141,7 +141,7 @@
                         <h4>Add Volunteer</h4>
                     </div>
                 </div>
-                <form action="#" method="post" enctype="multipart/form-data">
+                <form action="../includes/scripts/volunteer_signup.php" method="post" enctype="multipart/form-data">
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
