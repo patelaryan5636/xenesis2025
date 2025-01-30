@@ -41,18 +41,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->Port = 587;
 
             // Email settings
-            $mail->setFrom('patelaryan5636@gmail.com', 'Support');
+            $mail->setFrom('patelaryan5636@gmail.com', 'Xenesis Support');
             $mail->addAddress($email);
-            $mail->Subject = "Password Reset Request";
+            $mail->Subject = "🔑 Reset Your Password - Xenesis Event";
 
             // Body content with reset link
             $resetLink = "http://localhost/xenesis2025/newpassword.php?token=$token"; // Adjust your domain URL accordingly
             $mail->isHTML(true);
             $mail->Body = "
-                <p>Hello,</p>
-                <p>You requested a password reset. Click the link below to reset your password:</p>
-                <p><a href='$resetLink' style='color: #007BFF;'>Reset Password</a></p>
-                <p>This link will expire in 1 hour.</p>
+                <div style='max-width: 600px; margin: auto; font-family: Arial, sans-serif; background: #f9f9f9; padding: 20px; border-radius: 10px; border: 1px solid #ddd;'>
+                    <div style='text-align: center;'>
+                        <h2 style='color: #007BFF;'>🔐 Password Reset Request</h2>
+                        <p style='color: #444;'>Hello,</p>
+                        <p style='color: #444;'>You recently requested to reset your password for the <strong>Xenesis Event</strong>. Click the button below to reset it.</p>
+                        <a href='$resetLink' style='display: inline-block; padding: 12px 20px; margin-top: 10px; font-size: 16px; font-weight: bold; color: #fff; background-color: #007BFF; text-decoration: none; border-radius: 5px;'>Reset Password</a>
+                        <p style='margin-top: 20px; color: #666;'>If you did not request this, please ignore this email. This link will expire in <strong>1 hour</strong>.</p>
+                        <hr style='border: none; height: 1px; background: #ddd; margin: 20px 0;'>
+                        <p style='color: #888; font-size: 12px;'>For any issues, contact <a href='mailto:support@xenesis.com' style='color: #007BFF; text-decoration: none;'>support@xenesis.com</a></p>
+                    </div>
+                </div>
             ";
 
             $mail->send();
@@ -62,11 +69,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Error: {$mail->ErrorInfo}";
         }
     } else {
-      
-      $_SESSION["email_eror_message"] = "email is not found";
-      header("Location: forgot.php");
-      echo "email is not found";
-        // echo "Email not found!";
+        $_SESSION["email_error_message"] = "Email not found";
+        header("Location: forgot.php");
     }
 
     $conn->close();

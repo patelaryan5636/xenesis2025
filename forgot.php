@@ -237,10 +237,10 @@ session_start();
         <h3>FORGOT PASSWORD</h3>
       </div>
         <p><?php
-          if(isset($_SESSION["email_eror_message"])){
-            echo $_SESSION["email_eror_message"];
+          if(isset($_SESSION["email_error_message"])){
+            echo $_SESSION["email_error_message"];
           }
-          unset($_SESSION["email_eror_message"]);
+          unset($_SESSION["email_error_message"]);
         ?></p>
       <form action="forget_password.php" method="post">
         <input type="email" name="email" placeholder="Email ID" required />

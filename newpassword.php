@@ -1,5 +1,8 @@
 <!-- reset_password.php -->
+<?php
 
+session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -265,10 +268,20 @@
       <div class="header">
         <img src="logo.png" alt="logo" />
         <h3>
-          LOGIN INTO <br />
+          Reset your password <br />
           XENESIS WORLD
         </h3>
       </div>
+      <p><?php
+      if(isset($_SESSION["xenesis_error_message"])){
+        echo $_SESSION["xenesis_error_message"];
+      }
+      if(isset($_SESSION["xenesis_success_message"])){
+        echo $_SESSION["xenesis_success_message"];
+      }
+      unset($_SESSION["xenesis_success_message"]);
+      unset($_SESSION["xenesis_error_message"]);
+      ?></p>
       <?php
 // Get the token from the URL
 if (isset($_GET['token'])) {
@@ -289,6 +302,7 @@ if (isset($_GET['token'])) {
 
     if ($result->num_rows > 0) {
         // Display reset password form
+        
         echo '
         <form method="post" action="update_password.php">
           <div class="row">

@@ -41,20 +41,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Close the connection
             $conn->close();
 
-            header("location: sign-in.php");
             $_SESSION["xenesis_success_message"] = "Your password has been successfully updated!";
+            header("location: sign-in.php");
             // Notify the user that the password has been updated
             // echo "Your password has been successfully updated!";
         } else {
             // If the token is invalid or expired
-            header("location: sign-in.php");
             $_SESSION["xenesis_error_message"] = "Invalid or expired token.";
+            header("location: sign-in.php");
             // echo "Invalid or expired token.";
         }
     } else {
         // If the passwords don't match
-        header("Location: newpassword.php?".$token);
         $_SESSION["xenesis_error_message"] = "Passwords do not match.";
+        header("Location: newpassword.php?token=".$token);
         // echo "Passwords do not match.";
     }
 }
