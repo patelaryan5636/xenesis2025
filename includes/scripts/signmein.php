@@ -1,5 +1,6 @@
 <?php
-session_start();
+// session_start();
+include 'includes/scripts/config.php';
 
 // Database connection
 require 'connection.php';
