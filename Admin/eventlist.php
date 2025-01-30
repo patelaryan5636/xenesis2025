@@ -238,7 +238,7 @@
                                                                     href='eventdetails.php?id=".$row['event_id']."'>
                                                                     <img src='../assets/img/icons/eye.svg' alt='img'>
                                                                 </a>
-                                                                <a class='me-3' href='editevent.php'>
+                                                                <a class='me-3' href='editevent.php?id=".$row['event_id']."'>
                                                                     <img src='../assets/img/icons/edit.svg' alt='img'>
                                                                 </a>
                                                                 <a href='enableevent.php' id='enableBtn' style='display: none;' onclick='toggleButtons()'>

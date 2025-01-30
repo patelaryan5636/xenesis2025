@@ -1,9 +1,8 @@
 <?php
     require "../includes/scripts/connection.php";
-
+        
         $event_name = $_POST['e_name'];
         $event_tagline = $_POST['e_tagline'];
-        $department_name = $_POST['e_dept'];
         $team_name = $_POST['e_team'];
         $participant_price = $_POST['e_participation_price'];
         $team_price = $_POST['e_team_par_price'];
@@ -45,7 +44,7 @@
             $image_link = $image_path;
     
             if (move_uploaded_file($_FILES["productImage"]["tmp_name"], $image_path)) {
-                $sql = "INSERT INTO `event_master` (`event_name`, `tagline`, `department_name`, `team_name`, `participation_price`, `participation_price_team`, `team_member_count`, `winner_price1`, `winner_price2`, `winner_price3`, `location`, `date`, `rules`, `event_description`, `round1_title`, `round1_description`, `round2_title`, `round2_description`, `round3_title`, `round3_description`, `round4_title`, `round4_description`, `round5_title`, `round5_description`, `images`, `image_path`, `max_tickets`) VALUES ('$event_name', '$event_tagline', '$department_name', '$team_name', '$participant_price', '$team_price', '$team_member_count', '$winner_prize1', '$winner_prize2', '$winner_prize3', '$location', '$date', '$event_description', '$rules', '$round1_title', '$round1_desc', '$round2_title', '$round2_desc', '$round3_title', '$round3_desc', '$round4_title', '$round4_desc', '$round5_title', '$round5_desc', '$fileName', '$image_path', '$max_tickets');";
+                $sql = "INSERT INTO `event_master` (`event_name`, `tagline`, `department_id`, `team_name`, `event_leader_no`, `participation_price`, `participation_price_team`, `team_member_count`, `winner_price1`, `winner_price2`, `winner_price3`, `location`, `date`, `rules`, `event_description`, `round1_title`, `round1_description`, `round2_title`, `round2_description`, `round3_title`, `round3_description`, `round4_title`, `round4_description`, `round5_title`, `round5_description`, `images`, `image_path`, `max_tickets`) VALUES ('$event_name', '$event_tagline',".$_POST['e_dept_id'].", '$team_name',".$_POST['team_leader_number']." ,'$participant_price', '$team_price', '$team_member_count', '$winner_prize1', '$winner_prize2', '$winner_prize3', '$location', '$date', '$event_description', '$rules', '$round1_title', '$round1_desc', '$round2_title', '$round2_desc', '$round3_title', '$round3_desc', '$round4_title', '$round4_desc', '$round5_title', '$round5_desc', '$fileName', '$image_path', '$max_tickets');";
                 $result = mysqli_query($conn, $sql);
                 // Check if the query was successful
                 if ($result) {

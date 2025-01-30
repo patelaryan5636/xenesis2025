@@ -165,44 +165,50 @@
                                         <input type="text" name="e_tagline" require>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-sm-6 col-12">
+                                <div class="col-lg-4 col-sm-6 col-12">
                                     <div class="form-group">
                                     <label>Department Name</label>
-                                        <select class="select" name="e_dept_name">
-                                            <option value="1">
+                                        <select class="select" name="e_dept_id">
+                                            <option value=1>
                                                 Computer Engineering
                                             </option>
-                                            <option value="2">
+                                            <option value=2>
                                                 Information Technology
                                             </option>
-                                            <option value="3">
+                                            <option value=3>
                                                 Mechnical Engineering
                                             </option>
-                                            <option value="4">
+                                            <option value=4>
                                                 Electrical Engineering
                                             </option>
-                                            <option value="5">
+                                            <option value=5>
                                                 EC Engineering
                                             </option>
-                                            <option value="6">
+                                            <option value=6>
                                                 Civil Engineering
                                             </option>
-                                            <option value="7">
+                                            <option value=7>
                                                 Automobile Engineering
                                             </option>
-                                            <option value="8">
+                                            <option value=8>
                                                 MBA Department
                                             </option>
-                                            <option value="9">
+                                            <option value=9>
                                                 MCA Department
                                             </option>
-                                            <option value="10">
+                                            <option value=10>
                                                  Science and Humanities
                                             </option>
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-sm-6 col-12">
+                                <div class="col-lg-4 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label>Team Leader Mobile No.<b style="color:red">*</b></label>
+                                        <input type="number" name="team_leader_number" class="form-control" require>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label>Team Name <b style="color:red">*</b></label>
                                         <input type="text" name="e_team" require>
