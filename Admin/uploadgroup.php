@@ -9,7 +9,7 @@
         content="admin, estimates, bootstrap, business, corporate, creative, invoice, html5, responsive, Projects">
     <meta name="author" content="Dreamguys - Bootstrap Admin Template">
     <meta name="robots" content="noindex, nofollow">
-    <title>Group List</title>
+    <title>Upload Event</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="../assets/img/Xenesis2025_logo.png">
 
@@ -40,7 +40,7 @@
 
         <div class="header bord">
 
-        <div class="header-left active">
+            <div class="header-left active">
                 <a href="index.php" class="logo" style="font-size:35px; color: rgb(150, 0, 150); font-weight:bold; margin-left:23px;">
                     <span style="color: rgb(0, 0, 102)">X</span>enesis
                 </a>
@@ -104,7 +104,6 @@
         </div>
 
 
-
         <div class="sidebar" id="sidebar">
             <div class="sidebar-inner slimscroll">
                 <div id="sidebar-menu" class="sidebar-menu">
@@ -115,10 +114,10 @@
                         </li>
                         <li class="submenu">
                             <a href="javascript:void(0);"><img src="../assets/img/icons/product.svg" alt="img"><span>
-                                Events</span> <span class="menu-arrow"></span></a>
+                                    Events</span> <span class="menu-arrow"></span></a>
                             <ul>
                                 <li><a href="eventlist.php">Events</a></li>
-                                <li><a href="grouplist.php" class="active">Organizer Group</a></li>
+                                <li><a href="grouplist.php" class="active">Organizer Groups</a></li>
                                 <li><a href="studentlist.php">Students</a></li>
                                 <li><a href="volunteerlist.php">Volunteer</a></li>
                             </ul>
@@ -127,6 +126,7 @@
                 </div>
             </div>
         </div>
+
         <div class="page-wrapper">
             <div class="content">
                 <!-- alert-box -->
@@ -134,131 +134,54 @@
                     <strong>Je lakhvu hoy</strong> te lakho.
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div> -->
-                <!-- <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>Je lakhvu hoy</strong> te lakho.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div> -->
                 <!-- alert-box End -->
                 <div class="page-header">
                     <div class="page-title">
-                        <h4>Group List</h4>
-                        <h6>Manage your Groups</h6>
-                    </div>
-                    <div class="page-btn">
-                        <a href="uploadgroup.php" class="btn btn-added"><img src="../assets/img/icons/upload.svg" alt="img" class="me-1" style="height: 25px;">Upload Group Data</a>
+                        <h4>Add Groups</h4>
+                        <h6>Upload CSV file</h6>
                     </div>
                 </div>
-
-                <div class="card">
-                    <div class="card-body">
-                        <div class="table-top">
-                            <div class="search-set">
-                                <div class="search-input">
-                                    <a class="btn btn-searchset"><img src="../assets/img/icons/search-white.svg"
-                                            alt="img"></a>
+                <form action="#" method="post" enctype="multipart/form-data">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label for="csv_file">Group Data</label>
+                                        <div>
+                                            <input type="file" name="csv_file" id="csv_file" accept=".csv" class="form-control"
+                                                name="Eventimage" id="fileUpload">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <input type="submit" value="Submit" name="submit" class="btn btn-submit me-2">
+                                    <a href="grouplist.php" class="btn btn-cancel">Cancel</a>
                                 </div>
                             </div>
-                            <div class="wordset">
-                                <ul>
-                                    <li>
-                                        <a href="#"
-                                            data-bs-toggle="tooltip" data-bs-placement="top" title="pdf"><img
-                                                src="../assets/img/icons/pdf.svg" alt="img"></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="table-responsive">
-                            <table class="table  datanew">
-                                <thead>
-                                    <tr>
-                                        <th>Event ID</th>
-                                        <th>Team Name</th>
-                                        <th>Event Name</th>
-                                        <th>Leader Name</th>
-                                        <th>Leader En.no</th>
-                                        <th>Leader Mo.no</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            10
-                                        </td>
-                                        <td>
-                                            PYS
-                                        </td>
-                                        <td>
-                                           1212
-                                        </td>
-                                        <td>
-                                            1212
-                                        </td>
-                                        <td>
-                                            1212
-                                        </td>
-                                        <td>
-                                            1212
-                                        </td>
-                                        <td>
-                                            <a href="deleteevent.php">
-                                                <img src="../assets/img/icons/delete.svg" alt="img">
-                                            </a>
-                                        </td>
-                                    </tr><tr>
-                                        <td>
-                                            1
-                                        </td>
-                                        <td>
-                                            PYS
-                                        </td>
-                                        <td>
-                                           1212
-                                        </td>
-                                        <td>
-                                            1212
-                                        </td>
-                                        <td>
-                                            1212
-                                        </td>
-                                        <td>
-                                            1212
-                                        </td>
-                                        <td>
-                                            <a href="deleteevent.php">
-                                                <img src="../assets/img/icons/delete.svg" alt="img">
-                                            </a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
                         </div>
                     </div>
-                </div>
-
+                </form>
             </div>
         </div>
-    </div>
 
+        <script src="../assets/js/jquery-3.6.0.min.js"></script>
 
-    <script src="../assets/js/jquery-3.6.0.min.js"></script>
-
-    <script src="../assets/js/feather.min.js"></script>
-
-    <script src="../assets/js/jquery.slimscroll.min.js"></script>
-
-    <script src="../assets/js/jquery.dataTables.min.js"></script>
-    <script src="../assets/js/dataTables.bootstrap4.min.js"></script>
-
-    <script src="../assets/js/bootstrap.bundle.min.js"></script>
-
-    <script src="../assets/plugins/select2/js/select2.min.js"></script>
-
-    <script src="../assets/plugins/sweetalert/sweetalert2.all.min.js"></script>
-    <script src="../assets/plugins/sweetalert/sweetalerts.min.js"></script>
-
-    <script src="../assets/js/script.js"></script>
+        <script src="../assets/js/feather.min.js"></script>
+    
+        <script src="../assets/js/jquery.slimscroll.min.js"></script>
+    
+        <script src="../assets/js/jquery.dataTables.min.js"></script>
+        <script src="../assets/js/dataTables.bootstrap4.min.js"></script>
+    
+        <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    
+        <script src="../assets/plugins/select2/js/select2.min.js"></script>
+    
+        <script src="../assets/plugins/sweetalert/sweetalert2.all.min.js"></script>
+        <script src="../assets/plugins/sweetalert/sweetalerts.min.js"></script>
+    
+        <script src="../assets/js/script.js"></script>
 </body>
 
 </html>
