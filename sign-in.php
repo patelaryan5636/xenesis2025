@@ -4,7 +4,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Login Page</title>
+    <title>LOGIN</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap"
@@ -13,6 +15,11 @@
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
       rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <style>
       * {
@@ -30,18 +37,102 @@
         height: 100vh;
         color: white;
         overflow: hidden;
+        background: url("login-bg2.png") no-repeat center center fixed;
+        background-size: cover;
       }
 
       .form-container {
         position: relative;
-        background: rgba(255, 255, 255, 0.1);
-        padding: 40px;
-        width: 400px;
+        background: rgba(0, 0, 0, 0.353);
+        padding: 30px;
+        width: 450px;
         border-radius: 20px;
         box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-        backdrop-filter: blur(12px);
+        backdrop-filter: blur(5px);
         border: 1px solid rgba(255, 255, 255, 0.18);
         animation: fadeIn 0.8s ease-in-out;
+        margin-left: 550px;
+      }
+
+      .home-button {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background: #76abae;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      .home-button i {
+        font-size: 30px;
+        width: 25px;
+        height: 30px;
+        display: inline-block;
+        text-align: center;
+        line-height: 30px;
+      }
+
+      .home-button:hover {
+        background: #76abae3c;
+      }
+
+      @media screen and (max-width: 1024px) {
+        .form-container {
+          margin-top: 40px;
+          height: auto;
+          width: 450px;
+          margin-right: 550px;
+        }
+        .header h3 {
+          font-size: 20px;
+        }
+
+        .row {
+          flex-direction: column;
+        }
+
+        .password-wrapper input {
+          width: 380px;
+        }
+
+        button {
+          font-size: 0.9rem;
+        }
+      }
+
+      @media screen and (max-width: 767px) {
+        .form-container {
+          height: auto;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          margin-right: 550px;
+          margin-top: -50px;
+        }
+        .header h3 {
+          font-size: 20px;
+          font-weight: bolder;
+        }
+
+        .row {
+          flex-direction: column;
+        }
+
+        .password-wrapper input {
+          width: 300px;
+        }
+
+        button {
+          font-size: 0.9rem;
+        }
+      }
+
+      @media screen and (max-width: 480px) {
+        .form-container {
+          width: 95%;
+        }
       }
 
       @keyframes fadeIn {
@@ -93,7 +184,7 @@
       input:focus {
         background: rgba(255, 255, 255, 0.2);
         outline: none;
-        border: 1px solid #23a2f6;
+        border: 2px solid #76abae;
         box-shadow: 0 0 8px rgba(35, 162, 246, 0.6);
       }
 
@@ -124,7 +215,7 @@
         width: 100%;
         padding: 15px;
         margin-top: 20px;
-        background: linear-gradient(135deg, #23a2f6, #ff512f);
+        background: #76abae;
         border: none;
         border-radius: 5px;
         font-size: 1rem;
@@ -135,8 +226,7 @@
       }
 
       button:hover {
-        box-shadow: 0 0 15px rgba(255, 81, 47, 0.7),
-          0 0 25px rgba(35, 162, 246, 0.6);
+        box-shadow: 0 0 15px black, gray;
         transform: scale(1.03);
       }
 
@@ -148,7 +238,7 @@
       }
 
       .signup-link a {
-        color: #ff512f;
+        color: #76abae;
         text-decoration: none;
         font-weight: 500;
       }
@@ -158,15 +248,22 @@
       }
 
       .forgot_pass {
-        color: #ff512f;
+        color: #76abae;
         text-decoration: none;
+      }
+      input::placeholder {
+        color: #76abae;
+        opacity: 1;
       }
     </style>
   </head>
   <body>
+    <div class="home-button">
+      <a href="index.php"><i class="fa fa-home"></i></a>
+    </div>
     <div class="form-container">
       <div class="header">
-        <img src="/logo.png" alt="logo" />
+        <img src="logo.png" alt="logo" />
         <h3>
           LOGIN INTO <br />
           XENESIS WORLD
@@ -174,28 +271,33 @@
       </div>
       <form action="includes/scripts/signmein.php" method="post">
         <p>
-        <?php
-         if(isset( $_SESSION['xenesis_error_message'])){
-          echo  $_SESSION['xenesis_error_message'];
-        }
-         if(isset( $_SESSION['xenesis_success_message'])){
-          echo  $_SESSION['xenesis_success_message'];
-        }
-
-        unset($_SESSION['xenesis_error_message']);
-        unset($_SESSION['xenesis_success_message']);
-        
-
-        ?>
-        </p>
+          <?php
+           if(isset( $_SESSION['xenesis_error_message'])){
+            echo  $_SESSION['xenesis_error_message'];
+          }
+           if(isset( $_SESSION['xenesis_success_message'])){
+            echo  $_SESSION['xenesis_success_message'];
+          }
+  
+          unset($_SESSION['xenesis_error_message']);
+          unset($_SESSION['xenesis_success_message']);
+          
+  
+          ?>
+          </p>
         <input type="text" name="xenesis_login_enrollment" placeholder="Enrollment Number" required />
 
         <div class="password-wrapper">
-          <input type="password" name="xenesis_login_password" id="password" placeholder="Password" required
+          <input
+            type="password"
+            name="xenesis_login_password"
+            id="password"
+            placeholder="Password"
+            required
           />
           <i class="fas fa-eye toggle-password" id="togglePassword"></i>
         </div>
-        <a href="#" class="forgot_pass">Forgot Password?</a>
+        <a href="forgot.php" class="forgot_pass">Forgot Password?</a>
 
         <button type="submit">LOGIN</button>
 
