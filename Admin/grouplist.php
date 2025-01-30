@@ -194,19 +194,19 @@
 
                                         $sql = "SELECT * FROM `organizer_master`";
                                         $result = mysqli_query($conn, $sql);
-                                        $row = mysqli_fetch_assoc($result);
-                                        $event_id = $row['event_id'];
-
-                                        $sql_fetch_event = "SELECT * FROM `event_master` WHERE `event_id` = $event_id";
-                                        $result_fetch_event = mysqli_query($conn, $sql_fetch_event);
-                                        $event_data = mysqli_fetch_assoc($result_fetch_event);
-                                        
-                                        $result = mysqli_query($conn, $sql);
-
-                                        $team_name = $event_data['team_name'];
-                                        $event_name = $event_data['event_name'];
-                                        
+                    
                                         if($result->num_rows > 0){
+                                            $row = mysqli_fetch_assoc($result);
+                                            $event_id = $row['event_id'];    // need to handle exception
+    
+                                            $sql_fetch_event = "SELECT * FROM `event_master` WHERE `event_id` = $event_id";
+                                            $result_fetch_event = mysqli_query($conn, $sql_fetch_event);
+                                            $event_data = mysqli_fetch_assoc($result_fetch_event);
+                                            
+                                            $result = mysqli_query($conn, $sql);
+    
+                                            $team_name = $event_data['team_name'];
+                                            $event_name = $event_data['event_name'];
                                             while($row = $result->fetch_assoc()){
                                                 echo "<tr>
                                                         <td>".$team_name."</td>
