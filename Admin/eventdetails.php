@@ -363,8 +363,8 @@
                                 <div class="slider-product-details">
                                     <div class="owl-carousel owl-theme ">
                                         <div class="slider-product">
-                                            <img src="../assets/img/Xenesis2025_logo.png" alt="img">
-                                            <h4>Product Image</h4>
+                                            <?php echo "<img src=".$image_path." alt='img'>";?>
+                                            <h4>Event Image</h4>
                                         </div>
                                     </div>
                                 </div>
