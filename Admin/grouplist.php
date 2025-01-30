@@ -180,41 +180,49 @@
                             <table class="table  datanew">
                                 <thead>
                                     <tr>
-                                        <th>Event ID</th>
                                         <th>Team Name</th>
                                         <th>Event Name</th>
                                         <th>Leader Name</th>
-                                        <th>Leader En.no</th>
-                                        <th>Leader Mo.no</th>
+                                        <th>Leader Mobile No.</th>
+                                        <th>Leader Email</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>
-                                            10
-                                        </td>
-                                        <td>
-                                            PYS
-                                        </td>
-                                        <td>
-                                           1212
-                                        </td>
-                                        <td>
-                                            1212
-                                        </td>
-                                        <td>
-                                            1212
-                                        </td>
-                                        <td>
-                                            1212
-                                        </td>
-                                        <td>
-                                            <a href="groupdetails.php">
-                                                <img src="../assets/img/icons/eye.svg" alt="img">
-                                            </a>
-                                        </td>
-                                    </tr>
+                                    <?php
+                                        require "../includes/scripts/connection.php";
+
+                                        $sql = "SELECT * FROM `organizer_master`";
+                                        $result = mysqli_query($conn, $sql);
+                                        $row = mysqli_fetch_assoc($result);
+                                        $event_id = $row['event_id'];
+
+                                        $sql_fetch_event = "SELECT * FROM `event_master` WHERE `event_id` = $event_id";
+                                        $result_fetch_event = mysqli_query($conn, $sql_fetch_event);
+                                        $event_data = mysqli_fetch_assoc($result_fetch_event);
+                                        
+                                        $result = mysqli_query($conn, $sql);
+
+                                        $team_name = $event_data['team_name'];
+                                        $event_name = $event_data['event_name'];
+                                        
+                                        if($result->num_rows > 0){
+                                            while($row = $result->fetch_assoc()){
+                                                echo "<tr>
+                                                        <td>".$team_name."</td>
+                                                        <td>".$event_name."</td>
+                                                        <td>".$row['Leader_Name']."</td>
+                                                        <td>".$row['Leader_mobile']."</td>
+                                                        <td>".$row['Leader_email']."</td>
+                                                        <td>
+                                                            <a href='groupdetails.php'>
+                                                                <img src='../assets/img/icons/eye.svg' alt='img'>
+                                                            </a>
+                                                        </td>
+                                                    </tr>";
+                                            }
+                                        }
+                                    ?>
                                 </tbody>
                             </table>
                         </div>
