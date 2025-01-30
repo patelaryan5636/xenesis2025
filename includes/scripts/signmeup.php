@@ -68,21 +68,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
   
   // insert into database
-   $insertQuery = "INSERT INTO `user_master` ( `user_name`, `email`, `password`, `user_role`, `joined_date`, `full_name`, `phone`) VALUES ( '$enrollment', '$email', '$hashedpassword', '3', current_timestamp(), '$fullname', '$phone')";
+  //  $insertQuery = "INSERT INTO `user_master` ( `user_name`, `email`, `password`, `user_role`, `joined_date`, `full_name`, `phone`) VALUES ( '$enrollment', '$email', '$hashedpassword', '3', current_timestamp(), '$fullname', '$phone')";
 
-  // check insert query ir not
-   if ($conn->query($insertQuery) === TRUE) {
-    // Registration successful
-    $_SESSION['xenesis_success_message'] = "Account created, Please login with correct credentials.";
-    header("Location: ../../sign-in.php");
-    exit();
-    } else {
-    // Handle database error
-    $_SESSION['xenesis_error_message'] = "Error: " . $insertQuery . "<br>" . $conn->error;
-    header("Location: ../../sign-up.php");
-    exit();
-    }
+   $stmt_insert = $conn->prepare("INSERT INTO `user_master` ( `user_name`, `email`, `password`, `user_role`, `joined_date`, `full_name`, `phone`) VALUES ( ?,?, ?, '3', current_timestamp(), ?, ?)");
 
-    $conn->close();
-  }
+   // check insert query ir not
+    if ($stmt_insert){
+ 
+     $stmt_insert->bind_param("ssssi",$enrollment,$email,$hashedpassword,$fullname,$phone);
+     if ($stmt_insert->execute()) {
+       // Registration successful
+       $_SESSION['xenesis_success_message'] = "Account created, Please login with correct credentials.";
+       header("Location: ../../sign-in.php");
+       exit();
+     } else {
+     // Handle database error
+     $_SESSION['xenesis_error_message'] = "Error: " . $insertQuery . "<br>" . $conn->error;
+     header("Location: ../../sign-up.php");
+     exit();
+     }
+   }else {
+     // Handle preparation error
+     $_SESSION['xenesis_error_message'] = "Error: " . $conn->error;
+     header("Location: ../../sign-up.php");
+     exit();
+   }
+   $conn->close();
+   $stmt->close();
+   }
 ?>
