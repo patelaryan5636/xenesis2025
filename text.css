@@ -4,7 +4,7 @@
   position: relative;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 481px) and (min-width: 769px) {
   .content h2 {
     color: #fff;
     font-size: 8em; /* You can adjust this as needed */
@@ -28,7 +28,7 @@
     margin-top: 170px;
     left: 175px;
     position: absolute;
-    transform: translate(-50%, -50%);
+    transform: translate(-48%, -50%);
   }
 
   .content h3 {
@@ -335,7 +335,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (min-width: 481px) and (max-width: 768px) {
   .title {
     font-size: 2.7em;
     font-weight: bolder;
@@ -357,7 +357,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (min-width: 481px) and (max-width: 768px) {
   .slider {
     width: 90%;
   }
@@ -375,7 +375,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (min-width: 481px) and (max-width: 768px) {
   .map-title {
     font-size: 22px;
   }
@@ -403,7 +403,7 @@
   }
 }
 
-@media (width: 1024px){
+@media (max-width: 1024px){
   .card-container{
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     place-content: center;
@@ -425,4 +425,61 @@
     width: 97%;
   }
 }
+@media (width: 430px){
+  .content h2{
+    margin-left: 20px;
+  }
+  .card-container{
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    place-content: center;
+    width: 100%;
+  }
+}
+@media (min-width: 412px){
+  .content h2{
+    margin-left: 16px;
+  }
+}
+
+
+
+
+
+
+@media (min-width: 320px) and (max-width: 480px){
+  .title{
+    font-size: 2.5rem ;
+    margin-top: 100px;
+  }
+  .card-container{
+    width: 89% ;
+  }
+}
+
+@media (min-width: 375px) and (max-width: 378px){
+  .content h2{
+    transform: translate(-51%, -50%) !important;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 374px){
+  .content h2{
+    font-size: 4em;
+    transform: translate(-55%, -50%) !important;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 800px){
+  .content h2{
+    font-size: 8em;
+    bottom: -100px;
+    transform: translate(-43%, -50%) !important;
+  }
+  .card-container{
+    width: 99%;
+  }
+}
+
+
+
 

@@ -428,13 +428,13 @@
         }
 
         .right-container {
-          width: 100%;
+          /* width: 100%; */
           margin-top: 140px;
         }
         .hero-visual svg {
           width: 400px;
           height: 400px;
-          padding-right: 20px;
+          /* padding-right: 20px; */
           margin-right: 10px;
           margin-left: -60px;
         }
