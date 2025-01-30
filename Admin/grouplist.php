@@ -215,7 +215,7 @@
                                                         <td>".$row['Leader_mobile']."</td>
                                                         <td>".$row['Leader_email']."</td>
                                                         <td>
-                                                            <a href='groupdetails.php'>
+                                                            <a href='groupdetails.php?id=".$row['event_id']."'>
                                                                 <img src='../assets/img/icons/eye.svg' alt='img'>
                                                             </a>
                                                         </td>

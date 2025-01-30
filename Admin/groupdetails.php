@@ -1,3 +1,23 @@
+<?php
+    $id = $_GET['id'];
+    echo "$id";
+    require "../includes/scripts/connection.php";
+    $sql = "SELECT * FROM `organizer_master`";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+    $event_id = $row['event_id'];
+
+    $sql_fetch_event = "SELECT * FROM `event_master` WHERE `event_id` = $event_id";
+    $result_fetch_event = mysqli_query($conn, $sql_fetch_event);
+    $event_data = mysqli_fetch_assoc($result_fetch_event);
+                                    
+    // $result = mysqli_query($conn, $sql);
+    $event_name = $event_data['event_name'];
+
+    $image_path = $event_data['image_path'];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -156,39 +176,45 @@
                             <div class="card-body">
                                 <div class="productdetails">
                                     <ul class="product-bar">
-                                        <li>
+                                        <!-- <li>
                                             <h4>Event ID</h4>
                                             <h6>
                                                 1
                                             </h6>
-                                        </li>
+                                        </li> -->
                                         <li>
                                             <h4>Event Name</h4>
                                             <h6>
-                                                PYS
+                                                <?php echo $event_name; ?>
                                             </h6>
                                         </li>
                                         <li>
                                             <h4>Leader Name</h4>
                                             <h6>
-                                                PYS
+                                                <?php echo $row['Leader_Name']; ?>
+                                            </h6>
+                                        </li>
+                                        <li>
+                                            <h4>Leader Email</h4>
+                                            <h6>
+                                                <?php echo $row['Leader_email']; ?>
                                             </h6>
                                         </li>
                                         <li>
                                             <h4>Leader Number</h4>
                                             <h6>
-                                                PYS
+                                                <?php echo $row['Leader_mobile']; ?>
                                             </h6>
                                         </li>
                                         <li>
                                             <h4>Member's name</h4>
                                             <h6 style="padding-left: 27px;">
                                                 <ol type="1" style="list-style: decimal;">
-                                                    <li>priyanshu  ->  9978343950  ->  xenesis@gmail.com</li>
-                                                    <li>Mihir  ->  9978343950  ->  xenesis@gmail.com</li>
-                                                    <li>Rangat  ->  9978343950  ->  xenesis@gmail.com</li>
-                                                    <li>Krish  ->  9978343950  ->  xenesis@gmail.com</li>
-                                                    <li>Aryan  ->  9978343950  ->  xenesis@gmail.com</li>
+                                                    <li><?php echo $row['Member1_name']." -> ".$row['Member1_mobile']." -> ".$row['Member1_email']; ?></li>
+                                                    <li><?php echo $row['Member2_name']." -> ".$row['Member2_mobile']." -> ".$row['Member2_email']; ?></li>
+                                                    <li><?php echo $row['Member3_name']." -> ".$row['Member3_mobile']." -> ".$row['Member3_email']; ?></li>
+                                                    <li><?php echo $row['Member4_name']." -> ".$row['Member4_mobile']." -> ".$row['Member4_email']; ?></li>
+                                                    <li><?php echo $row['Member5_name']." -> ".$row['Member5_mobile']." -> ".$row['Member5_email']; ?></li>
                                                 </ol>
                                             </h6>
                                         </li>
@@ -203,7 +229,7 @@
                                 <div class="slider-product-details">
                                     <div class="owl-carousel owl-theme ">
                                         <div class="slider-product">
-                                            <img src="../assets/img/Xenesis2025_logo.png" alt="img">
+                                            <?php echo "<img src=".$image_path." alt='img'>";?>
                                             <h4>Event Image</h4>
                                         </div>
                                     </div>
