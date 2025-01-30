@@ -235,8 +235,8 @@
                                                             ."</td>
                                                             <td>
                                                                 <a class='me-3'
-                                                                    href='eventdetails.php'>
-                                                                    <img src='../assets/img/icons/eye.svg' alt='img'>
+                                                                    href='eventdetails.php?id=".$row['event_id']."'>"
+                                                                    ."<img src='../assets/img/icons/eye.svg' alt='img'>
                                                                 </a>
                                                                 <a class='me-3' href='editevent.php'>
                                                                     <img src='../assets/img/icons/edit.svg' alt='img'>

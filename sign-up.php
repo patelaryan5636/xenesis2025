@@ -4,7 +4,8 @@
 ?><!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Register Page</title>
+    <title>REGISTER</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap"
@@ -22,7 +23,6 @@
       }
 
       body {
-        background: linear-gradient(135deg, #121212, #1e1e2f);
         font-family: "Poppins", sans-serif;
         display: flex;
         align-items: center;
@@ -30,18 +30,76 @@
         height: 100vh;
         color: white;
         overflow: hidden;
+        background: url("login-bg.png") no-repeat center center fixed;
+        background-size: cover;
       }
 
       .form-container {
         position: relative;
-        background: rgba(255, 255, 255, 0.1);
+        background: rgba(0, 0, 0, 0.353);
         padding: 30px;
         width: 500px;
         border-radius: 20px;
         box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-        backdrop-filter: blur(12px);
+        backdrop-filter: blur(5px);
         border: 1px solid rgba(255, 255, 255, 0.18);
         animation: fadeIn 0.8s ease-in-out;
+        margin-right: 550px;
+      }
+      @media screen and (max-width: 1024px) {
+        .form-container {
+          margin-top: 40px;
+          height: auto;
+          width: 100%;
+          margin-left: 550px;
+        }
+        .header h3 {
+          font-size: 20px;
+        }
+
+        .row {
+          flex-direction: column;
+        }
+
+        .password-wrapper input {
+          width: 600px;
+        }
+
+        button {
+          font-size: 0.9rem;
+        }
+      }
+
+      @media screen and (max-width: 767px) {
+        .form-container {
+          height: auto;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          margin-left: 550px;
+          margin-top: -50px;
+        }
+        .header h3 {
+          font-size: 20px;
+        }
+
+        .row {
+          flex-direction: column;
+        }
+
+        .password-wrapper input {
+          width: 300px;
+        }
+
+        button {
+          font-size: 0.9rem;
+        }
+      }
+
+      @media screen and (max-width: 480px) {
+        .form-container {
+          width: 95%;
+        }
       }
 
       @keyframes fadeIn {
@@ -54,6 +112,7 @@
           transform: translateY(0);
         }
       }
+
       .header {
         display: flex;
         align-items: center;
@@ -92,13 +151,14 @@
       input:focus {
         background: rgba(255, 255, 255, 0.2);
         outline: none;
-        border: 1px solid #23a2f6;
+        border: 1px solid #76abae;
         box-shadow: 0 0 8px rgba(35, 162, 246, 0.6);
       }
 
       .row {
         display: flex;
         gap: 10px;
+        flex-wrap: wrap;
       }
 
       .row .password-wrapper {
@@ -112,6 +172,11 @@
 
       .password-wrapper input {
         padding-right: 40px;
+      }
+
+      #togglePassword1,
+      #togglePassword2 {
+        color: #76abae;
       }
 
       .password-wrapper .toggle-password {
@@ -133,7 +198,7 @@
         width: 100%;
         padding: 12px;
         margin-top: 15px;
-        background: linear-gradient(135deg, #23a2f6, #ff512f);
+        background: #76abae;
         border: none;
         border-radius: 5px;
         font-size: 1rem;
@@ -144,8 +209,7 @@
       }
 
       button:hover {
-        box-shadow: 0 0 15px rgba(255, 81, 47, 0.7),
-          0 0 25px rgba(35, 162, 246, 0.6);
+        box-shadow: 0 0 15px black, gray;
         transform: scale(1.03);
       }
 
@@ -157,7 +221,7 @@
       }
 
       .signup-link a {
-        color: #ff512f;
+        color: #76abae;
         text-decoration: none;
         font-weight: 500;
       }
@@ -165,71 +229,86 @@
       .signup-link a:hover {
         text-decoration: underline;
       }
+
+      input::placeholder {
+        color: #76abae;
+        opacity: 1;
+      }
+
+      .home-button {
+        position: absolute;
+        top: 12px;
+        right: 20px;
+        background: #76abae;
+        border: none;
+        padding: 7px 12px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      .home-button i {
+        font-size: 30px;
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+        text-align: center;
+        line-height: 30px;
+        color: white;
+      }
+      .home-button:hover {
+        background: #76abae8f;
+      }
     </style>
   </head>
   <body>
+    <div class="home-button">
+      <a href="index.php"><i class="fa fa-home"></i></a>
+    </div>
     <div class="form-container">
       <div class="header">
-        <img src="/logo.png" alt="logo" />
+        <img src="logo.png" alt="logo" />
         <h3>BE A PART OF XENESIS</h3>
       </div>
-
-      
-    
       <form action="includes/scripts/signmeup.php" method="post">
         <p>
-        <?php
-         if(isset( $_SESSION['xenesis_error_message'])){
-          echo  $_SESSION['xenesis_error_message'];
-        }
-         
-
-        unset($_SESSION['xenesis_error_message']);
-    
-        
-
-        ?>
-        </p>
-        <input type="text"
-         name="user_enrollment"
-         placeholder="Enrollment Number" 
-         
-         pattern="^[A-Z0-9]{10,14}$"
-         title="Enrollment number must be in only uppercase letters and digits."
-          required 
-          />
-        <input type="email" name="user_email" placeholder="Email ID" required />
-        <input type="tel" name="user_phone"
-         placeholder="Mobile Number"
-         pattern="^[0-9]{10}$" 
-          title="Mobile number must be 10 digits. "
-         required />
+          <?php
+           if(isset( $_SESSION['xenesis_error_message'])){
+            echo  $_SESSION['xenesis_error_message'];
+          }
+           
+  
+          unset($_SESSION['xenesis_error_message']);
+      
+          
+  
+          ?>
+          </p>
+        <input type="text" name="user_enrollment" placeholder="Enrollment Number" required />
+        <input type="email"  name="user_email" placeholder="Email ID" required />
+        <input type="tel" name="user_phone" placeholder="Mobile Number" required />
+        <input type="text"  name="full_name" placeholder="Full Name" required />
 
         <div class="row">
-          <input type="text" name="full_name" placeholder="Full Name" required />
           <div class="password-wrapper">
             <input
               type="password"
-              id="password"
               name="user_password"
+              id="password1"
               placeholder="Password"
-              pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_])[A-Za-z\d\W_]{8,12}$"
-              title="Password must be 8 to 12 characters, contain at least one uppercase, lowercase, digit, and special character."
-
               required
             />
-            <i class="fas fa-eye toggle-password" id="togglePassword"></i>
+            <i class="fas fa-eye toggle-password" id="togglePassword1"></i>
           </div>
+
           <div class="password-wrapper">
             <input
               type="password"
-              id="password"
+              id="password2"
               name="user_confirm_password"
-              
-              placeholder="confirm Password"
+              placeholder="Confirm Password"
               required
             />
-            <i class="fas fa-eye toggle-password" id="togglePassword"></i>
+            <i class="fas fa-eye toggle-password" id="togglePassword2"></i>
           </div>
         </div>
 
@@ -242,17 +321,24 @@
     </div>
 
     <script>
-      const passwordInput = document.getElementById("password");
-      const togglePassword = document.getElementById("togglePassword");
+      const passwordInput1 = document.getElementById("password1");
+      const passwordInput2 = document.getElementById("password2");
+      const togglePassword1 = document.getElementById("togglePassword1");
+      const togglePassword2 = document.getElementById("togglePassword2");
 
-      togglePassword.addEventListener("click", () => {
-        const type = passwordInput.type === "password" ? "text" : "password";
-        passwordInput.type = type;
+      togglePassword1.addEventListener("click", () => {
+        const type = passwordInput1.type === "password" ? "text" : "password";
+        passwordInput1.type = type;
 
-        togglePassword.classList.toggle("fa-eye-slash");
+        togglePassword1.classList.toggle("fa-eye-slash");
       });
 
-    
+      togglePassword2.addEventListener("click", () => {
+        const type = passwordInput2.type === "password" ? "text" : "password";
+        passwordInput2.type = type;
+
+        togglePassword2.classList.toggle("fa-eye-slash");
+      });
     </script>
   </body>
 </html>

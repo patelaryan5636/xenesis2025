@@ -1,3 +1,49 @@
+<?php
+    $id = $_GET['id'];
+    // echo "$id";
+    require "../includes/scripts/connection.php";
+
+    $query = "SELECT * FROM `event_master` WHERE event_id = '$id'";
+    $result = mysqli_query($conn, $query);
+
+    $eventdata = mysqli_fetch_assoc($result);
+    
+    $event_name = $eventdata['event_name'];
+    $tagline = $eventdata['tagline'];
+    $dept_id = $eventdata['department_id'];
+    $team_name = $eventdata['team_name'];
+    
+    $dept_fetch_query = "SELECT * FROM `department_master` WHERE department_id = '$dept_id'";
+    $dept_result = mysqli_query($conn, $dept_fetch_query);
+    
+    $deptdata = mysqli_fetch_assoc($dept_result);
+    $dept_name = $deptdata['department_name'];
+    
+    $participant_price = $eventdata['participation_price'];
+    $team_price = $eventdata['participation_price_team'];
+    $total_members = $eventdata['team_member_count'];
+    $win_price1 = $eventdata['winner_price1'];
+    $win_price2 = $eventdata['winner_price2'];
+    $win_price3 = $eventdata['winner_price3'];
+    $location = $eventdata['location'];
+    $date = $eventdata['date'];
+    $event_desc = $eventdata['event_description'];
+    $rules = $eventdata['rules'];
+    $round1_title = $eventdata['round1_title'];
+    $round1_desc = $eventdata['round1_description'];
+    $round2_title = $eventdata['round2_title'];
+    $round2_desc = $eventdata['round2_description'];
+    $round3_title = $eventdata['round3_title'];
+    $round3_desc = $eventdata['round3_description'];
+    $round4_title = $eventdata['round4_title'];
+    $round4_desc = $eventdata['round4_description'];
+    $round5_title = $eventdata['round5_title'];
+    $round5_desc = $eventdata['round5_description'];
+    $image_path = $eventdata['image_path'];
+    $max_tickets = $eventdata['max_tickets'];
+    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -122,6 +168,14 @@
                                 <li><a href="volunteerlist.php">Volunteer</a></li>
                             </ul>
                         </li>
+                        <li class="submenu">
+                            <a href="javascript:void(0);"><img src="../assets/img/icons/product.svg" alt="img"><span>
+                                Events Participers</span> <span class="menu-arrow"></span></a>
+                            <ul>
+                                <li><a href="soloevents.php">Solo Events</a></li>
+                                <li><a href="groupevents.php">Group Events</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -151,151 +205,151 @@
                                         <li>
                                             <h4>Event Name</h4>
                                             <h6>
-                                                PYS
+                                                <?php echo $event_name; ?>
                                             </h6>
                                         </li>
                                         <li>
                                             <h4>Tagline</h4>
                                             <h6>
-                                               PYS
+                                                <?php echo $tagline; ?>
                                             </h6>
                                         </li>
                                         <li>
                                             <h4>Department</h4>
                                             <h6>
-                                                PYS
+                                                <?php echo $dept_name; ?>
                                             </h6>
                                         </li>
                                         <li>
                                             <h4>Team Name</h4>
                                             <h6>
-                                                PYS
+                                                <?php echo $team_name; ?>
                                             </h6>
                                         </li>
                                         <li>
                                             <h4>Participation Price</h4>
                                             <h6>
-                                                10
+                                                <?php echo $participant_price; ?>
                                             </h6>
                                         </li>
                                         <li>
                                             <h4>Team Participation Price</h4>
                                             <h6>
-                                                5
+                                                <?php echo $team_price; ?>
                                             </h6>
                                         </li>
                                         <li>
                                             <h4>Total Members</h4>
                                             <h6>
-                                                5
+                                                <?php echo $total_members; ?>
                                             </h6>
                                         </li>
                                         <li>
                                             <h4>1st Winner Price</h4>
                                             <h6>
-                                                5
+                                                <?php echo $win_price1; ?>
                                             </h6>
                                         </li>
                                         <li>
                                             <h4>2nd Winner Price</h4>
                                             <h6>
-                                                5
+                                                <?php echo $win_price2; ?>
                                             </h6>
                                         </li>
                                         <li>
                                             <h4>3rd Winner Price</h4>
                                             <h6>
-                                                5
+                                                <?php echo $win_price3; ?>
                                             </h6>
                                         </li>
                                         <li>
                                             <h4>Location</h4>
                                             <h6>
-                                                PYS
+                                                <?php echo $location; ?>
                                             </h6>
                                         </li>
                                         <li>
                                             <h4>Date</h4>
                                             <h6>
-                                                2512
+                                                <?php echo $date; ?>
                                             </h6>
                                         </li>
                                         <li>
                                             <h4>Event description</h4>
                                             <h6>
-                                                PYS
+                                                <?php echo $event_desc; ?>
                                             </h6>
                                         </li>
                                         <li>
                                             <h4>Event Rules</h4>
                                             <h6>
-                                                PYS
+                                                <?php echo $rules; ?>
                                             </h6>
                                         </li>
                                         <li>
                                             <h4>Round 1 Title</h4>
                                             <h6>
-                                                PYS
+                                                <?php echo $round1_title; ?>
                                             </h6>
                                         </li>
                                         <li>
                                             <h4>Round 1 description</h4>
                                             <h6>
-                                                PYS
+                                                <?php echo $round1_desc; ?>
                                             </h6>
                                         </li>
                                         <li>
                                             <h4>Round 2 Title</h4>
                                             <h6>
-                                                PYS
+                                                <?php echo $round2_title; ?>
                                             </h6>
                                         </li>
                                         <li>
                                             <h4>Round 2 description</h4>
                                             <h6>
-                                                PYS
+                                                <?php echo $round2_desc; ?>
                                             </h6>
                                         </li>
                                         <li>
                                             <h4>Round 3 Title</h4>
                                             <h6>
-                                                PYS
+                                                <?php echo $round3_title; ?>
                                             </h6>
                                         </li>
                                         <li>
                                             <h4>Round 3 description</h4>
                                             <h6>
-                                                PYS
+                                                <?php echo $round3_desc; ?>
                                             </h6>
                                         </li>
                                         <li>
                                             <h4>Round 4 Title</h4>
                                             <h6>
-                                                PYS
+                                                <?php echo $round4_title; ?>
                                             </h6>
                                         </li>
                                         <li>
                                             <h4>Round 4 description</h4>
                                             <h6>
-                                                PYS
+                                                <?php echo $round4_desc; ?>
                                             </h6>
                                         </li>
                                         <li>
                                             <h4>Round 5 Title</h4>
                                             <h6>
-                                                PYS
+                                                <?php echo $round5_title; ?>
                                             </h6>
                                         </li>
                                         <li>
                                             <h4>Round 5 description</h4>
                                             <h6>
-                                                PYS
+                                                <?php echo $round5_desc; ?>
                                             </h6>
                                         </li>
                                         <li>
                                             <h4>Maximum Tickets</h4>
                                             <h6>
-                                                55
+                                                <?php echo $max_tickets; ?>
                                             </h6>
                                         </li>
                                     </ul>
@@ -309,8 +363,8 @@
                                 <div class="slider-product-details">
                                     <div class="owl-carousel owl-theme ">
                                         <div class="slider-product">
-                                            <img src="../assets/img/Xenesis2025_logo.png" alt="img">
-                                            <h4>Product Image</h4>
+                                            <?php echo "<img src=".$image_path." alt='img'>";?>
+                                            <h4>Event Image</h4>
                                         </div>
                                     </div>
                                 </div>
