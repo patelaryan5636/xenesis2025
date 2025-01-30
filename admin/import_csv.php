@@ -11,7 +11,7 @@ if (isset($_POST['submit'])) {
             // Skip header row
             fgetcsv($handle);
 
-            $requiredColumns = 26; // Number of expected columns
+            $requiredColumns = 27; // Number of expected columns
             $errors = []; // Store row errors
 
             while (($data = fgetcsv($handle)) !== FALSE) {
@@ -23,7 +23,7 @@ if (isset($_POST['submit'])) {
                 // Get data from CSV columns (adjust based on your CSV format)
                 list(
                     $event_name, $event_tagline, $department_name, $image_link, 
-                    $team_name, $participant_price, $team_price, $team_member_count, 
+                    $team_name,$leader_no, $participant_price, $team_price, $team_member_count, 
                     $winner_prize1, $winner_prize2, $winner_prize3, $location, 
                     $date, $event_description, $rules, $round1_title, 
                     $round1_desc, $round2_title, $round2_desc, $round3_title, 
@@ -46,16 +46,16 @@ if (isset($_POST['submit'])) {
                     }else {
                         echo "!";
                     }
-               
+                
                 // Insert data into the database
                 $sql = "INSERT INTO `event_master` 
-                (`event_name`, `tagline`, `department_name`, `team_name`, `participation_price`, `participation_price_team`, 
+                (`event_name`, `tagline`, `department_id`, `team_name`,`event_leader_no`, `participation_price`, `participation_price_team`, 
                 `team_member_count`, `winner_price1`, `winner_price2`, `winner_price3`, `location`, `date`, 
                 `event_description`, `rules`, `round1_title`, `round1_description`, `round2_title`, 
                 `round2_description`, `round3_title`, `round3_description`, `round4_title`, `round4_description`, 
                 `round5_title`, `round5_description`, `images`, `image_path`, `max_tickets`) 
                 VALUES 
-                ('$event_name', '$event_tagline', '$department_name', '$team_name', '$participant_price', '$team_price', 
+                ('$event_name', '$event_tagline', '$department_name', '$team_name', '$leader_no','$participant_price', '$team_price', 
                 '$team_member_count', '$winner_prize1', '$winner_prize2', '$winner_prize3', '$location', '$date', 
                 '$event_description', '$rules', '$round1_title', '$round1_desc', '$round2_title', '$round2_desc', 
                 '$round3_title', '$round3_desc', '$round4_title', '$round4_desc', '$round5_title', '$round5_desc', 

@@ -141,7 +141,7 @@
                         <h6>Upload CSV file</h6>
                     </div>
                 </div>
-                <form action="#" method="post" enctype="multipart/form-data">
+                <form action="importgroup_csv.php" method="post" enctype="multipart/form-data">
                     <div class="card">
                         <div class="card-body">
                             <div class="row">

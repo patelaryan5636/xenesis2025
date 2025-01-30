@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 30, 2025 at 05:01 AM
+-- Generation Time: Jan 30, 2025 at 05:57 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -14,6 +14,7 @@ SET time_zone = "+00:00";
 DROP DATABASE IF EXISTS `xenesis2025`;
 CREATE DATABASE `xenesis2025`;
 USE `xenesis2025`;
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -35,6 +36,22 @@ CREATE TABLE `department_master` (
   `department_name` varchar(50) NOT NULL,
   `poster_image` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `department_master`
+--
+
+INSERT INTO `department_master` (`department_id`, `department_name`, `poster_image`) VALUES
+(1, 'Computer Engineering', ''),
+(2, 'Information Technology', ''),
+(3, 'Mechanical Engineering', ''),
+(4, 'Electrical Engineering', ''),
+(5, 'EC Engineering', ''),
+(6, 'Civil Engineering', ''),
+(7, 'Automobile Engineering', ''),
+(8, 'MBA Department', ''),
+(9, 'MCA Department', ''),
+(10, 'Science and Humanities', '');
 
 -- --------------------------------------------------------
 
@@ -79,7 +96,7 @@ CREATE TABLE `event_master` (
 --
 
 INSERT INTO `event_master` (`event_id`, `event_name`, `tagline`, `department_id`, `team_name`, `event_leader_no`, `participation_price`, `participation_price_team`, `team_member_count`, `winner_price1`, `winner_price2`, `winner_price3`, `location`, `date`, `event_description`, `rules`, `round1_title`, `round1_description`, `round2_title`, `round2_description`, `round3_title`, `round3_description`, `round4_title`, `round4_description`, `round5_title`, `round5_description`, `images`, `image_path`, `max_tickets`) VALUES
-(3, 'asdf', 'asdfasd', 0, 'aryan', 0, 12, 11, 3, 12, 12, 12, 'adsf', '0000-00-00', 'asdfasdfsadfs', 'asdfasddfasdf', 'asdfasdfdsa', 'asdfasdf', 'asdfasdf', 'asdfasdf', 'asdfasf', 'asdfasfds', 'asdfasdf', 'asdfasdfsadf', 'adsfasdf', 'asdfasdf', 'http://drive.google.com/file/d/1A85_XHzhOtikBHuT2sFIwer40kpoqKAK/view?usp=sharing', 'uploads/1A85_XHzhOtikBHuT2sFIwer40kpoqKAK.jpg', 500);
+(1, 'asdf', 'asdfasd', 10, 'aryan', 2147483647, 12, 11, 3, 12, 12, 12, 'adsf', '0000-00-00', 'asdfasdfsadfs', 'asdfasddfasdf', 'asdfasdfdsa', 'asdfasdf', 'asdfasdf', 'asdfasdf', 'asdfasf', 'asdfasfds', 'asdfasdf', 'asdfasdfsadf', 'adsfasdf', 'asdfasdf', 'http://drive.google.com/file/d/1A85_XHzhOtikBHuT2sFIwer40kpoqKAK/view?usp=sharing', 'uploads/1A85_XHzhOtikBHuT2sFIwer40kpoqKAK.jpg', 500);
 
 -- --------------------------------------------------------
 
@@ -110,7 +127,9 @@ CREATE TABLE `group_master` (
 --
 
 CREATE TABLE `organizer_master` (
+  `organizer_id` int(11) NOT NULL,
   `Leader_Name` varchar(100) NOT NULL,
+  `event_id` int(11) NOT NULL,
   `Leader_email` varchar(250) NOT NULL,
   `Leader_mobile` int(10) NOT NULL,
   `Member1_name` varchar(100) NOT NULL,
@@ -129,6 +148,13 @@ CREATE TABLE `organizer_master` (
   `Member5_email` varchar(250) NOT NULL,
   `Member5_mobile` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `organizer_master`
+--
+
+INSERT INTO `organizer_master` (`organizer_id`, `Leader_Name`, `event_id`, `Leader_email`, `Leader_mobile`, `Member1_name`, `Member1_email`, `Member1_mobile`, `Member2_name`, `Member2_email`, `Member2_mobile`, `Member3_name`, `Member3_email`, `Member3_mobile`, `Member4_name`, `Member4_email`, `Member4_mobile`, `Member5_name`, `Member5_email`, `Member5_mobile`) VALUES
+(2, 'RGT', 1, 'rgt@fsnf.com', 2147483647, 'sjfkfdbj', 'bdj@fdsf.com', 2147483647, 'sjfkfdbj', 'rgt@fsnf.com', 2147483647, 'sjfkfdbj', 'rgt@fsnf.com', 2147483647, 'sjfkfdbj', 'rgt@fsnf.com', 2147483647, 'sjfkfdbj', 'rgt@fsnf.com', 2147483647);
 
 -- --------------------------------------------------------
 
@@ -188,6 +214,12 @@ CREATE TABLE `volunteer_master` (
 --
 
 --
+-- Indexes for table `department_master`
+--
+ALTER TABLE `department_master`
+  ADD PRIMARY KEY (`department_id`);
+
+--
 -- Indexes for table `event_master`
 --
 ALTER TABLE `event_master`
@@ -198,6 +230,12 @@ ALTER TABLE `event_master`
 --
 ALTER TABLE `group_master`
   ADD PRIMARY KEY (`group_id`);
+
+--
+-- Indexes for table `organizer_master`
+--
+ALTER TABLE `organizer_master`
+  ADD PRIMARY KEY (`organizer_id`);
 
 --
 -- Indexes for table `participant_master`
@@ -218,16 +256,28 @@ ALTER TABLE `user_master`
 --
 
 --
+-- AUTO_INCREMENT for table `department_master`
+--
+ALTER TABLE `department_master`
+  MODIFY `department_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
 -- AUTO_INCREMENT for table `event_master`
 --
 ALTER TABLE `event_master`
-  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `group_master`
 --
 ALTER TABLE `group_master`
   MODIFY `group_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `organizer_master`
+--
+ALTER TABLE `organizer_master`
+  MODIFY `organizer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `participant_master`
