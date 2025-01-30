@@ -490,8 +490,9 @@
         <a href="index.php">HOME</a>
         <a href="/">ABOUT US</a>
         <a href="event.php">EVENTS</a>
-        <a href="sign-up.php">REGISTER</a>
-        <a href="sign-in.php">LOGIN</a>
+        <a href="eventconfirm.php">EVENTS CONFIRM</a>
+        <a href="profile">PROFILE</a>
+        
       </div>
       <div class="hamburger" id="hamburger" onclick="toggleMenu()">
         <div class="line"></div>
