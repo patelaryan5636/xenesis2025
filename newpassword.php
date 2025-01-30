@@ -1,3 +1,6 @@
+<!-- reset_password.php -->
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -34,7 +37,7 @@
         height: 100vh;
         color: white;
         overflow: hidden;
-        background: url("/login-bg2.png") no-repeat center center fixed;
+        background: url("login-bg2.png") no-repeat center center fixed;
         background-size: cover;
       }
 
@@ -266,15 +269,38 @@
           XENESIS WORLD
         </h3>
       </div>
-      <form>
-        <div class="row">
+      <?php
+// Get the token from the URL
+if (isset($_GET['token'])) {
+    $token = $_GET['token'];
+
+    // Connect to the database
+    $conn = new mysqli('localhost', 'root', '', 'xenesis2025');
+    
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // Check if token exists and is valid (not expired)
+    $stmt = $conn->prepare("SELECT * FROM forget_password_master WHERE reset_token=? AND used=FALSE");
+    $stmt->bind_param("s", $token);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        // Display reset password form
+        echo '
+        <form method="post" action="update_password.php">
+          <div class="row">
           <div class="password-wrapper">
+          <input type="hidden" name="token" value="' . $token . '">
             <input
-              type="password"
+            type="password"
               id="password1"
+              name="new_password"
               placeholder="New Password"
               required
-            />
+              />
             <i class="fas fa-eye toggle-password" id="togglePassword1"></i>
           </div>
 
@@ -282,17 +308,25 @@
             <input
               type="password"
               id="password2"
+              name="confirm_password"
               placeholder="Confirm Password"
               required
-            />
+              />
             <i class="fas fa-eye toggle-password" id="togglePassword2"></i>
           </div>
         </div>
-
+        
         <button type="submit">SET PASSWORD</button>
-      </form>
-    </div>
+      </form>';
+    } else {
+        echo "Invalid or expired token.";
+    }
 
+    $conn->close();
+}
+?>
+    </div>
+    
     <script>
       const passwordInput1 = document.getElementById("password1");
       const passwordInput2 = document.getElementById("password2");

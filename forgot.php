@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -232,22 +236,29 @@
         <img src="logo.png" alt="logo" />
         <h3>FORGOT PASSWORD</h3>
       </div>
-      <form>
-        <input type="email" placeholder="Email ID" required />
+        <p><?php
+          if(isset($_SESSION["email_eror_message"])){
+            echo $_SESSION["email_eror_message"];
+          }
+          unset($_SESSION["email_eror_message"]);
+        ?></p>
+      <form action="forget_password.php" method="post">
+        <input type="email" name="email" placeholder="Email ID" required />
 
-        <button type="submit"><a href="emailver.php">SEND EMAIL</a></button>
+        <!-- <input type="submit">SEND EMAIL</input> -->
+         <button>submit</button>
 
         <p class="signup-link">Back to ? <a href="login.php">Login</a></p>
       </form>
     </div>
 
-    <script>
+    <!-- <script>
       document
         .querySelector("form")
         .addEventListener("submit", function (event) {
           event.preventDefault();
           window.location.href = "emailver.php";
         });
-    </script>
+    </script> -->
   </body>
 </html>
