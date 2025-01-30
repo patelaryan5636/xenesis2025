@@ -555,6 +555,10 @@
         <h1>MECHANICAL ENGINEERING</h1>
       </a>
       <a href="/event.html" class="card">
+        <img src="AI3.jpg" alt="Card 3" />
+        <h1>AUTOMOBILE</h1>
+      </a>
+      <a href="/event.html" class="card">
         <img src="AI.jpg" alt="Card 4" />
         <h1>CIVIL ENGINEERING</h1>
       </a>
