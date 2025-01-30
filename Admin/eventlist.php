@@ -200,7 +200,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    <!-- <tr>
                                         <td>
                                             Squidgame
                                         </td>
@@ -218,20 +218,48 @@
                                         </td>
                                         <td>
                                             21-02-2025
-                                        </td>
-                                        <td>
-                                            <a class="me-3"
-                                                href="eventdetails.php">
-                                                <img src="../assets/img/icons/eye.svg" alt="img">
-                                            </a>
-                                            <a class="me-3" href="editevent.php">
-                                                <img src="../assets/img/icons/edit.svg" alt="img">
-                                            </a>
-                                            <a href="deleteevent.php">
-                                                <img src="../assets/img/icons/delete.svg" alt="img">
-                                            </a>
-                                        </td>
-                                    </tr>
+                                        </td> -->
+                                        <?php
+                                            require "../includes/scripts/connection.php";
+                                            $sql = "SELECT * FROM `event_master`";
+                                            $result = $conn->query($sql);
+                                            if($result->num_rows > 0)
+                                                while($row = $result->fetch_assoc()){
+                                                    echo "<tr>
+                                                            <td>".
+                                                                $row['event_name']
+                                                            ."</td>
+                                                            <td>".
+                                                                $row['participation_price']
+                                                            ."</td>
+                                                            <td>".
+                                                                $row['team_member_count']
+                                                            ."</td>
+                                                            <td>".
+                                                                $row['max_tickets']  
+                                                            ."</td>
+                                                            <td>
+                                                                0987654321
+                                                            </td>
+                                                            <td>".
+                                                                $row['date']
+                                                            ."</td>
+                                                            <td>
+                                                                <a class='me-3'
+                                                                    href='eventdetails.php'>
+                                                                    <img src='../assets/img/icons/eye.svg' alt='img'>
+                                                                </a>
+                                                                <a class='me-3' href='editevent.php'>
+                                                                    <img src='../assets/img/icons/edit.svg' alt='img'>
+                                                                </a>
+                                                                <a href='deleteevent.php'>
+                                                                    <img src='../assets/img/icons/delete.svg' alt='img'>
+                                                                </a>
+                                                            </td>
+                                                        </tr>";
+                                                }
+
+                                        ?>
                                 </tbody>
                             </table>
                         </div>

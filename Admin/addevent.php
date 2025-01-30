@@ -159,8 +159,39 @@
                                 </div>
                                 <div class="col-lg-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label>Department Name <b style="color:red">*</b></label>
-                                        <input type="text" name="e_dept" require>
+                                    <label>Department Name</label>
+                                        <select class="select" name="e_dept_name">
+                                            <option value="1">
+                                                Computer Engineering
+                                            </option>
+                                            <option value="2">
+                                                Information Technology
+                                            </option>
+                                            <option value="3">
+                                                Mechnical Engineering
+                                            </option>
+                                            <option value="4">
+                                                Electrical Engineering
+                                            </option>
+                                            <option value="5">
+                                                EC Engineering
+                                            </option>
+                                            <option value="6">
+                                                Civil Engineering
+                                            </option>
+                                            <option value="7">
+                                                Automobile Engineering
+                                            </option>
+                                            <option value="8">
+                                                MBA Department
+                                            </option>
+                                            <option value="9">
+                                                MCA Department
+                                            </option>
+                                            <option value="10">
+                                                 Science and Humanities
+                                            </option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-sm-6 col-12">
