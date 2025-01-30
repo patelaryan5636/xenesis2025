@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 29, 2025 at 10:32 AM
+-- Generation Time: Jan 30, 2025 at 05:01 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -14,6 +14,7 @@ SET time_zone = "+00:00";
 DROP DATABASE IF EXISTS `xenesis2025`;
 CREATE DATABASE `xenesis2025`;
 USE `xenesis2025`;
+
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -47,6 +48,7 @@ CREATE TABLE `event_master` (
   `tagline` text NOT NULL,
   `department_id` int(11) NOT NULL,
   `team_name` varchar(100) NOT NULL,
+  `event_leader_no` int(10) NOT NULL,
   `participation_price` int(11) NOT NULL,
   `participation_price_team` int(11) NOT NULL,
   `team_member_count` int(11) NOT NULL,
@@ -76,8 +78,8 @@ CREATE TABLE `event_master` (
 -- Dumping data for table `event_master`
 --
 
-INSERT INTO `event_master` (`event_id`, `event_name`, `tagline`, `department_id`, `team_name`, `participation_price`, `participation_price_team`, `team_member_count`, `winner_price1`, `winner_price2`, `winner_price3`, `location`, `date`, `event_description`, `rules`, `round1_title`, `round1_description`, `round2_title`, `round2_description`, `round3_title`, `round3_description`, `round4_title`, `round4_description`, `round5_title`, `round5_description`, `images`, `image_path`, `max_tickets`) VALUES
-(3, 'asdf', 'asdfasd', 0, 'aryan', 12, 11, 3, 12, 12, 12, 'adsf', '0000-00-00', 'asdfasdfsadfs', 'asdfasddfasdf', 'asdfasdfdsa', 'asdfasdf', 'asdfasdf', 'asdfasdf', 'asdfasf', 'asdfasfds', 'asdfasdf', 'asdfasdfsadf', 'adsfasdf', 'asdfasdf', 'http://drive.google.com/file/d/1A85_XHzhOtikBHuT2sFIwer40kpoqKAK/view?usp=sharing', 'uploads/1A85_XHzhOtikBHuT2sFIwer40kpoqKAK.jpg', 500);
+INSERT INTO `event_master` (`event_id`, `event_name`, `tagline`, `department_id`, `team_name`, `event_leader_no`, `participation_price`, `participation_price_team`, `team_member_count`, `winner_price1`, `winner_price2`, `winner_price3`, `location`, `date`, `event_description`, `rules`, `round1_title`, `round1_description`, `round2_title`, `round2_description`, `round3_title`, `round3_description`, `round4_title`, `round4_description`, `round5_title`, `round5_description`, `images`, `image_path`, `max_tickets`) VALUES
+(3, 'asdf', 'asdfasd', 0, 'aryan', 0, 12, 11, 3, 12, 12, 12, 'adsf', '0000-00-00', 'asdfasdfsadfs', 'asdfasddfasdf', 'asdfasdfdsa', 'asdfasdf', 'asdfasdf', 'asdfasdf', 'asdfasf', 'asdfasfds', 'asdfasdf', 'asdfasdfsadf', 'adsfasdf', 'asdfasdf', 'http://drive.google.com/file/d/1A85_XHzhOtikBHuT2sFIwer40kpoqKAK/view?usp=sharing', 'uploads/1A85_XHzhOtikBHuT2sFIwer40kpoqKAK.jpg', 500);
 
 -- --------------------------------------------------------
 
@@ -161,6 +163,15 @@ CREATE TABLE `user_master` (
   `isVerified` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `user_master`
+--
+
+INSERT INTO `user_master` (`user_id`, `user_name`, `email`, `password`, `user_role`, `joined_date`, `full_name`, `phone`, `isVerified`) VALUES
+(8, '216170316102', 'malay@gshf.com', '$2y$10$0wqjrMDTJh/RIDvR3LGYG.aLgjo82dKDrgM1b0hzbSrULQFZjUWYe', 2, '2025-01-29 20:13:09', 'Malay', 987654321, 0),
+(9, 'fnjlhnfn', 'fnjffnjxlnl@ffn.com', '$2y$10$Zw3HVIaKQ5XmKMEfSQVRDu1VEwxsKWdYzC0Zexaqg7a/VU/9UNKJC', 2, '2025-01-29 20:13:38', 'vzdjbnfjb', 987654321, 0),
+(10, 'drghnfnfnf', 'sfd@sf.com', '$2y$10$rZcPDzYg2eMgJD4JZxjV5O4x/0os2W4Bwdo.OIKX/HIOIN8RInCHa', 2, '2025-01-29 20:17:10', 'dgdnh', 987654321, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -228,7 +239,7 @@ ALTER TABLE `participant_master`
 -- AUTO_INCREMENT for table `user_master`
 --
 ALTER TABLE `user_master`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
