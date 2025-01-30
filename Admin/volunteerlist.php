@@ -123,6 +123,14 @@
                                 <li><a href="volunteerlist.php" class="active">Volunteer</a></li>
                             </ul>
                         </li>
+                        <li class="submenu">
+                            <a href="javascript:void(0);"><img src="../assets/img/icons/product.svg" alt="img"><span>
+                                Events Participers</span> <span class="menu-arrow"></span></a>
+                            <ul>
+                                <li><a href="soloevents.php">Solo Events</a></li>
+                                <li><a href="groupevents.php">Group Events</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>

@@ -9,7 +9,7 @@
         content="admin, estimates, bootstrap, business, corporate, creative, invoice, html5, responsive, Projects">
     <meta name="author" content="Dreamguys - Bootstrap Admin Template">
     <meta name="robots" content="noindex, nofollow">
-    <title>Upload Group</title>
+    <title>Group Details</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="../assets/img/Xenesis2025_logo.png">
 
@@ -40,7 +40,7 @@
 
         <div class="header bord">
 
-            <div class="header-left active">
+        <div class="header-left active">
                 <a href="index.php" class="logo" style="font-size:35px; color: rgb(150, 0, 150); font-weight:bold; margin-left:23px;">
                     <span style="color: rgb(0, 0, 102)">X</span>enesis
                 </a>
@@ -85,7 +85,7 @@
                             <a class="dropdown-item" href="profile.php"> <i class="me-2" data-feather="user"></i> My
                                 Profile</a>
                             <a class="dropdown-item logout pb-0" href="#"><img
-                                    src="../assets/img/icons/log-out.svg" class="me-2" alt="img">Logout</a>
+                                    src="../../assets/img/icons/log-out.svg" class="me-2" alt="img">Logout</a>
                         </div>
                     </div>
                 </li>
@@ -145,51 +145,92 @@
                 <!-- alert-box End -->
                 <div class="page-header">
                     <div class="page-title">
-                        <h4>Add Groups</h4>
-                        <h6>Upload CSV file</h6>
+                        <h4>Group Details</h4>
+                        <h6>Full details of a Group</h6>
                     </div>
                 </div>
-                <form action="importgroup_csv.php" method="post" enctype="multipart/form-data">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        <label for="csv_file">Group Data</label>
-                                        <div>
-                                            <input type="file" name="csv_file" id="csv_file" accept=".csv" class="form-control"
-                                                name="Eventimage" id="fileUpload">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <input type="submit" value="Submit" name="submit" class="btn btn-submit me-2">
-                                    <a href="grouplist.php" class="btn btn-cancel">Cancel</a>
+
+                <div class="row">
+                    <div class="col-lg-8 col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="productdetails">
+                                    <ul class="product-bar">
+                                        <li>
+                                            <h4>Event ID</h4>
+                                            <h6>
+                                                1
+                                            </h6>
+                                        </li>
+                                        <li>
+                                            <h4>Event Name</h4>
+                                            <h6>
+                                                PYS
+                                            </h6>
+                                        </li>
+                                        <li>
+                                            <h4>Leader Name</h4>
+                                            <h6>
+                                                PYS
+                                            </h6>
+                                        </li>
+                                        <li>
+                                            <h4>Leader Number</h4>
+                                            <h6>
+                                                PYS
+                                            </h6>
+                                        </li>
+                                        <li>
+                                            <h4>Member's name</h4>
+                                            <h6 style="padding-left: 27px;">
+                                                <ol type="1" style="list-style: decimal;">
+                                                    <li>priyanshu  ->  9978343950  ->  xenesis@gmail.com</li>
+                                                    <li>Mihir  ->  9978343950  ->  xenesis@gmail.com</li>
+                                                    <li>Rangat  ->  9978343950  ->  xenesis@gmail.com</li>
+                                                    <li>Krish  ->  9978343950  ->  xenesis@gmail.com</li>
+                                                    <li>Aryan  ->  9978343950  ->  xenesis@gmail.com</li>
+                                                </ol>
+                                            </h6>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </form>
+                    <div class="col-lg-4 col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="slider-product-details">
+                                    <div class="owl-carousel owl-theme ">
+                                        <div class="slider-product">
+                                            <img src="../assets/img/Xenesis2025_logo.png" alt="img">
+                                            <h4>Event Image</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
+    </div>
 
-        <script src="../assets/js/jquery-3.6.0.min.js"></script>
 
-        <script src="../assets/js/feather.min.js"></script>
-    
-        <script src="../assets/js/jquery.slimscroll.min.js"></script>
-    
-        <script src="../assets/js/jquery.dataTables.min.js"></script>
-        <script src="../assets/js/dataTables.bootstrap4.min.js"></script>
-    
-        <script src="../assets/js/bootstrap.bundle.min.js"></script>
-    
-        <script src="../assets/plugins/select2/js/select2.min.js"></script>
-    
-        <script src="../assets/plugins/sweetalert/sweetalert2.all.min.js"></script>
-        <script src="../assets/plugins/sweetalert/sweetalerts.min.js"></script>
-    
-        <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/jquery-3.6.0.min.js"></script>
+
+    <script src="../assets/js/feather.min.js"></script>
+
+    <script src="../assets/js/jquery.slimscroll.min.js"></script>
+
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+
+    <script src="../assets/plugins/owlcarousel/owl.carousel.min.js"></script>
+
+    <script src="../assets/plugins/select2/js/select2.min.js"></script>
+
+    <script src="../assets/js/script.js"></script>
 </body>
 
 </html>

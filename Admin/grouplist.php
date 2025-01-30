@@ -123,6 +123,14 @@
                                 <li><a href="volunteerlist.php">Volunteer</a></li>
                             </ul>
                         </li>
+                        <li class="submenu">
+                            <a href="javascript:void(0);"><img src="../assets/img/icons/product.svg" alt="img"><span>
+                                Events Participers</span> <span class="menu-arrow"></span></a>
+                            <ul>
+                                <li><a href="soloevents.php">Solo Events</a></li>
+                                <li><a href="groupevents.php">Group Events</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -202,32 +210,8 @@
                                             1212
                                         </td>
                                         <td>
-                                            <a href="deleteevent.php">
-                                                <img src="../assets/img/icons/delete.svg" alt="img">
-                                            </a>
-                                        </td>
-                                    </tr><tr>
-                                        <td>
-                                            1
-                                        </td>
-                                        <td>
-                                            PYS
-                                        </td>
-                                        <td>
-                                           1212
-                                        </td>
-                                        <td>
-                                            1212
-                                        </td>
-                                        <td>
-                                            1212
-                                        </td>
-                                        <td>
-                                            1212
-                                        </td>
-                                        <td>
-                                            <a href="deleteevent.php">
-                                                <img src="../assets/img/icons/delete.svg" alt="img">
+                                            <a href="groupdetails.php">
+                                                <img src="../assets/img/icons/eye.svg" alt="img">
                                             </a>
                                         </td>
                                     </tr>
