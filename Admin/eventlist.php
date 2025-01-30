@@ -200,25 +200,6 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <!-- <tr>
-                                        <td>
-                                            Squidgame
-                                        </td>
-                                        <td>
-                                           CE
-                                        </td>
-                                        <td>
-                                            34
-                                        </td>
-                                        <td>
-                                            5
-                                        </td>
-                                        <td>
-                                            0987654321
-                                        </td>
-                                        <td>
-                                            21-02-2025
-                                        </td> -->
                                         <?php
                                             require "../includes/scripts/connection.php";
                                             $sql = "SELECT * FROM `event_master`";
@@ -252,8 +233,11 @@
                                                                 <a class='me-3' href='editevent.php'>
                                                                     <img src='../assets/img/icons/edit.svg' alt='img'>
                                                                 </a>
-                                                                <a href='deleteevent.php'>
-                                                                    <img src='../assets/img/icons/delete.svg' alt='img'>
+                                                                <a href='enableevent.php' id='enableBtn' style='display: none;' onclick='toggleButtons()'>
+                                                                    <img src='../assets/img/icons/enable.svg' alt='img' style='height: 24px;'>
+                                                                </a>
+                                                                <a href='disableevent.php' id='disableBtn' onclick='toggleButtons()'>
+                                                                    <img src='../assets/img/icons/disable.svg' alt='img' style='height: 24px;'>
                                                                 </a>
                                                             </td>
                                                         </tr>";
@@ -269,6 +253,21 @@
             </div>
         </div>
     </div>
+    
+    <script>
+        function toggleButtons() {
+            let enableBtn = document.getElementById("enableBtn");
+            let disableBtn = document.getElementById("disableBtn");
+    
+            if (enableBtn.style.display === "none") {
+                enableBtn.style.display = "inline";
+                disableBtn.style.display = "none";
+            } else {
+                enableBtn.style.display = "none";
+                disableBtn.style.display = "inline";
+            }
+        }
+    </script>
 
 
     <script src="../assets/js/jquery-3.6.0.min.js"></script>
