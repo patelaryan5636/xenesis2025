@@ -28,7 +28,7 @@ if (isset($_POST['submit'])) {
                     $date, $event_description, $rules, $round1_title, 
                     $round1_desc, $round2_title, $round2_desc, $round3_title, 
                     $round3_desc, $round4_title, $round4_desc, $round5_title, 
-                    $round5_desc, $max_tickets
+                    $round5_desc, $max_tickets ,$category_name
                 ) = $data;
 
                 // Download the image and get the saved path
@@ -47,19 +47,32 @@ if (isset($_POST['submit'])) {
                         echo "!";
                     }
                 
+                    $sql1 = "SELECT * FROM `category_master`";
+                    $result1 = mysqli_query($conn,$sql1);
+                    
+                if(mysqli_num_rows($result1) > 0) {
+                        while($row1 = mysqli_fetch_assoc($result1)){
+                            if($category_name==$row1['category_name']){
+                                    $category_id  = $row1['category_id'];
+                            }
+                        }
+                    }else {
+                        echo "!";
+                    }
+                
                 // Insert data into the database
                 $sql = "INSERT INTO `event_master` 
                 (`event_name`, `tagline`, `department_id`, `team_name`,`event_leader_no`, `participation_price`, `participation_price_team`, 
                 `team_member_count`, `winner_price1`, `winner_price2`, `winner_price3`, `location`, `date`, 
                 `event_description`, `rules`, `round1_title`, `round1_description`, `round2_title`, 
                 `round2_description`, `round3_title`, `round3_description`, `round4_title`, `round4_description`, 
-                `round5_title`, `round5_description`, `images`, `image_path`, `max_tickets`) 
+                `round5_title`, `round5_description`, `images`, `image_path`, `max_tickets`,`category_id`) 
                 VALUES 
                 ('$event_name', '$event_tagline', '$department_name', '$team_name', '$leader_no','$participant_price', '$team_price', 
                 '$team_member_count', '$winner_prize1', '$winner_prize2', '$winner_prize3', '$location', '$date', 
                 '$event_description', '$rules', '$round1_title', '$round1_desc', '$round2_title', '$round2_desc', 
                 '$round3_title', '$round3_desc', '$round4_title', '$round4_desc', '$round5_title', '$round5_desc', 
-                '$image_link', '$image_path', '$max_tickets')";
+                '$image_link', '$image_path', '$max_tickets','$category_id')";
 
                 $result = mysqli_query($conn, $sql);
                 if (!$result) {
