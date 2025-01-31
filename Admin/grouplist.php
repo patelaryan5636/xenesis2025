@@ -192,25 +192,22 @@
                                     <?php
                                         require "../includes/scripts/connection.php";
 
-                                        $sql = "SELECT * FROM `organizer_master`";
+                                        // Fetch data from organizer_master in ascending order of event_id
+                                        $sql = "SELECT * FROM `organizer_master` ORDER BY `event_id` ASC";
                                         $result = mysqli_query($conn, $sql);
-                    
-                                        if($result->num_rows > 0){
-                                            $row = mysqli_fetch_assoc($result);
-                                            $event_id = $row['event_id'];    // need to handle exception
-    
-                                            $sql_fetch_event = "SELECT * FROM `event_master` WHERE `event_id` = $event_id";
-                                            $result_fetch_event = mysqli_query($conn, $sql_fetch_event);
-                                            $event_data = mysqli_fetch_assoc($result_fetch_event);
-                                            
-                                            $result = mysqli_query($conn, $sql);
-    
-                                            $team_name = $event_data['team_name'];
-                                            $event_name = $event_data['event_name'];
-                                            while($row = $result->fetch_assoc()){
+
+                                        if(mysqli_num_rows($result) > 0){
+                                            while($row = mysqli_fetch_assoc($result)){
+                                                $event_id = intval($row['event_id']);  // Ensure it's an integer to prevent SQL injection
+
+                                                // Fetch event details for the current event_id
+                                                $sql_fetch_event = "SELECT * FROM `event_master` WHERE `event_id` = $event_id";
+                                                $result_fetch_event = mysqli_query($conn, $sql_fetch_event);
+                                                $event_data = mysqli_fetch_assoc($result_fetch_event); // Fetch event details
+
                                                 echo "<tr>
-                                                        <td>".$team_name."</td>
-                                                        <td>".$event_name."</td>
+                                                        <td>".$event_data['team_name']."</td>
+                                                        <td>".$event_data['event_name']."</td>
                                                         <td>".$row['Leader_Name']."</td>
                                                         <td>".$row['Leader_mobile']."</td>
                                                         <td>".$row['Leader_email']."</td>
