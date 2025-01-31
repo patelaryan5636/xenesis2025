@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 31, 2025 at 07:40 AM
+-- Generation Time: Jan 31, 2025 at 03:06 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -22,8 +22,6 @@ USE `xenesis2025`;
 
 --
 -- Database: `xenesis2025`
-
-
 --
 
 -- --------------------------------------------------------
@@ -257,7 +255,7 @@ CREATE TABLE `user_master` (
 --
 
 INSERT INTO `user_master` (`user_id`, `user_name`, `email`, `password`, `user_role`, `joined_date`, `full_name`, `phone`, `isVerified`) VALUES
-(1, '224SBECE30032', 'sachaniaryan675@gmail.com', '$2y$10$zPK4BnWnY/8UXJ1QMWdQQOa/2OtdQgIq7z7wREBAi9WLZySeGfq3G', 1, '2025-01-30 14:44:25', 'aryan', 6353054338, 1),
+(1, '224SBECE30032', 'sachaniaryan675@gmail.com', '$2y$10$zPK4BnWnY/8UXJ1QMWdQQOa/2OtdQgIq7z7wREBAi9WLZySeGfq3G', 3, '2025-01-30 14:44:25', 'aryan', 6353054338, 1),
 (2, '224SBECE30033', 'sachaniaryan676@gmail.com', '$2y$10$l9t9soInnkt9d9ISPoTL2uqt.SnamB.OMpERZJ74nxVdIIbYUbU/G', 3, '2025-01-30 19:07:12', 'aryan', 6353054338, 0);
 
 -- --------------------------------------------------------
