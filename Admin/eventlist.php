@@ -33,6 +33,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+
+    <style>
+        .checktoggle{
+            height: 18px !important;
+            width: 37px !important;
+        }
+        
+        .checktoggle::after{
+            height: 15px !important;
+            width: 15px !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -40,8 +52,9 @@
 
         <div class="header bord">
 
-        <div class="header-left active">
-                <a href="index.php" class="logo" style="font-size:35px; color: rgb(150, 0, 150); font-weight:bold; margin-left:23px;">
+            <div class="header-left active">
+                <a href="index.php" class="logo"
+                    style="font-size:35px; color: rgb(150, 0, 150); font-weight:bold; margin-left:23px;">
                     <span style="color: rgb(0, 0, 102)">X</span>enesis
                 </a>
                 <a href="index.php" class="logo-small" style="font-size:32px; font-weight:bold;">
@@ -84,8 +97,8 @@
                             <hr class="m-0">
                             <a class="dropdown-item" href="profile.php"> <i class="me-2" data-feather="user"></i> My
                                 Profile</a>
-                            <a class="dropdown-item logout pb-0" href="#"><img
-                                    src="../assets/img/icons/log-out.svg" class="me-2" alt="img">Logout</a>
+                            <a class="dropdown-item logout pb-0" href="#"><img src="../assets/img/icons/log-out.svg"
+                                    class="me-2" alt="img">Logout</a>
                         </div>
                     </div>
                 </li>
@@ -115,7 +128,7 @@
                         </li>
                         <li class="submenu">
                             <a href="javascript:void(0);"><img src="../assets/img/icons/product.svg" alt="img"><span>
-                                Events</span> <span class="menu-arrow"></span></a>
+                                    Events</span> <span class="menu-arrow"></span></a>
                             <ul>
                                 <li><a href="eventlist.php" class="active">Events</a></li>
                                 <li><a href="grouplist.php">Organizer Groups</a></li>
@@ -125,7 +138,7 @@
                         </li>
                         <li class="submenu">
                             <a href="javascript:void(0);"><img src="../assets/img/icons/product.svg" alt="img"><span>
-                                Events Participers</span> <span class="menu-arrow"></span></a>
+                                    Events Participers</span> <span class="menu-arrow"></span></a>
                             <ul>
                                 <li><a href="soloevents.php">Solo Events</a></li>
                                 <li><a href="groupevents.php">Group Events</a></li>
@@ -145,9 +158,10 @@
                 <!-- <div class="alert alert-danger alert-dismissible fade show" role="alert">
                     <strong>Je lakhvu hoy</strong> te lakho.
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div> -->  
+                </div> -->
                 <!-- alert-box End -->
-                 <p><?php
+                <p>
+                    <?php
                        
                         if(isset( $_SESSION['xenesis_error_message'])){
                          echo  $_SESSION['xenesis_error_message'];
@@ -161,17 +175,19 @@
                        
                
                        ?>
-                 </p>
+                </p>
                 <div class="page-header">
                     <div class="page-title">
                         <h4>Event List</h4>
                         <h6>Manage your Events</h6>
                     </div>
                     <div class="page-btn">
-                        <a href="uploadevent.php" class="btn btn-added"><img src="../assets/img/icons/upload.svg" alt="img" class="me-1" style="height: 25px;">Upload Event Data</a>
+                        <a href="uploadevent.php" class="btn btn-added"><img src="../assets/img/icons/upload.svg"
+                                alt="img" class="me-1" style="height: 25px;">Upload Event Data</a>
                     </div>
                     <div class="page-btn">
-                        <a href="addevent.php" class="btn btn-added"><img src="../assets/img/icons/plus.svg" alt="img" class="me-1">Add New Event</a>
+                        <a href="addevent.php" class="btn btn-added"><img src="../assets/img/icons/plus.svg" alt="img"
+                                class="me-1">Add New Event</a>
                     </div>
                 </div>
 
@@ -187,8 +203,7 @@
                             <div class="wordset">
                                 <ul>
                                     <li>
-                                        <a href="#"
-                                            data-bs-toggle="tooltip" data-bs-placement="top" title="pdf"><img
+                                        <a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="pdf"><img
                                                 src="../assets/img/icons/pdf.svg" alt="img"></a>
                                     </li>
                                 </ul>
@@ -204,11 +219,12 @@
                                         <th>Event Size</th>
                                         <th>Leader No.</th>
                                         <th>Date</th>
+                                        <th>Active Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                        <?php
+                                    <?php
                                             require "../includes/scripts/connection.php";
                                             $sql = "SELECT * FROM `event_master`";
                                             $result = $conn->query($sql);
@@ -234,18 +250,22 @@
                                                                 $row['date']
                                                             ."</td>
                                                             <td>
+                                                                <a class=' d-inline-block mb-3'>
+                                                                    <input type='checkbox' id='user4' class='check' checked=''>
+                                                                    <label for='user4' class='checktoggle'>checkbox</label>
+                                                                 </a>
+                                                                 <a class=' d-inline-block mb-3'>
+                                                                    <input type='checkbox' id='user5' class='check' unchecked=''>
+                                                                    <label for='user5' class='checktoggle'>checkbox</label>
+                                                                 </a>
+                                                            </td>
+                                                            <td>
                                                                 <a class='me-3'
                                                                     href='eventdetails.php?id=".$row['event_id']."'>
                                                                     <img src='../assets/img/icons/eye.svg' alt='img'>
                                                                 </a>
                                                                 <a class='me-3' href='editevent.php?id=".$row['event_id']."'>
                                                                     <img src='../assets/img/icons/edit.svg' alt='img'>
-                                                                </a>
-                                                                <a href='enableevent.php' id='enableBtn' style='display: none;' onclick='toggleButtons()'>
-                                                                    <img src='../assets/img/icons/enable.svg' alt='img' style='height: 24px;'>
-                                                                </a>
-                                                                <a href='disableevent.php' id='disableBtn' onclick='toggleButtons()'>
-                                                                    <img src='../assets/img/icons/disable.svg' alt='img' style='height: 24px;'>
                                                                 </a>
                                                             </td>
                                                         </tr>";
@@ -261,12 +281,12 @@
             </div>
         </div>
     </div>
-    
+
     <script>
         function toggleButtons() {
             let enableBtn = document.getElementById("enableBtn");
             let disableBtn = document.getElementById("disableBtn");
-    
+
             if (enableBtn.style.display === "none") {
                 enableBtn.style.display = "inline";
                 disableBtn.style.display = "none";

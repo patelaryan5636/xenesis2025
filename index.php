@@ -596,7 +596,7 @@
       <a href="event.php?id=<?php echo $row['category_id'];?>" class="card">
         <img src="AI.jpg" alt="Card 1" />
         <h1><?php echo $row['category_name']; ?></h1>
-        <h3><?php echo $row['category_description'];?></h3>
+        <!-- <h3><?php echo $row['category_description'];?></h3> -->
       </a>
       <?php
         }

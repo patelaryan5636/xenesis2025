@@ -666,19 +666,20 @@
 
 @media (min-width: 412px){
   .content h2{
-    margin-left: 8px;
+    margin-left: 16px;
   }
 }
 
+
 @media (min-width: 430px) and (max-width: 435px){
   .content h2{
-    margin-left: 16px;
+    margin-left: 16px ;
   }
 }
 
 @media (min-width: 389px) and (max-width: 391px){
   .content h2{
-    transform: translate(-50%, -50%) !important;
+    transform: translate(-49%, -50%) !important;
   }
 }
 
