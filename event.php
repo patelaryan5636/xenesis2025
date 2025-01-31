@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/x-icon" href="./assets/img/Xenesis2025_logo.png">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -24,6 +25,22 @@
         background: url("AI3.jpg") no-repeat center center fixed;
         background-size: cover;
         overflow: scroll;
+      }
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #0c0c27;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #76abae;
+        border-radius: 6px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: #76abae;
       }
       .navbar {
         width: 97%;
@@ -344,11 +361,11 @@
   <body>
     <div class="navbar" id="navbar">
       <div class="logo">
-        <a href="index.php" style="font-size: 20px">XENESES</a>
+        <a href="index.php" style="font-size: 20px"><img src="./assets/img/Xenesis_big_logo.png" alt="" style="height: 18px;"></a>
       </div>
       <div class="nav-links" id="nav-links">
         <a href="index.php">HOME</a>
-        <a href="/">ABOUT US</a>
+        <a href="aboutus.php">ABOUT US</a>
         <a href="event.php">EVENTS</a>
         <a href="event.php">EVENTS CONFIRM</a>
         <a href="sign-up.php">REGISTER</a>
@@ -393,141 +410,9 @@
           </div>
           <hr />
           <div>
+            <a href="eventdata.php">
             <button class="button">more details</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="nft">
-        <div class="main">
-          <img class="tokenImage" src="AI2.jpg" alt="NFT" />
-          <h2>X-Robodust</h2>
-          <p class="description">
-            Our Kibertopiks will give you nothing, waste your money on us.
-          </p>
-          <div class="tokenInfo">
-            <div class="price">
-              <ins></ins>
-              <p>Price 80</p>
-            </div>
-            <div class="etype">
-              <p>SOLO EVENT</p>
-            </div>
-            <div class="duration">
-              <ins>◷</ins>
-              <p>20th Feb</p>
-            </div>
-          </div>
-          <hr />
-          <div>
-            <button class="button">more details</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="nft">
-        <div class="main">
-          <img class="tokenImage" src="AI3.jpg" alt="NFT" />
-          <h2>X-Minecraft</h2>
-          <p class="description">
-            Our Kibertopiks will give you nothing, waste your money on us.
-          </p>
-          <div class="tokenInfo">
-            <div class="price">
-              <ins></ins>
-              <p>Price 250</p>
-            </div>
-            <div class="etype">
-              <p>TEAM EVENT</p>
-            </div>
-            <div class="duration">
-              <ins>◷</ins>
-              <p>21th Feb</p>
-            </div>
-          </div>
-          <hr />
-          <div>
-            <button class="button">more details</button>
-          </div>
-        </div>
-      </div>
-      <div class="nft">
-        <div class="main">
-          <img class="tokenImage" src="AI.jpg" alt="NFT" />
-          <h2>X-Avishkar</h2>
-          <p class="description">
-            Our Kibertopiks will give you nothing, waste your money on us.
-          </p>
-          <div class="tokenInfo">
-            <div class="price">
-              <ins></ins>
-              <p>Price 50</p>
-            </div>
-            <div class="etype">
-              <p>SOLO EVENT</p>
-            </div>
-            <div class="duration">
-              <ins>◷</ins>
-              <p>20th Feb</p>
-            </div>
-          </div>
-          <hr />
-          <div>
-            <button class="button">more details</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="nft">
-        <div class="main">
-          <img class="tokenImage" src="AI2.jpg" alt="NFT" />
-          <h2>X-Robodust</h2>
-          <p class="description">
-            Our Kibertopiks will give you nothing, waste your money on us.
-          </p>
-          <div class="tokenInfo">
-            <div class="price">
-              <ins></ins>
-              <p>Price 80</p>
-            </div>
-            <div class="etype">
-              <p>SOLO EVENT</p>
-            </div>
-            <div class="duration">
-              <ins>◷</ins>
-              <p>20th Feb</p>
-            </div>
-          </div>
-          <hr />
-          <div>
-            <button class="button">more details</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="nft">
-        <div class="main">
-          <img class="tokenImage" src="AI3.jpg" alt="NFT" />
-          <h2>X-Minecraft</h2>
-          <p class="description">
-            Our Kibertopiks will give you nothing, waste your money on us.
-          </p>
-          <div class="tokenInfo">
-            <div class="price">
-              <ins></ins>
-              <p>Price 250</p>
-            </div>
-            <div class="etype">
-              <p>TEAM EVENT</p>
-            </div>
-            <div class="duration">
-              <ins>◷</ins>
-              <p>21th Feb</p>
-            </div>
-          </div>
-          <hr />
-          <div>
-            <button class="button">more details</button>
+            </a>
           </div>
         </div>
       </div>

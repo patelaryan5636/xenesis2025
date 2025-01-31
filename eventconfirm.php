@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/x-icon" href="./assets/img/Xenesis2025_logo.png">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -344,11 +345,11 @@
   <body>
     <div class="navbar" id="navbar">
       <div class="logo">
-        <a href="index.php" style="font-size: 20px">XENESES</a>
+      <a href="index.php" style="font-size: 20px"><img src="./assets/img/Xenesis_big_logo.png" alt="" style="height: 18px;"></a>
       </div>
       <div class="nav-links" id="nav-links">
         <a href="index.php">HOME</a>
-        <a href="/">ABOUT US</a>
+        <a href="aboutus.php">ABOUT US</a>
         <a href="event.php">EVENTS</a>
         <a href="event.php">EVENTS CONFIRM</a>
         <a href="sign-up.php">REGISTER</a>

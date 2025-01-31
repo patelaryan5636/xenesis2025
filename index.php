@@ -4,9 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>XENESIS</title>
+    <link rel="shortcut icon" type="image/x-icon" href="./assets/img/Xenesis2025_logo.png">
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap"
       rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <link rel="stylesheet" href="text.css" />
     <style>
@@ -484,11 +489,11 @@
   <body>
     <div class="navbar" id="navbar">
       <div class="logo">
-        <a href="index.html" style="font-size: 20px">XENESES</a>
+        <a href="index.php" style="font-size: 20px"><img src="./assets/img/Xenesis_big_logo.png" alt="" style="height: 18px;"></a>
       </div>
       <div class="nav-links" id="nav-links">
         <a href="index.php">HOME</a>
-        <a href="/">ABOUT US</a>
+        <a href="aboutus.php">ABOUT US</a>
         <a href="event.php">EVENTS</a>
         <a href="sign-up.php">REGISTER</a>
         <a href="sign-in.php">LOGIN</a>
@@ -540,47 +545,31 @@
         </div>
       </div>
     </div>
-    <h1 class="title">DEPARTMENT</h1>
+    <h1 class="title">CATEGORY</h1>
     <div class="card-container">
-      <a href="/event.html" class="card">
+      <a href="event.php" class="card">
         <img src="AI.jpg" alt="Card 1" />
-        <h1>INFORMATION TECHNOLOGY</h1>
+        <h1>X - GAME</h1>
       </a>
-      <a href="/event.html" class="card">
+      <a href="event.php" class="card">
         <img src="AI2.jpg" alt="Card 2" />
-        <h1>COMPUTER ENGINEERING</h1>
+        <h1>X - AI</h1>
       </a>
-      <a href="/event.html" class="card">
+      <a href="event.php" class="card">
         <img src="AI3.jpg" alt="Card 3" />
-        <h1>MECHANICAL ENGINEERING</h1>
+        <h1>X - TECH</h1>
       </a>
-      <a href="/event.html" class="card">
+      <a href="event.php" class="card">
         <img src="AI3.jpg" alt="Card 3" />
-        <h1>AUTOMOBILE</h1>
+        <h1>X - CODE</h1>
       </a>
-      <a href="/event.html" class="card">
+      <a href="event.php" class="card">
         <img src="AI.jpg" alt="Card 4" />
-        <h1>CIVIL ENGINEERING</h1>
+        <h1>X - DARE</h1>
       </a>
-      <a href="/event.html" class="card">
+      <a href="event.php" class="card">
         <img src="AI2.jpg" alt="Card 5" />
-        <h1>ELECTRICAL ENGINEERING</h1>
-      </a>
-      <a href="/event.html" class="card">
-        <img src="AI3.jpg" alt="Card 6" />
-        <h1>ELECTRONIC & COMMUNICATION</h1>
-      </a>
-      <a href="/event.html" class="card">
-        <img src="AI.jpg" alt="Card 7" />
-        <h1>MBA</h1>
-      </a>
-      <a href="/event.html" class="card">
-        <img src="AI2.jpg" alt="Card 8" />
-        <h1>MCA</h1>
-      </a>
-      <a href="/event.html" class="card">
-        <img src="AI3.jpg" alt="Card 9" />
-        <h1>SCIENCE & HUMANITY</h1>
+        <h1>X - THINK</h1>
       </a>
     </div>
 
@@ -619,7 +608,77 @@
         ></iframe>
       </div>
     </div>
+    <div class="footer-wrapper">
+      <footer class="footer-container">
+        <div class="robot-container">
+          <img src="frobo.png" alt="Robot" class="robot" />
+        </div>
+
+        <div class="footer-content">
+          <div class="about">
+            <h2>XENESES</h2>
+            <p>Epic Events organized for ultimate students!</p>
+          </div>
+
+          <div class="links">
+            <h2>Useful Links</h2>
+            <ul>
+              <li><a href="index.php">HOME</a></li>
+              <li><a href="event.php">EVENTS</a></li>
+              <li><a href="aboutus.php">ABOUT US</a></li>
+              <li><a href="sign-up.php">REGISTER</a></li>
+              <li><a href="sign-in.php">LOGIN</a></li>
+            </ul>
+          </div>
+
+          <div class="contact">
+            <h2>Contact Us</h2>
+            <p><strong>Join Us:</strong> xenesis@ldrp.ac.in</p>
+            <p><strong>Phone:</strong> +91 786 308 5614</p>
+          </div>
+
+          <div class="social">
+            <h2>Social Links</h2>
+            <p>Get in touch! Find us on any platform.</p>
+            <div class="icons">
+              <a
+                href="https://www.facebook.com/xenesisldrp/"
+                class="fa fa-facebook"
+              ></a>
+              <a
+                href="https://www.linkedin.com/school/ldrp-institute-of-technology-research-gujarat-technological-university-india/posts/?feedView=all"
+                class="fa fa-linkedin"
+              ></a>
+              <a
+                href="https://www.youtube.com/channel/UChJzTrldS4yNcTaN43TY53w"
+                class="fa fa-youtube"
+              ></a>
+              <a
+                href="https://www.instagram.com/xenesisldrp/"
+                class="fa fa-instagram"
+              ></a>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      <div class="ftr">
+        <h1>© 2025 Xenesis All Rights Reserved</h1>
+      </div>
+    </div>
     <script>
+      document
+        .querySelector(".robot")
+        .addEventListener("mouseover", function () {
+          this.style.animation = "bounce 0.5s infinite";
+        });
+
+      document
+        .querySelector(".robot")
+        .addEventListener("mouseleave", function () {
+          this.style.animation = "bounce 2s infinite";
+        });
+      
       function toggleMenu() {
         const navbar = document.getElementById("navbar");
         navbar.classList.toggle("open");
