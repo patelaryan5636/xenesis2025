@@ -4,6 +4,10 @@
   position: relative;
 }
 
+.logo a{
+  margin: 0 !important;
+}
+
 @media (min-width: 481px) and (min-width: 769px) {
   .content h2 {
     color: #fff;
@@ -93,7 +97,7 @@
   align-items: center;
   transition: background 0.3s, color 0.1s, top 0.3s, left 0.3s, right 0.3s,
     padding 0.3s, margin 0.3s, box-shadow 0.3s;
-  z-index: 1000;
+  z-index: 10002;
 }
 
 .navbar.sticky {
@@ -137,7 +141,7 @@
 
 .card-container {
   display: grid;
-  grid-template-columns: repeat(4, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, minmax(300px, 1fr));
   gap: 20px;
   padding: 20px;
   width: 100%;
@@ -181,9 +185,11 @@
   transform: scale(1.05);
 }
 .card h1 {
-  font-size: 1.2rem;
-  color: white;
+  font-size: 1.7rem;
+  color: #76ABAE;
   margin-top: 10px;
+  font-weight: bolder;
+  font-family: math;
 }
 
 .title {
@@ -309,6 +315,228 @@
 .map-container iframe {
   pointer-events: auto;
 }
+
+.footer-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.footer-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 280px;
+  width: 93%;
+  border-radius: 30px 30px 0 0;
+  padding: 20px 50px;
+  color: white;
+  font-family: Arial, sans-serif;
+  z-index: 10;
+  background-color: rgba(9, 21, 86, 0.349);
+  overflow: hidden;
+}
+.ftr {
+  width: 100%;
+  background-color: rgb(2, 8, 40);
+  text-align: center;
+  padding: 10px 0;
+}
+
+.ftr h1 {
+  font-size: 2rem;
+  color: #76abae;
+  font-weight: bolder;
+  text-align: center;
+  margin: 0;
+}
+
+.robot-container {
+  width: 250px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  margin-right: 80px;
+}
+
+.robot {
+  width: auto;
+  height: 300px;
+  animation: bounce 2s infinite;
+}
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+  z-index: 10;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.about {
+  margin-top: -10px;
+}
+.about h2 {
+  font-size: 2rem;
+}
+
+.about p {
+  font-size: 1rem;
+  font-family: cursive;
+}
+
+.links h2 {
+  font-size: 1.5rem;
+}
+
+.links li a {
+  font-size: 1rem;
+  margin-right: 80px;
+  color: #76abae;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.contact h2 {
+  font-size: 1.5rem;
+}
+
+.contact p {
+  font-size: 1rem;
+}
+
+.social p {
+  font-size: 1rem;
+  font-family: cursive;
+}
+
+.icons a {
+  padding: 10px;
+  font-size: 20px;
+  width: 20px;
+  text-align: center;
+  margin: 5px 2px;
+  background-color: #76abae;
+  color: white;
+  border-radius: 50%;
+}
+
+@media (max-width: 1024px) {
+  .footer-container {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .robot-container {
+    width: 200px;
+    height: 300px;
+    margin: 0 auto;
+  }
+
+  .robot {
+    height: 250px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about h2,
+  .links h2,
+  .contact h2 {
+    font-size: 1.8rem;
+  }
+
+  .about p,
+  .links li a,
+  .contact p,
+  .social p {
+    font-size: 0.9rem;
+  }
+
+  .links li {
+    display: none;
+  }
+  .links h2 {
+    display: none;
+  }
+
+  .icons a {
+    font-size: 18px;
+    padding: 8px;
+    width: 18px;
+  }
+}
+
+@media (max-width: 767px) {
+  .ftr h1 {
+    font-size: 0.9rem;
+  }
+  .footer-container {
+    flex-direction: column;
+    height: auto;
+    text-align: center;
+    width: 100%;
+  }
+
+  .robot-container {
+    width: 180px;
+    height: 250px;
+    margin: 0 auto;
+  }
+
+  .robot {
+    height: 200px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about h2,
+  .contact h2 {
+    font-size: 1.5rem;
+  }
+
+  .about p,
+  .links li a,
+  .social p {
+    font-size: 0.85rem;
+  }
+
+  .contact p {
+    text-align: center;
+  }
+
+  .links li {
+    display: none;
+  }
+  .links h2 {
+    display: none;
+  }
+
+  .icons a {
+    font-size: 16px;
+    padding: 6px;
+    width: 16px;
+  }
+}
+
+
 @media (max-width: 768px) {
   .nav-links {
     display: none;
