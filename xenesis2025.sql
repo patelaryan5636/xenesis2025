@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 30, 2025 at 07:31 AM
+-- Generation Time: Jan 31, 2025 at 06:44 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -14,7 +14,6 @@ SET time_zone = "+00:00";
 DROP DATABASE IF EXISTS `xenesis2025`;
 CREATE DATABASE `xenesis2025`;
 USE `xenesis2025`;
-
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -65,7 +64,7 @@ CREATE TABLE `event_master` (
   `tagline` text NOT NULL,
   `department_id` int(11) NOT NULL,
   `team_name` varchar(100) NOT NULL,
-  `event_leader_no` int(10) NOT NULL,
+  `event_leader_no` bigint(20) NOT NULL,
   `participation_price` int(11) NOT NULL,
   `participation_price_team` int(11) NOT NULL,
   `team_member_count` int(11) NOT NULL,
@@ -95,9 +94,6 @@ CREATE TABLE `event_master` (
 -- Dumping data for table `event_master`
 --
 
-INSERT INTO `event_master` (`event_id`, `event_name`, `tagline`, `department_id`, `team_name`, `event_leader_no`, `participation_price`, `participation_price_team`, `team_member_count`, `winner_price1`, `winner_price2`, `winner_price3`, `location`, `date`, `event_description`, `rules`, `round1_title`, `round1_description`, `round2_title`, `round2_description`, `round3_title`, `round3_description`, `round4_title`, `round4_description`, `round5_title`, `round5_description`, `images`, `image_path`, `max_tickets`) VALUES
-(1, 'asdf', 'asdfasd', 10, 'aryan', 2147483647, 12, 11, 3, 12, 12, 12, 'adsf', '0000-00-00', 'asdfasdfsadfs', 'asdfasddfasdf', 'asdfasdfdsa', 'asdfasdf', 'asdfasdf', 'asdfasdf', 'asdfasf', 'asdfasfds', 'asdfasdf', 'asdfasdfsadf', 'adsfasdf', 'asdfasdf', 'http://drive.google.com/file/d/1A85_XHzhOtikBHuT2sFIwer40kpoqKAK/view?usp=sharing', 'uploads/1A85_XHzhOtikBHuT2sFIwer40kpoqKAK.jpg', 500);
-
 -- --------------------------------------------------------
 
 --
@@ -109,30 +105,27 @@ CREATE TABLE `organizer_master` (
   `Leader_Name` varchar(100) NOT NULL,
   `event_id` int(11) NOT NULL,
   `Leader_email` varchar(250) NOT NULL,
-  `Leader_mobile` int(10) NOT NULL,
+  `Leader_mobile` bigint(20) NOT NULL,
   `Member1_name` varchar(100) NOT NULL,
   `Member1_email` varchar(250) NOT NULL,
-  `Member1_mobile` int(10) NOT NULL,
-  `Member2_name` varchar(100) NOT NULL,
-  `Member2_email` varchar(250) NOT NULL,
-  `Member2_mobile` int(10) NOT NULL,
-  `Member3_name` varchar(100) NOT NULL,
-  `Member3_email` varchar(250) NOT NULL,
-  `Member3_mobile` int(10) NOT NULL,
-  `Member4_name` varchar(100) NOT NULL,
-  `Member4_email` varchar(250) NOT NULL,
-  `Member4_mobile` int(10) NOT NULL,
-  `Member5_name` varchar(100) NOT NULL,
-  `Member5_email` varchar(250) NOT NULL,
-  `Member5_mobile` int(10) NOT NULL
+  `Member1_mobile` bigint(20) DEFAULT NULL,
+  `Member2_name` varchar(100) NOT NULL DEFAULT 'N/A',
+  `Member2_email` varchar(250) NOT NULL DEFAULT 'N/A',
+  `Member2_mobile` bigint(20) DEFAULT NULL,
+  `Member3_name` varchar(100) NOT NULL DEFAULT 'N/A',
+  `Member3_email` varchar(250) NOT NULL DEFAULT 'N/A',
+  `Member3_mobile` bigint(20) DEFAULT NULL,
+  `Member4_name` varchar(100) NOT NULL DEFAULT 'N/A',
+  `Member4_email` varchar(250) NOT NULL DEFAULT 'N/A',
+  `Member4_mobile` bigint(20) DEFAULT NULL,
+  `Member5_name` varchar(100) NOT NULL DEFAULT 'N/A',
+  `Member5_email` varchar(250) NOT NULL DEFAULT 'N/A',
+  `Member5_mobile` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `organizer_master`
 --
-
-INSERT INTO `organizer_master` (`organizer_id`, `Leader_Name`, `event_id`, `Leader_email`, `Leader_mobile`, `Member1_name`, `Member1_email`, `Member1_mobile`, `Member2_name`, `Member2_email`, `Member2_mobile`, `Member3_name`, `Member3_email`, `Member3_mobile`, `Member4_name`, `Member4_email`, `Member4_mobile`, `Member5_name`, `Member5_email`, `Member5_mobile`) VALUES
-(2, 'RGT', 1, 'rgt@fsnf.com', 2147483647, 'sjfkfdbj', 'bdj@fdsf.com', 2147483647, 'sjfkfdbj', 'rgt@fsnf.com', 2147483647, 'sjfkfdbj', 'rgt@fsnf.com', 2147483647, 'sjfkfdbj', 'rgt@fsnf.com', 2147483647, 'sjfkfdbj', 'rgt@fsnf.com', 2147483647);
 
 -- --------------------------------------------------------
 
@@ -155,11 +148,6 @@ CREATE TABLE `user_master` (
 --
 -- Dumping data for table `user_master`
 --
-
-INSERT INTO `user_master` (`user_id`, `user_name`, `email`, `password`, `user_role`, `joined_date`, `full_name`, `phone`, `isVerified`) VALUES
-(8, '216170316102', 'malay@gshf.com', '$2y$10$0wqjrMDTJh/RIDvR3LGYG.aLgjo82dKDrgM1b0hzbSrULQFZjUWYe', 2, '2025-01-29 20:13:09', 'Malay', 987654321, 0),
-(9, 'fnjlhnfn', 'fnjffnjxlnl@ffn.com', '$2y$10$Zw3HVIaKQ5XmKMEfSQVRDu1VEwxsKWdYzC0Zexaqg7a/VU/9UNKJC', 2, '2025-01-29 20:13:38', 'vzdjbnfjb', 987654321, 0),
-(10, 'drghnfnfnf', 'sfd@sf.com', '$2y$10$rZcPDzYg2eMgJD4JZxjV5O4x/0os2W4Bwdo.OIKX/HIOIN8RInCHa', 2, '2025-01-29 20:17:10', 'dgdnh', 987654321, 1);
 
 --
 -- Indexes for dumped tables
@@ -205,7 +193,7 @@ ALTER TABLE `department_master`
 -- AUTO_INCREMENT for table `event_master`
 --
 ALTER TABLE `event_master`
-  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `organizer_master`
