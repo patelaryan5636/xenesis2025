@@ -14,6 +14,18 @@
         header("Location: admin/");
       }
   }
+
+  function decryptId($encryptedId) {
+    $key = "aryan5636"; // Use the same key as encryption
+    $iv = "1234567891011121"; // Same IV as encryption
+
+    return openssl_decrypt(base64_decode($encryptedId), "AES-128-CTR", $key, 0, $iv);
+}
+
+
+$encryptedId = $_GET['id'];
+$id = decryptId($encryptedId);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -429,8 +441,14 @@
     <div class="nft-wrapper">
 
     <?php
-  $sql = "SELECT * FROM `event_master` WHERE `is_status` =1";
+  $sql = "SELECT * FROM `event_master` WHERE `is_status` =1 and `category_id` = $id";
   $result = mysqli_query($conn,$sql);
+//   function encryptId($id) {
+//     $key = "xene"; // Use a secure key
+//     return base64_encode(openssl_encrypt($id, "AES-128-CTR", $key, 0, "1234567891011121"));
+// }
+// $sql = "SELECT * FROM `event_master` WHERE `is_status` =1";
+//   $result = mysqli_query($conn,$sql);
   function encryptId($id) {
     $key = "aryan5636"; // Use a secure key
     $iv = "1234567891011121"; // IV must be 16 bytes for AES-128-CTR
@@ -439,13 +457,8 @@
 }
 
 
-// function decryptId($encryptedId) {
-//     $key = "aryan5636"; // Same key used for encryption
-//     return openssl_decrypt(base64_decode($encryptedId), "AES-128-CTR", $key, 0, "1234567891011121");
-// }
-
   while($row = mysqli_fetch_assoc($result)){
-
+    // $category_id = encryptId($row['']);
 ?>
       <div class="nft">
         <div class="main">

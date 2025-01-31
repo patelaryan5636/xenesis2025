@@ -14,6 +14,10 @@
         header("Location: admin/");
       }
   }
+
+  
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -588,12 +592,24 @@
     </div>
     <h1 class="title">CATEGORY</h1>
     <div class="card-container">
+
+
+    
     <?php
+    function encryptId($id) {
+      $key = "aryan5636"; // Use a secure key
+      $iv = "1234567891011121"; // IV must be 16 bytes for AES-128-CTR
+  
+      return base64_encode(openssl_encrypt($id, "AES-128-CTR", $key, 0, $iv));
+  }
+    
       $sql = "SELECT * FROM `category_master`";
       $result = mysqli_query($conn,$sql);
       while($row = mysqli_fetch_assoc($result)){
+        
+      $category_id = encryptId($row['category_id']);
     ?>
-      <a href="event.php?id=<?php echo $row['category_id'];?>" class="card">
+      <a href="event_department.php?id=<?php echo $category_id;?>" class="card">
         <img src="AI.jpg" alt="Card 1" />
         <h1><?php echo $row['category_name']; ?></h1>
         <!-- <h3><?php echo $row['category_description'];?></h3> -->

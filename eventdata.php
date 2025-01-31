@@ -16,12 +16,28 @@
   }
 
   function decryptId($encryptedId) {
-    $key = "aryan5636"; // Same key used for encryption
-    return openssl_decrypt(base64_decode($encryptedId), "AES-128-CTR", $key, 0, "1234567891011121");
+    $key = "aryan5636"; // Use the same key as encryption
+    $iv = "1234567891011121"; // Same IV as encryption
+
+    return openssl_decrypt(base64_decode($encryptedId), "AES-128-CTR", $key, 0, $iv);
 }
+
 
 $encryptedId = $_GET['id'];
 $id = decryptId($encryptedId);
+
+$sql = "SELECT * FROM `event_master` WHERE `event_id` = $id";
+$result = mysqli_query($conn,$sql);
+$row = mysqli_fetch_assoc($result);
+$category_id = $row['category_id'];
+
+$sql2 = "SELECT category_name FROM `category_master` WHERE `category_id` = $category_id";
+$result2 = mysqli_query($conn,$sql2);
+$row3 = mysqli_fetch_assoc($result2);
+
+$sql1 = "SELECT Leader_Name FROM `organizer_master` WHERE `event_id` = $id";
+$result1 = mysqli_query($conn,$sql1);
+$row2 = mysqli_fetch_assoc($result1);
 
 ?>
 <!DOCTYPE html>
@@ -208,78 +224,78 @@ $id = decryptId($encryptedId);
       <div class="event-info">
         <div class="info-box">
           <h4>Event Name</h4>
-          <p>Tech Innovators 2025</p>
+          <p><?php echo $row['event_name']; ?></p>
         </div>
         <div class="info-box">
           <h4>Tagline</h4>
-          <p>Innovating for a Better Tomorrow</p>
+          <p><?php echo $row['tagline'];?></p>
         </div>
         <div class="info-box">
           <h4>Category Name</h4>
-          <p>Computer Science</p>
+          <p><?php echo $row3['category_name'];?></p>
         </div>
         <div class="info-box">
           <h4>Organizer Name</h4>
-          <p>Innovators</p>
+          <p><?php echo $row2['Leader_Name'];?></p>
         </div>
         <div class="info-box">
           <h4>Contact Number</h4>
-          <p>(123) 456-7890</p>
+          <p><?php echo $row['event_leader_no']; ?></p>
         </div>
         <div class="info-box">
           <h4>Registration Fees (Individual)</h4>
-          <p>$20</p>
+          <p><?php echo $row['participation_price'];?></p>
         </div>
         <div class="info-box">
           <h4>Registration Fees (Group)</h4>
-          <p>$80</p>
+          <p><?php echo $row['participation_price_team'];?></p>
         </div>
         <div class="info-box">
           <h4>Members per Team</h4>
-          <p>4</p>
+          <p><?Php echo $row['team_member_count'];?></p>
         </div>
         <div class="info-box">
           <h4>Prize for Winner 1</h4>
-          <p>$500</p>
+          <p><?php echo $row['winner_price1']; ?></p>
         </div>
         <div class="info-box">
           <h4>Prize for Winner 2</h4>
-          <p>$300</p>
+          <p><?php echo $row['winner_price2'];?></p>
         </div>
         <div class="info-box">
           <h4>Prize for Winner 3</h4>
-          <p>$150</p>
+          <p><?php echo $row['winner_price3'];?></p>
         </div>
         <div class="info-box">
           <h4>Location</h4>
-          <p>XYZ University</p>
+          <p><?php echo $row['location']; ?></p>
         </div>
         <div class="info-box">
           <h4>Date</h4>
-          <p>March 15, 2025</p>
+          <p><?php echo $row['date']; ?></p>
         </div>
         <div class="info-box">
           <h4>Description</h4>
-          <p>A competition to showcase your tech innovation skills.</p>
+          <p><?php echo $row['event_description']; ?></p>
         </div>
         <div class="info-box">
           <h4>Rules</h4>
-          <p>Teams must consist of 4 members. No plagiarism.</p>
+          <p><?php echo $row['rules']; ?></p>
         </div>
       </div>
 
       <div class="rounds">
         <div class="round">
-          <h3>ROUND 1: Idea Pitch</h3>
-          <p>Present your tech idea in 5 minutes.</p>
+          <h3>ROUND 1: <?php echo $row['round1_title']; ?></h3>
+          <p><?php echo $row['round1_description'];?></p>
         </div>
         <div class="round">
-          <h3>ROUND 2: Prototype Development</h3>
-          <p>Create a prototype based on your idea.</p>
+          <h3>ROUND 2: <?php echo $row['round2_title'];?></h3>
+          <p><?php echo $row['round2_description'];?></p>
         </div>
         <div class="round">
-          <h3>ROUND 3: Final Presentation</h3>
-          <p>Present your solution to the judges.</p>
+          <h3>ROUND 3: <?php echo $row['round3_title'];?></h3>
+          <p><?php echo $row['round3_description']?></p>
         </div>
       </div>
 
