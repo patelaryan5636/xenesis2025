@@ -3,13 +3,14 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 31, 2025 at 06:44 AM
+-- Generation Time: Jan 31, 2025 at 07:19 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
+
 
 DROP DATABASE IF EXISTS `xenesis2025`;
 CREATE DATABASE `xenesis2025`;
@@ -87,12 +88,9 @@ CREATE TABLE `event_master` (
   `round5_description` text DEFAULT 'N/A',
   `images` varchar(254) NOT NULL,
   `image_path` text NOT NULL,
-  `max_tickets` int(11) DEFAULT NULL
+  `max_tickets` int(11) DEFAULT NULL,
+  `event_category` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `event_master`
---
 
 -- --------------------------------------------------------
 
@@ -105,27 +103,30 @@ CREATE TABLE `organizer_master` (
   `Leader_Name` varchar(100) NOT NULL,
   `event_id` int(11) NOT NULL,
   `Leader_email` varchar(250) NOT NULL,
-  `Leader_mobile` bigint(20) NOT NULL,
+  `Leader_mobile` int(10) NOT NULL,
   `Member1_name` varchar(100) NOT NULL,
   `Member1_email` varchar(250) NOT NULL,
-  `Member1_mobile` bigint(20) DEFAULT NULL,
-  `Member2_name` varchar(100) NOT NULL DEFAULT 'N/A',
-  `Member2_email` varchar(250) NOT NULL DEFAULT 'N/A',
-  `Member2_mobile` bigint(20) DEFAULT NULL,
-  `Member3_name` varchar(100) NOT NULL DEFAULT 'N/A',
-  `Member3_email` varchar(250) NOT NULL DEFAULT 'N/A',
-  `Member3_mobile` bigint(20) DEFAULT NULL,
-  `Member4_name` varchar(100) NOT NULL DEFAULT 'N/A',
-  `Member4_email` varchar(250) NOT NULL DEFAULT 'N/A',
-  `Member4_mobile` bigint(20) DEFAULT NULL,
-  `Member5_name` varchar(100) NOT NULL DEFAULT 'N/A',
-  `Member5_email` varchar(250) NOT NULL DEFAULT 'N/A',
-  `Member5_mobile` bigint(20) DEFAULT NULL
+  `Member1_mobile` int(10) NOT NULL,
+  `Member2_name` varchar(100) NOT NULL,
+  `Member2_email` varchar(250) NOT NULL,
+  `Member2_mobile` int(10) NOT NULL,
+  `Member3_name` varchar(100) NOT NULL,
+  `Member3_email` varchar(250) NOT NULL,
+  `Member3_mobile` int(10) NOT NULL,
+  `Member4_name` varchar(100) NOT NULL,
+  `Member4_email` varchar(250) NOT NULL,
+  `Member4_mobile` int(10) NOT NULL,
+  `Member5_name` varchar(100) NOT NULL,
+  `Member5_email` varchar(250) NOT NULL,
+  `Member5_mobile` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `organizer_master`
 --
+
+INSERT INTO `organizer_master` (`organizer_id`, `Leader_Name`, `event_id`, `Leader_email`, `Leader_mobile`, `Member1_name`, `Member1_email`, `Member1_mobile`, `Member2_name`, `Member2_email`, `Member2_mobile`, `Member3_name`, `Member3_email`, `Member3_mobile`, `Member4_name`, `Member4_email`, `Member4_mobile`, `Member5_name`, `Member5_email`, `Member5_mobile`) VALUES
+(2, 'RGT', 2, 'rgt@fsnf.com', 2147483647, 'sjfkfdbj', 'bdj@fdsf.com', 2147483647, 'sjfkfdbj', 'rgt@fsnf.com', 2147483647, 'sjfkfdbj', 'rgt@fsnf.com', 2147483647, 'sjfkfdbj', 'rgt@fsnf.com', 2147483647, 'sjfkfdbj', 'rgt@fsnf.com', 2147483647);
 
 -- --------------------------------------------------------
 
@@ -146,12 +147,43 @@ CREATE TABLE `user_master` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `user_master`
+-- Table structure for table `category_master`
+--
+
+CREATE TABLE `category_master` (
+  `category_id` int(11) NOT NULL,
+  `category_name` varchar(100) NOT NULL,
+  `image_path` varchar(254) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `category_master`
+--
+
+INSERT INTO `category_master` (`category_id`, `category_name`, `image_path`) VALUES
+(1, 'X-GAME', ''),
+(2, 'X-AI', ''),
+(3, 'X-TECH', ''),
+(4, 'X-CODE', ''),
+(5, 'X-DARE', ''),
+(6, 'X-THINK', '');
+
+--
+-- Indexes for table `category_master`
+--
+ALTER TABLE `category_master`
+  ADD PRIMARY KEY (`category_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- Indexes for dumped tables
+-- AUTO_INCREMENT for table `category_master`
 --
+ALTER TABLE `category_master`
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+COMMIT;
 
 --
 -- Indexes for table `department_master`
