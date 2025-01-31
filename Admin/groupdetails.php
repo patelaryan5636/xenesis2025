@@ -3,7 +3,7 @@
     
     require "../includes/scripts/connection.php";
 
-    $sql = "SELECT * FROM `organizer_master` where organizer_id = $id";
+    $sql = "SELECT * FROM `organizer_master` where event_id = $id";
     $result = mysqli_query($conn, $sql);
     $organizer_data = mysqli_fetch_assoc($result);
     $event_id = $organizer_data['event_id'];
