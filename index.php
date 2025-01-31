@@ -1,3 +1,20 @@
+<?php
+  require 'includes/scripts/connection.php';  
+  // include 'includes/scripts/config.php';
+  session_start();
+  if(isset($_SESSION['xenesis_logedin_user_id']) && (trim ($_SESSION['xenesis_logedin_user_id']) !== '')){
+      $user_id = $_SESSION['xenesis_logedin_user_id'];
+      $query = "SELECT * FROM user_master WHERE user_id = $user_id";
+      $result = mysqli_query($conn, $query);
+      $userdata = mysqli_fetch_assoc($result);
+      $user_role = $userdata["user_role"];
+      if($user_role == 2){
+        header("Location: Volunteer/registrationlist.php");
+      }else if($user_role == 1){
+        header("Location: admin/");
+      }
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -487,16 +504,40 @@
     </style>
   </head>
   <body>
-    <div class="navbar" id="navbar">
+  <?php
+       
+       $currentURL = $_SERVER['PHP_SELF'];
+       $currentPage = basename($currentURL);
+       if(isset($_SESSION['xenesis_logedin_user_id'])){
+           if($user_role == 3){
+                   ?>
+      <div class="navbar" id="navbar">
       <div class="logo">
         <a href="index.php" style="font-size: 20px"><img src="./assets/img/Xenesis_big_logo.png" alt="" style="height: 18px;"></a>
       </div>
       <div class="nav-links" id="nav-links">
-        <a href="index.php">HOME</a>
-        <a href="aboutus.php">ABOUT US</a>
+      <a href="index.php">HOME</a>
+        <a href="/">ABOUT US</a>
         <a href="event.php">EVENTS</a>
-        <a href="sign-up.php">REGISTER</a>
-        <a href="sign-in.php">LOGIN</a>
+        <a href="event_confirm.php">EVENTS CONFIRM</a>
+        <a href="event.php">PROFILE</a>
+        <?php
+         }
+        }else{?>
+          <div class="navbar" id="navbar">
+    <div class="logo">
+    <a href="index.php" style="font-size: 20px"><img src="./assets/img/Xenesis_big_logo.png" alt="" style="height: 18px;"></a>
+    </div>
+    <div class="nav-links" id="nav-links">
+      <a href="index.php">HOME</a>
+      <a href="/">ABOUT US</a>
+      <a href="event.php">EVENTS</a>
+      <a href="sign-up.php">REGISTER</a>
+      <a href="sign-in.php">LOGIN</a>
+<?php
+        }
+                  
+          ?>
       </div>
       <div class="hamburger" id="hamburger" onclick="toggleMenu()">
         <div class="line"></div>
@@ -547,11 +588,20 @@
     </div>
     <h1 class="title">CATEGORY</h1>
     <div class="card-container">
-      <a href="event.php" class="card">
+    <?php
+      $sql = "SELECT * FROM `category_master`";
+      $result = mysqli_query($conn,$sql);
+      while($row = mysqli_fetch_assoc($result)){
+    ?>
+      <a href="event.php?id=<?php echo $row['category_id'];?>" class="card">
         <img src="AI.jpg" alt="Card 1" />
-        <h1>X - GAME</h1>
+        <h1><?php echo $row['category_name']; ?></h1>
+        <h3><?php echo $row['category_description'];?></h3>
       </a>
-      <a href="event.php" class="card">
+      <?php
+        }
+      ?>
+      <!-- <a href="event.php" class="card">
         <img src="AI2.jpg" alt="Card 2" />
         <h1>X - AI</h1>
       </a>
@@ -570,7 +620,7 @@
       <a href="event.php" class="card">
         <img src="AI2.jpg" alt="Card 5" />
         <h1>X - THINK</h1>
-      </a>
+      </a> -->
     </div>
 
     <h1 class="title">GALLERY</h1>

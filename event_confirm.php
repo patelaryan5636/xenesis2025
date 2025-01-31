@@ -388,7 +388,7 @@
         <a href="index.php">HOME</a>
         <a href="aboutus.php">ABOUT US</a>
         <a href="event.php">EVENTS</a>
-        <a href="event_confirm.php">EVENTS CONFIRM</a>
+        <a href="event.php">EVENTS CONFIRM</a>
         <a href="event.php">PROFILE</a>
         <!-- <a href="sign-up.php">REGISTER</a>
         <a href="sign-in.php">LOGIN</a> -->
@@ -416,7 +416,7 @@
         <div class="line"></div>
       </div>
     </div>
-    <h1 class="title">EVENTS</h1>
+    <h1 class="title">EVENTS CONFIRM</h1>
     <div class="bg">
       <h1>XENESIS</h1>
     </div>
