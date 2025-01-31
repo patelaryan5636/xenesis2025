@@ -257,6 +257,9 @@
       }
       .home-button:hover {
         background: #76abae8f;
+      }  
+      .p{
+        color:  #76abae;
       }
     </style>
   </head>
@@ -270,7 +273,7 @@
         <h3>BE A PART OF XENESIS</h3>
       </div>
       <form action="includes/scripts/signmeup.php" method="post">
-        <p>
+        <p class="p">
           <?php
            if(isset( $_SESSION['xenesis_error_message'])){
             echo  $_SESSION['xenesis_error_message'];

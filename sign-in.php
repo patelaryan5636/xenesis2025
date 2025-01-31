@@ -255,6 +255,10 @@
         color: #76abae;
         opacity: 1;
       }
+
+      .psw{
+        color:  #76abae;
+      }
     </style>
   </head>
   <body>
@@ -270,7 +274,7 @@
         </h3>
       </div>
       <form action="includes/scripts/signmein.php" method="post">
-        <p>
+        <p class="psw">
           <?php
            if(isset( $_SESSION['xenesis_error_message'])){
             echo  $_SESSION['xenesis_error_message'];
