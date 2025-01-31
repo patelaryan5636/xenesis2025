@@ -30,7 +30,7 @@ if (isset($_POST['submit'])) {
                     $member5_email,$member5_mobile
                 ) = $data;
                 
-                $sql = "SELECT * FROM `event_master` WHERE `event_leader_no` = $leader_no";
+                $sql = "SELECT * FROM event_master WHERE event_leader_no = $leader_no";
                 $result = mysqli_query($conn,$sql);
                     
                 if (mysqli_num_rows($result) > 0) {
@@ -46,13 +46,13 @@ if (isset($_POST['submit'])) {
 
                   
                 // Insert data into the database
-                $sql = "INSERT INTO `organizer_master`( `Leader_Name`, `event_id`, `Leader_email`, `Leader_mobile`, `Member1_name`, `Member1_email`, `Member1_mobile`, `Member2_name`, `Member2_email`, `Member2_mobile`, `Member3_name`, `Member3_email`, `Member3_mobile`, `Member4_name`, `Member4_email`, `Member4_mobile`, `Member5_name`, `Member5_email`, `Member5_mobile`) VALUES ('$leader_name','$event_id','$leader_Email','$leader_no','$member1_name','$member1_email','$member1_mobile','$member2_name','$member2_email','$member2_mobile','$member3_name','$member3_email','$member3_mobile','$member4_name','$member4_email','$member4_mobile','$member5_name','$member5_email','$member5_mobile')";
-                // $sql = "INSERT INTO `event_master` 
-                // (`event_name`, `tagline`, `department_name`, `team_name`, `participation_price`, `participation_price_team`, 
-                // `team_member_count`, `winner_price1`, `winner_price2`, `winner_price3`, `location`, `date`, 
-                // `event_description`, `rules`, `round1_title`, `round1_description`, `round2_title`, 
-                // `round2_description`, `round3_title`, `round3_description`, `round4_title`, `round4_description`, 
-                // `round5_title`, `round5_description`, `images`, `image_path`, `max_tickets`) 
+                $sql = "INSERT INTO organizer_master( Leader_Name, event_id, Leader_email, Leader_mobile, Member1_name, Member1_email, Member1_mobile, Member2_name, Member2_email, Member2_mobile, Member3_name, Member3_email, Member3_mobile, Member4_name, Member4_email, Member4_mobile, Member5_name, Member5_email, Member5_mobile) VALUES ('$leader_name','$event_id','$leader_Email','$leader_no','$member1_name','$member1_email','$member1_mobile','$member2_name','$member2_email','$member2_mobile','$member3_name','$member3_email','$member3_mobile','$member4_name','$member4_email','$member4_mobile','$member5_name','$member5_email','$member5_mobile')";
+                // $sql = "INSERT INTO event_master 
+                // (event_name, tagline, department_name, team_name, participation_price, participation_price_team, 
+                // team_member_count, winner_price1, winner_price2, winner_price3, location, date, 
+                // event_description, rules, round1_title, round1_description, round2_title, 
+                // round2_description, round3_title, round3_description, round4_title, round4_description, 
+                // round5_title, round5_description, images, image_path, max_tickets) 
                 // VALUES 
                 // ('$event_name', '$event_tagline', '$department_name', '$team_name', '$participant_price', '$team_price', 
                 // '$team_member_count', '$winner_prize1', '$winner_prize2', '$winner_prize3', '$location', '$date', 

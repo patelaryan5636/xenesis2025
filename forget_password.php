@@ -4,12 +4,13 @@ session_start();
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 require 'vendor/autoload.php'; 
+require 'includes/scripts/connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
 
     // Check if email exists in the user table
-    $conn = new mysqli('localhost', 'root', '', 'xenesis2025');
+    // $conn = new mysqli('localhost', 'root', '', 'xenesis2025');
     
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);

@@ -248,7 +248,7 @@ session_start();
         <!-- <input type="submit">SEND EMAIL</input> -->
          <button>submit</button>
 
-        <p class="signup-link">Back to ? <a href="login.php">Login</a></p>
+        <p class="signup-link">Back to ? <a href="sign-in.php">Login</a></p>
       </form>
     </div>
 
