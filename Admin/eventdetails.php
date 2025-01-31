@@ -1,4 +1,4 @@
-<?php
+<?php 
     $id = $_GET['id'];
     // echo "$id";
     require "../includes/scripts/connection.php";
@@ -6,6 +6,7 @@
     $query = "SELECT * FROM `event_master` WHERE event_id = '$id'";
     $result = mysqli_query($conn, $query);
 
+    if($result){
     $eventdata = mysqli_fetch_assoc($result);
     
     $event_name = $eventdata['event_name'];
@@ -41,7 +42,7 @@
     $round5_desc = $eventdata['round5_description'];
     $image_path = $eventdata['image_path'];
     $max_tickets = $eventdata['max_tickets'];
-    
+    }
 ?>
 
 <!DOCTYPE html>
