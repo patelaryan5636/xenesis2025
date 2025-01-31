@@ -431,6 +431,16 @@
     <?php
   $sql = "SELECT * FROM `event_master` WHERE `is_status` =1";
   $result = mysqli_query($conn,$sql);
+  function encryptId($id) {
+    $key = "aryan5636"; // Use a secure key
+    return base64_encode(openssl_encrypt($id, "AES-128-CTR", $key, 0, "1234567891011121"));
+}
+
+// function decryptId($encryptedId) {
+//     $key = "aryan5636"; // Same key used for encryption
+//     return openssl_decrypt(base64_decode($encryptedId), "AES-128-CTR", $key, 0, "1234567891011121");
+// }
+
   while($row = mysqli_fetch_assoc($result)){
 
 ?>
@@ -456,7 +466,10 @@
           </div>
           <hr />
           <div>
-            <a href="eventdata.php?id= <?php echo $row['event_id'];?>">
+            <?php 
+                $event_id = encryptId($row['event_id']);
+            ?>
+            <a href="eventdata.php?id= <?php echo $event_id?>">
             <button class="button">more details</button>
             </a>
           </div>

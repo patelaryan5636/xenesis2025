@@ -1,3 +1,29 @@
+<?php
+  require 'includes/scripts/connection.php';  
+  // include 'includes/scripts/config.php';
+  session_start();
+  if(isset($_SESSION['xenesis_logedin_user_id']) && (trim ($_SESSION['xenesis_logedin_user_id']) !== '')){
+      $user_id = $_SESSION['xenesis_logedin_user_id'];
+      $query = "SELECT * FROM user_master WHERE user_id = $user_id";
+      $result = mysqli_query($conn, $query);
+      $userdata = mysqli_fetch_assoc($result);
+      $user_role = $userdata["user_role"];
+      if($user_role == 2){
+        header("Location: Volunteer/registrationlist.php");
+      }else if($user_role == 1){
+        header("Location: admin/");
+      }
+  }
+
+  function decryptId($encryptedId) {
+    $key = "aryan5636"; // Same key used for encryption
+    return openssl_decrypt(base64_decode($encryptedId), "AES-128-CTR", $key, 0, "1234567891011121");
+}
+
+$encryptedId = $_GET['id'];
+$id = decryptId($encryptedId);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
