@@ -227,9 +227,9 @@
                                                             <td>".
                                                                 $row['max_tickets']  
                                                             ."</td>
-                                                            <td>
-                                                                0987654321
-                                                            </td>
+                                                            <td>".
+                                                                $row['event_leader_no']
+                                                            ."</td>
                                                             <td>".
                                                                 $row['date']
                                                             ."</td>
