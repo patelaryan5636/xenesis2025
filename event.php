@@ -468,7 +468,14 @@
           <div class="tokenInfo">
             <div class="price">
               <ins></ins>
-              <p><?php echo $row['participation_price'];?></p>
+              <p><?php
+              if($row['participation_price'] == 0){
+               echo $row['participation_price_team'];
+               
+               }else{
+                echo $row['participation_price'];
+               }
+               ?></p>
             </div>
             <div class="etype">
               <p><?php 
