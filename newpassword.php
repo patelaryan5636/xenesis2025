@@ -2,6 +2,7 @@
 <?php
 
 session_start();
+require 'includes/scripts/connection.php';
 ?>
 
 <!DOCTYPE html>
@@ -289,7 +290,7 @@ if (isset($_GET['token'])) {
     $token = $_GET['token'];
 
     // Connect to the database
-    $conn = new mysqli('localhost', 'root', '', 'xenesis2025');
+    // $conn = new mysqli('localhost', 'root', '', 'xenesis2025');
     
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);

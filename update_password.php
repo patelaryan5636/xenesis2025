@@ -1,5 +1,6 @@
 <?php
 session_start();
+require 'includes/scripts/connection.php';
 // Check if the form is submitted via POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get the token and new password from the form
@@ -13,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
 
         // Connect to the database
-        $conn = new mysqli('localhost', 'root', '', 'xenesis2025');
+        // $conn = new mysqli('localhost', 'root', '', 'xenesis2025');
         
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);

@@ -523,8 +523,8 @@
       <a href="index.php">HOME</a>
         <a href="aboutus.php">ABOUT US</a>
         <a href="event.php">EVENTS</a>
-        <a href="event_confirm.php">EVENTS CONFIRM</a>
-        <a href="event.php">PROFILE</a>
+        <!-- <a href="event_confirm.php">EVENTS CONFIRM</a> -->
+        <a href="#">PROFILE</a>
         <?php
          }
         }else{?>
@@ -612,7 +612,7 @@
       <a href="event_department.php?id=<?php echo $category_id;?>" class="card">
         <img src="AI.jpg" alt="Card 1" />
         <h1><?php echo $row['category_name']; ?></h1>
-        <!-- <h3><?php echo $row['category_description'];?></h3> -->
+        <h3><?php echo $row['category_desc'];?></h3>
       </a>
       <?php
         }

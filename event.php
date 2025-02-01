@@ -388,8 +388,8 @@
         <a href="index.php">HOME</a>
         <a href="aboutus.php">ABOUT US</a>
         <a href="event.php">EVENTS</a>
-        <a href="event_confirm.php">EVENTS CONFIRM</a>
-        <a href="event">PROFILE</a>
+        <!-- <a href="event_confirm.php">EVENTS CONFIRM</a> -->
+        <a href="#">PROFILE</a>
         <!-- <a href="sign-up">REGISTER</a>
         <a href="sign-in">LOGIN</a> -->
       </div>
@@ -449,7 +449,7 @@
 ?>
       <div class="nft">
         <div class="main">
-          <img class="tokenImage" src="admin/<?php echo $row['image_path'];?>" alt="NFT" />
+          <img class="tokenImage" src="AI.jpg" alt="NFT" />
           <h2><?php echo $row['event_name'];?></h2>
           <p class="description">
             <?php echo $row['event_description']; ?>

@@ -10,6 +10,353 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Feb 01, 2025 at 10:39 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+DROP DATABASE IF EXISTS `xenesis2025`;
+CREATE DATABASE `xenesis2025`;
+USE `xenesis2025`;
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `xenesis2025`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `category_master`
+--
+
+CREATE TABLE `category_master` (
+  `category_id` int(11) NOT NULL,
+  `category_name` varchar(100) NOT NULL,
+  `category_desc` varchar(250) NOT NULL,
+  `image_path` varchar(254) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `category_master`
+--
+
+INSERT INTO `category_master` (`category_id`, `category_name`, `category_desc`, `image_path`) VALUES
+(1, 'X-GAME', 'Compete in epic gaming battles and prove your skills. ', ''),
+(2, 'X-AI', 'Unveil the future with cutting-edge AI innovations. ', ''),
+(3, 'X-TECH', 'Discover the latest tech trends shaping tomorrow', ''),
+(4, 'X-CODE', 'Code and create exciting programming challenges. ', ''),
+(5, 'X-DARE', 'Conquer bold challenges and push your limits', ''),
+(6, 'X-THINK', 'Crack mind-bending puzzles and boost your brainpower', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `department_master`
+--
+
+CREATE TABLE `department_master` (
+  `department_id` int(11) NOT NULL,
+  `department_name` varchar(50) NOT NULL,
+  `poster_image` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `department_master`
+--
+
+INSERT INTO `department_master` (`department_id`, `department_name`, `poster_image`) VALUES
+(1, 'Computer Engineering', ''),
+(2, 'Information Technology', ''),
+(3, 'Mechanical Engineering', ''),
+(4, 'Electrical Engineering', ''),
+(5, 'EC Engineering', ''),
+(6, 'Civil Engineering', ''),
+(7, 'Automobile Engineering', ''),
+(8, 'MBA Department', ''),
+(9, 'MCA Department', ''),
+(10, 'Science and Humanities', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `event_master`
+--
+
+CREATE TABLE `event_master` (
+  `event_id` int(11) NOT NULL,
+  `event_name` varchar(100) NOT NULL,
+  `tagline` text NOT NULL,
+  `department_id` int(11) NOT NULL,
+  `team_name` varchar(100) NOT NULL,
+  `event_leader_no` bigint(11) NOT NULL,
+  `participation_price` int(11) NOT NULL,
+  `participation_price_team` int(11) NOT NULL,
+  `team_member_count` int(11) NOT NULL,
+  `winner_price1` int(11) NOT NULL,
+  `winner_price2` int(11) NOT NULL,
+  `winner_price3` int(11) NOT NULL,
+  `location` varchar(200) NOT NULL,
+  `date` date NOT NULL,
+  `event_description` text NOT NULL,
+  `rules` text NOT NULL,
+  `round1_title` varchar(200) NOT NULL,
+  `round1_description` text DEFAULT NULL,
+  `round2_title` varchar(200) DEFAULT NULL,
+  `round2_description` text DEFAULT NULL,
+  `round3_title` varchar(200) DEFAULT NULL,
+  `round3_description` text DEFAULT NULL,
+  `round4_title` varchar(200) DEFAULT NULL,
+  `round4_description` text DEFAULT NULL,
+  `round5_title` varchar(200) DEFAULT NULL,
+  `round5_description` text DEFAULT NULL,
+  `images` varchar(254) NOT NULL,
+  `image_path` text NOT NULL,
+  `max_tickets` int(11) DEFAULT NULL,
+  `category_id` int(11) NOT NULL,
+  `is_status` int(11) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `forget_password_master`
+--
+
+CREATE TABLE `forget_password_master` (
+  `id` int(11) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `reset_token` varchar(255) NOT NULL,
+  `token_expiry` timestamp NOT NULL DEFAULT current_timestamp(),
+  `used` tinyint(1) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `group_master`
+--
+
+CREATE TABLE `group_master` (
+  `group_id` int(11) NOT NULL,
+  `event_id` int(11) NOT NULL,
+  `leader_id` varchar(14) NOT NULL,
+  `member_1` varchar(14) NOT NULL,
+  `member_2` varchar(14) NOT NULL,
+  `member_3` varchar(14) NOT NULL,
+  `member_4` varchar(14) NOT NULL,
+  `member_5` varchar(14) NOT NULL,
+  `member_6` varchar(14) NOT NULL,
+  `member_7` varchar(14) NOT NULL,
+  `is_confirmed` int(11) NOT NULL,
+  `confirmBy` varchar(14) NOT NULL,
+  `receipt_no` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `organizer_master`
+--
+
+CREATE TABLE `organizer_master` (
+  `organizer_id` int(11) NOT NULL,
+  `Leader_Name` varchar(100) NOT NULL,
+  `event_id` int(11) NOT NULL,
+  `Leader_email` varchar(250) NOT NULL,
+  `Leader_mobile` bigint(11) NOT NULL,
+  `Member1_name` varchar(100) NOT NULL,
+  `Member1_email` varchar(250) NOT NULL,
+  `Member1_mobile` bigint(11) NOT NULL,
+  `Member2_name` varchar(100) NOT NULL,
+  `Member2_email` varchar(250) NOT NULL,
+  `Member2_mobile` bigint(11) NOT NULL,
+  `Member3_name` varchar(100) NOT NULL,
+  `Member3_email` varchar(250) NOT NULL,
+  `Member3_mobile` bigint(11) NOT NULL,
+  `Member4_name` varchar(100) NOT NULL,
+  `Member4_email` varchar(250) NOT NULL,
+  `Member4_mobile` bigint(11) NOT NULL,
+  `Member5_name` varchar(100) NOT NULL,
+  `Member5_email` varchar(250) NOT NULL,
+  `Member5_mobile` bigint(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `participant_master`
+--
+
+CREATE TABLE `participant_master` (
+  `p_id` int(11) NOT NULL,
+  `event_id` int(11) NOT NULL,
+  `student_id` varchar(20) NOT NULL,
+  `is_confirmed` int(11) NOT NULL,
+  `confirmBy` varchar(20) NOT NULL,
+  `receipt_no` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_master`
+--
+
+CREATE TABLE `user_master` (
+  `user_id` int(11) NOT NULL,
+  `user_name` varchar(200) NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `password` varchar(200) NOT NULL,
+  `user_role` int(11) NOT NULL DEFAULT 3,
+  `joined_date` datetime NOT NULL DEFAULT current_timestamp(),
+  `full_name` varchar(100) NOT NULL,
+  `phone` bigint(11) NOT NULL,
+  `isVerified` int(11) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `user_master`
+--
+
+INSERT INTO `user_master` (`user_id`, `user_name`, `email`, `password`, `user_role`, `joined_date`, `full_name`, `phone`, `isVerified`) VALUES
+(1, 'RANGAT_@5636#', 'rangatprajapati@gmail.com', '$2y$10$veGYbBpYdBLuQr7QWsBdHummHYocVVbzXpiv5bMgOtLnIg33JNLf2', 1, '2025-02-01 11:31:29', 'RGT', 6358308020, 1),
+(2, 'Sachani_@5636#', 'sachaniaryan675@gmail.com', '$2y$10$uJxGNZI/X0rrxHXthdfgteo.rRzgTPUC.RAFsmvc.USHyjAQCnlOO', 1, '2025-02-01 11:33:47', 'Sachani Aryan', 6353054338, 1),
+(3, 'Admin_ldrp@5636##', 'Patelaryan5636@gmail.com', '$2y$10$/dH84rmDPck1Am1LvcYKSek2.ZEP6zmaiJ/ygoQ.xGCTwuizNBvFS', 1, '2025-02-01 11:36:39', 'LDRP_ADMIN', 6358308020, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `volunteer_master`
+--
+
+CREATE TABLE `volunteer_master` (
+  `volunteer_id` varchar(14) NOT NULL,
+  `wallet` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `category_master`
+--
+ALTER TABLE `category_master`
+  ADD PRIMARY KEY (`category_id`);
+
+--
+-- Indexes for table `department_master`
+--
+ALTER TABLE `department_master`
+  ADD PRIMARY KEY (`department_id`);
+
+--
+-- Indexes for table `event_master`
+--
+ALTER TABLE `event_master`
+  ADD PRIMARY KEY (`event_id`);
+
+--
+-- Indexes for table `forget_password_master`
+--
+ALTER TABLE `forget_password_master`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `group_master`
+--
+ALTER TABLE `group_master`
+  ADD PRIMARY KEY (`group_id`);
+
+--
+-- Indexes for table `organizer_master`
+--
+ALTER TABLE `organizer_master`
+  ADD PRIMARY KEY (`organizer_id`);
+
+--
+-- Indexes for table `participant_master`
+--
+ALTER TABLE `participant_master`
+  ADD PRIMARY KEY (`p_id`);
+
+--
+-- Indexes for table `user_master`
+--
+ALTER TABLE `user_master`
+  ADD PRIMARY KEY (`user_id`),
+  ADD UNIQUE KEY `user_name` (`user_name`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `category_master`
+--
+ALTER TABLE `category_master`
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `department_master`
+--
+ALTER TABLE `department_master`
+  MODIFY `department_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `event_master`
+--
+ALTER TABLE `event_master`
+  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `forget_password_master`
+--
+ALTER TABLE `forget_password_master`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `group_master`
+--
+ALTER TABLE `group_master`
+  MODIFY `group_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `organizer_master`
+--
+ALTER TABLE `organizer_master`
+  MODIFY `organizer_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `participant_master`
+--
+ALTER TABLE `participant_master`
+  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `user_master`
+--
+ALTER TABLE `user_master`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
 DROP DATABASE IF EXISTS `xenesis2025`;
 CREATE DATABASE `xenesis2025`;
