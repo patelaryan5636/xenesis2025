@@ -13,7 +13,10 @@
       }else if($user_role == 1){
         header("Location: admin/");
       }
-  }
+    }
+    aryan
+
+  
 ?>
 <!DOCTYPE html>
 <html lang="en">
