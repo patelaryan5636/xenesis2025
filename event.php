@@ -14,9 +14,6 @@
         header("Location: admin/");
       }
     }
-    aryan
-
-  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -375,6 +372,17 @@
         box-shadow: #02f2fe;
         transform: scale(1.03);
       }
+
+    .description {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-height: 3em;
+      line-height: 1.5em;
+      word-wrap: break-word;
+    }
     </style>
   </head>
 
