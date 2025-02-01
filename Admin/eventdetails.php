@@ -1,7 +1,23 @@
+<?php
+    require '../includes/scripts/connection.php';  
+    session_start();
+    if(isset($_SESSION['xenesis_logedin_user_id']) && (trim ($_SESSION['xenesis_logedin_user_id']) !== '')){
+        $user_id = $_SESSION['xenesis_logedin_user_id'];
+        $query = "SELECT * FROM user_master WHERE user_id = $user_id";
+        $result = mysqli_query($conn, $query);
+        $userdata = mysqli_fetch_assoc($result);
+        $user_role = $userdata["user_role"];
+        if($user_role != 1){
+            header("Location: ../404.php");
+        }
+    }else{
+        header("Location: ../sign-in.php");
+    }
+?>
 <?php 
     $id = $_GET['id'];
     // echo "$id";
-    require "../includes/scripts/connection.php";
+    // require "../includes/scripts/connection.php";
 
     $query = "SELECT * FROM `event_master` WHERE event_id = '$id'";
     $result = mysqli_query($conn, $query);

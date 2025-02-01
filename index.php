@@ -521,7 +521,7 @@
       </div>
       <div class="nav-links" id="nav-links">
       <a href="index.php">HOME</a>
-        <a href="/">ABOUT US</a>
+        <a href="aboutus.php">ABOUT US</a>
         <a href="event.php">EVENTS</a>
         <a href="event_confirm.php">EVENTS CONFIRM</a>
         <a href="event.php">PROFILE</a>
@@ -534,7 +534,7 @@
     </div>
     <div class="nav-links" id="nav-links">
       <a href="index.php">HOME</a>
-      <a href="/">ABOUT US</a>
+      <a href="aboutus.php">ABOUT US</a>
       <a href="event.php">EVENTS</a>
       <a href="sign-up.php">REGISTER</a>
       <a href="sign-in.php">LOGIN</a>

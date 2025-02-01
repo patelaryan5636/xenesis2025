@@ -414,7 +414,7 @@ $id = decryptId($encryptedId);
         </div>
     <div class="nav-links" id="nav-links">
       <a href="index.php">HOME</a>
-      <a href="/">ABOUT US</a>
+      <a href="aboutus.php">ABOUT US</a>
       <a href="event.php">EVENTS</a>
       <a href="sign-up.php">REGISTER</a>
       <a href="sign-in.php">LOGIN</a>
@@ -443,12 +443,7 @@ $id = decryptId($encryptedId);
     <?php
   $sql = "SELECT * FROM `event_master` WHERE `is_status` =1 and `category_id` = $id";
   $result = mysqli_query($conn,$sql);
-//   function encryptId($id) {
-//     $key = "xene"; // Use a secure key
-//     return base64_encode(openssl_encrypt($id, "AES-128-CTR", $key, 0, "1234567891011121"));
-// }
-// $sql = "SELECT * FROM `event_master` WHERE `is_status` =1";
-//   $result = mysqli_query($conn,$sql);
+
   function encryptId($id) {
     $key = "aryan5636"; // Use a secure key
     $iv = "1234567891011121"; // IV must be 16 bytes for AES-128-CTR
