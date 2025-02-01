@@ -353,7 +353,7 @@
                                 <div class="col-lg4 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label>Event Rules</label>
-                                        <textarea name="e_desc" class="form-control"><?php echo "$rules"; ?></textarea>
+                                        <textarea name="e_rules" class="form-control"><?php echo "$rules"; ?></textarea>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-sm-6 col-12">
