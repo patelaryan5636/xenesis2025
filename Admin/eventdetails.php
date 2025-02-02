@@ -241,7 +241,7 @@
                                         <li>
                                             <h4>Team Name</h4>
                                             <h6>
-                                                <?php echo $team_name; echo $mobile ?>
+                                                <?php echo $team_name ?>
                                             </h6>
                                         </li>
                                         <li>
