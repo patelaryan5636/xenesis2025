@@ -40,7 +40,7 @@
         color: #eee;
         user-select: none;
         padding-top: 8px;
-        background: url("AI3.jpg") no-repeat center center fixed;
+        background: url("AI2.jpg") no-repeat center center fixed;
         background-size: cover;
         overflow: scroll;
       }

@@ -610,7 +610,7 @@
       $category_id = encryptId($row['category_id']);
     ?>
       <a href="event_department.php?id=<?php echo $category_id;?>" class="card">
-        <img src="AI.jpg" alt="Card 1" />
+        <img src="<?php echo $row['image_path'];?>" alt="Card 1" />
         <h1><?php echo $row['category_name']; ?></h1>
         <h3><?php echo $row['category_desc'];?></h3>
       </a>
