@@ -4,7 +4,7 @@
 ?><!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>REGISTER</title>
+    <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" type="image/x-icon" href="./assets/img/Xenesis2025_logo.png">
     <link
@@ -286,9 +286,15 @@
   
           ?>
           </p>
-        <input type="text" name="user_enrollment" placeholder="Enrollment Number" required />
+        <input type="text" name="user_enrollment"
+        pattern="[A-Za-z0-9]{9,16}" 
+        title="Enrollment number must be 9-16 characters and contain only letters and digits."
+        placeholder="Enrollment Number" required />
         <input type="email"  name="user_email" placeholder="Email ID" required />
-        <input type="tel" name="user_phone" placeholder="Mobile Number" required />
+        <input type="tel" name="user_phone" placeholder="Mobile Number"
+        pattern="[0-9]{10}" 
+        title="Mobile number must be exactly 10 digits"
+        required />
         <input type="text"  name="full_name" placeholder="Full Name" required />
 
         <div class="row">
@@ -298,6 +304,8 @@
               name="user_password"
               id="password1"
               placeholder="Password"
+                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+              title="Password must contain at least one uppercase, lowercase, digit, special character, and be at least 8 characters."
               required
             />
             <i class="fas fa-eye toggle-password" id="togglePassword1"></i>

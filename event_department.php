@@ -39,7 +39,7 @@ $id = decryptId($encryptedId);
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
 
-    <title>EVENTS</title>
+    <title>XENESIS-2025</title>
     <style>
       body {
         margin: 0;
@@ -451,7 +451,15 @@ $id = decryptId($encryptedId);
     <div class="nft-wrapper">
 
     <?php
-  $sql = "SELECT * FROM `event_master` WHERE `is_status` =1 and `category_id` = $id";
+     if(isset($_SESSION['xenesis_logedin_user_id']) && (trim ($_SESSION['xenesis_logedin_user_id']) !== '')){
+  $sql = "SELECT * FROM `event_master` WHERE `is_status` =1 and `category_id` = $id AND event_id NOT IN (
+    SELECT event_id FROM participant_master WHERE student_id = $user_id
+    UNION
+    SELECT event_id FROM group_master WHERE leader_id = $user_id
+);";
+     }else{
+      $sql = "SELECT * FROM `event_master` WHERE `is_status` = 1 and `category_id` = $id";
+     }
   $result = mysqli_query($conn,$sql);
 
   function encryptId($id) {

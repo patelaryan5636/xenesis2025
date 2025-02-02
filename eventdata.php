@@ -53,7 +53,7 @@ $row2 = mysqli_fetch_assoc($result1);
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" type="image/x-icon" href="./assets/img/Xenesis2025_logo.png">
-    <title>Event Details</title>
+    <title>XENESIS-2025</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Spectral+SC:wght@600&display=swap"
       rel="stylesheet"

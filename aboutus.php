@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Xenesis 2025</title>
+    <title> Xenesis 2025</title>
     <link rel="stylesheet" href="styles.css" />
     <script defer src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>

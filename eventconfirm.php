@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 require 'includes/scripts/connection.php';  
 session_start();
 if(isset($_SESSION['xenesis_logedin_user_id']) && (trim ($_SESSION['xenesis_logedin_user_id']) !== '')){
@@ -26,7 +26,7 @@ if(isset($_SESSION['xenesis_logedin_user_id']) && (trim ($_SESSION['xenesis_loge
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
 
-    <title>EVENTS</title>
+    <title>XENESIS-2025</title>
     <style>
       body {
         margin: 0;
@@ -589,4 +589,4 @@ if(isset($_SESSION['xenesis_logedin_user_id']) && (trim ($_SESSION['xenesis_loge
       }
     </script>
   </body>
-</html>
+</html> -->

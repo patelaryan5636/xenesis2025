@@ -8,6 +8,7 @@
       $result = mysqli_query($conn, $query);
       $userdata = mysqli_fetch_assoc($result);
       $user_role = $userdata["user_role"];
+      $user_id = $userdata['user_id'];
       if($user_role == 2){
         header("Location: Volunteer/registrationlist.php");
       }else if($user_role == 1){
@@ -27,7 +28,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
 
-    <title>EVENTS</title>
+    <title>XENESIS-2025</title>
     <style>
       body {
         margin: 0;
@@ -439,7 +440,17 @@
     <div class="nft-wrapper">
 
     <?php
-  $sql = "SELECT * FROM `event_master` WHERE `is_status` =1";
+    if(isset($_SESSION['xenesis_logedin_user_id']) && (trim ($_SESSION['xenesis_logedin_user_id']) !== '')){
+  $sql = "SELECT * FROM event_master 
+  WHERE is_status = 1 
+  AND event_id NOT IN (
+    SELECT event_id FROM participant_master WHERE student_id = $user_id
+    UNION
+    SELECT event_id FROM group_master WHERE leader_id = $user_id
+);";
+    } else {
+      $sql = "SELECT * FROM event_master WHERE is_status = 1";
+    }
   $result = mysqli_query($conn,$sql);
   function encryptId($id) {
     $key = "aryan5636"; // Use a secure key

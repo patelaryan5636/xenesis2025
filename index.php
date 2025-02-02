@@ -643,13 +643,16 @@
     <div class="slider">
       <div class="slides">
         <div class="slide">
-          <img src="AI.jpg" alt="Slide 1" />
+          <img src="gallery1.jpg" alt="Slide 1" />
         </div>
         <div class="slide">
-          <img src="AI2.jpg" alt="Slide 2" />
+          <img src="gallery2.jpg" alt="Slide 2" />
         </div>
         <div class="slide">
-          <img src="AI3.jpg" alt="Slide 3" />
+          <img src="gallery3.jpg" alt="Slide 3" />
+        </div>
+        <div class="slide">
+          <img src="gallery4.jpg" alt="Slide 3" />
         </div>
       </div>
       <div class="slider-buttons">
