@@ -27,6 +27,7 @@
     
     $event_name = $eventdata['event_name'];
     $tagline = $eventdata['tagline'];
+    $mobile = $eventdata['event_leader_no'];
     $dept_id = $eventdata['department_id'];
     $team_name = $eventdata['team_name'];
     
@@ -240,7 +241,13 @@
                                         <li>
                                             <h4>Team Name</h4>
                                             <h6>
-                                                <?php echo $team_name; ?>
+                                                <?php echo $team_name; echo $mobile ?>
+                                            </h6>
+                                        </li>
+                                        <li>
+                                            <h4>LEADER_MO.</h4>
+                                            <h6>
+                                                <?php echo $mobile ?>
                                             </h6>
                                         </li>
                                         <li>

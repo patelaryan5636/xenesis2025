@@ -27,7 +27,7 @@
     $tagline = $eventdata['tagline'];
     $dept_id = $eventdata['department_id'];
     $team_name = $eventdata['team_name'];
-    $team_leader_mobile = $event_data['event_leader_no'];
+    $team_leader_mobile = $eventdata['event_leader_no'];
     // $dept_fetch_query = "SELECT * FROM `department_master` WHERE department_id = '$dept_id'";
     // $dept_result = mysqli_query($conn, $dept_fetch_query);
     
