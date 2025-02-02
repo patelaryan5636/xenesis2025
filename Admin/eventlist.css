@@ -1,0 +1,64 @@
+th {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: red;
+}
+
+.header h1 {
+    text-align: center;
+    color: rgb(75, 0, 75);
+    font-family: math;
+}
+
+.header h2 span {
+    color: rgb(75, 0, 75);
+
+}
+
+.type {
+    margin-bottom: -10px;
+    padding: 0;
+    font-size: 1.3rem;
+}
+
+.header h2 {
+    text-align: center;
+    text-decoration: underline;
+}
+
+table{
+    border: 1px solid black;
+    width: 100%;
+}
+
+th{
+    border: 1px solid black;
+    color: rgb(75, 0, 75);
+    font-size: 1.3rem;
+}
+
+td{
+    border: 1px solid black;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.ptable tr{
+    background-color: rgba(230, 38, 230, 0.062);
+}
+
+.left{
+    color: red;
+    text-align: left;
+}
+
+.right{
+    text-align: right;
+    color: blue;
+}
+
+td{
+    list-style: none;
+}
