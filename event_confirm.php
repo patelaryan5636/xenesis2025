@@ -1,19 +1,19 @@
 <?php
-  require 'includes/scripts/connection.php';  
-  // include 'includes/scripts/config.php';
-  session_start();
-  if(isset($_SESSION['xenesis_logedin_user_id']) && (trim ($_SESSION['xenesis_logedin_user_id']) !== '')){
-      $user_id = $_SESSION['xenesis_logedin_user_id'];
-      $query = "SELECT * FROM user_master WHERE user_id = $user_id";
-      $result = mysqli_query($conn, $query);
-      $userdata = mysqli_fetch_assoc($result);
-      $user_role = $userdata["user_role"];
-      if($user_role == 2){
-        header("Location: Volunteer/registrationlist.php");
-      }else if($user_role == 1){
-        header("Location: admin/");
-      }
-  }
+require 'includes/scripts/connection.php';  
+session_start();
+if(isset($_SESSION['xenesis_logedin_user_id']) && (trim ($_SESSION['xenesis_logedin_user_id']) !== '')){
+    $user_id = $_SESSION['xenesis_logedin_user_id'];
+    $query = "SELECT * FROM user_master WHERE user_id = $user_id";
+    $result = mysqli_query($conn, $query);
+    $userdata = mysqli_fetch_assoc($result);
+    $user_role = $userdata["user_role"];
+    $user_id = $userdata['user_id'];
+    if($user_role != 3){
+        header("Location: 404.php");
+    }
+} else {
+    header("Location: sign-in.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -372,33 +372,42 @@
         box-shadow: #02f2fe;
         transform: scale(1.03);
       }
+      .description {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-height: 3em;
+      line-height: 1.5em;
+      word-wrap: break-word;
+    }
     </style>
   </head>
 
   <body>
-      <?php
+  <?php
       if(isset($_SESSION['xenesis_logedin_user_id'])){
            if($user_role == 3){
                    ?>
      <div class="navbar" id="navbar">
       <div class="logo">
-        <a href="index.php" style="font-size: 20px"><img src="./assets/img/Xenesis_big_logo.png" alt="" style="height: 18px;"></a>
+        <a href="index" style="font-size: 20px"><img src="./assets/img/Xenesis_big_logo.png" alt="" style="height: 18px;"></a>
       </div>
         <div class="nav-links" id="nav-links">
         <a href="index.php">HOME</a>
         <a href="aboutus.php">ABOUT US</a>
         <a href="event.php">EVENTS</a>
-        <a href="event.php">EVENTS CONFIRM</a>
-        <a href="event.php">PROFILE</a>
-        <!-- <a href="sign-up.php">REGISTER</a>
-        <a href="sign-in.php">LOGIN</a> -->
+        <a href="event_confirm.php">EVENTS CONFIRM</a>
+        <a href="profile.php">PROFILE</a>
+        
       </div>
       <?php
          }
         }else{?>
         <div class="navbar" id="navbar">
         <div class="logo">
-        <a href="index.php" style="font-size: 20px"><img src="./assets/img/Xenesis_big_logo.png" alt="" style="height: 18px;"></a>
+        <a href="index" style="font-size: 20px"><img src="./assets/img/Xenesis_big_logo.png" alt="" style="height: 18px;"></a>
         </div>
     <div class="nav-links" id="nav-links">
       <a href="index.php">HOME</a>
@@ -429,35 +438,47 @@
     <div class="nft-wrapper">
 
     <?php
-  $sql = "SELECT * FROM `event_master` WHERE `is_status` =1";
+  $sql = "SELECT * FROM `participant_master` WHERE `student_id` = $user_id";
   $result = mysqli_query($conn,$sql);
   while($row = mysqli_fetch_assoc($result)){
-
+    $event_id = $row['event_id'];
+    $sql2 = "SELECT * FROM `event_master` where event_id = $event_id";
+    $result1 = mysqli_query($conn,$sql2);
+    $row2 = mysqli_fetch_assoc($result1);
 ?>
       <div class="nft">
         <div class="main">
-          <img class="tokenImage" src="<?php echo $row['image_path'];?>" alt="NFT" />
-          <h2><?php echo $row['event_name'];?></h2>
+          <img class="tokenImage" src="AI2.jpg" alt="NFT" />
+          <h2><?php echo $row2['event_name'];?></h2>
           <p class="description">
-            <?php echo $row['event_description']; ?>
+            <?php echo $row2['event_description']; ?>
           </p>
           <div class="tokenInfo">
             <div class="price">
               <ins></ins>
-              <p><?php echo $row['participation_price'];?></p>
+              <p><?php echo $row2['participation_price'];?></p>
             </div>
             <div class="etype">
               <p><?php echo "solo event";?></p>
             </div>
             <div class="duration">
               <ins>◷</ins>
-              <p><?php echo $row['date'];?></p>
+              <p><?php echo $row2['date'];?></p>
             </div>
           </div>
           <hr />
           <div>
-            <a href="eventdata.php?id= <?php echo $row['event_id'];?>">
-            <button class="button">more details</button>
+            <?php 
+            if($row['is_confirmed'] == 0){
+            ?>
+            <button class="button">unconfirmed</button>
+            <?php
+            }else{
+            ?>
+            <button class="button">confirmed</button>
+            <?php
+            }
+            ?>
             </a>
           </div>
         </div>
@@ -465,6 +486,58 @@
       <?php
       }
       ?>
+
+      <!-- group event -->
+    <?php
+    $sql = "SELECT * FROM `group_master` WHERE `leader_id` = $user_id";
+    $result = mysqli_query($conn,$sql);
+    while($row = mysqli_fetch_assoc($result)){
+    $event_id = $row['event_id'];
+    $sql2 = "SELECT * FROM `event_master` where event_id = $event_id";
+    $result1 = mysqli_query($conn,$sql2);
+    $row2 = mysqli_fetch_assoc($result1);
+?>
+      <div class="nft">
+        <div class="main">
+          <img class="tokenImage" src="AI2.jpg" alt="NFT" />
+          <h2><?php echo $row2['event_name'];?></h2>
+          <p class="description">
+            <?php echo $row2['event_description']; ?>
+          </p>
+          <div class="tokenInfo">
+            <div class="price">
+              <ins></ins>
+              <p><?php echo $row2['participation_price_team'];?></p>
+            </div>
+            <div class="etype">
+              <p><?php echo "group event";?></p>
+            </div>
+            <div class="duration">
+              <ins>◷</ins>
+              <p><?php echo $row2['date'];?></p>
+            </div>
+          </div>
+          <hr />
+          <div>
+            <?php 
+            if($row['is_confirmed'] == 0){
+            ?>
+            <button class="button">unconfirmed</button>
+            <?php
+            }else{
+            ?>
+            <button class="button">confirmed</button>
+            <?php
+            }
+            ?>
+          </div>
+        </div>
+      </div>
+      <?php
+      }
+      ?>
+
+
       <!-- <div class="nft">
         <div class="main">
           <img class="tokenImage" src="AI.jpg" alt="NFT" />

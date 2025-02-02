@@ -22,6 +22,13 @@
     return openssl_decrypt(base64_decode($encryptedId), "AES-128-CTR", $key, 0, $iv);
 }
 
+function encryptId($id) {
+  $key = "xenesis2025"; // Use a secure key
+  $iv = "1234567891011121"; // IV must be 16 bytes for AES-128-CTR
+
+  return base64_encode(openssl_encrypt($id, "AES-128-CTR", $key, 0, $iv));
+}
+
 
 $encryptedId = $_GET['id'];
 $id = decryptId($encryptedId);
@@ -299,7 +306,17 @@ $row2 = mysqli_fetch_assoc($result1);
         </div>
       </div>
 
-      <a href="#register" class="participate-btn">Participate Now</a>
+      <?php $event_id = encryptId($row['event_id']); 
+      if($row['team_member_count'] > 1){
+                ?> 
+                <a href="group.php?id=<?php echo $event_id;?>" class="participate-btn">Participate Now</a>
+                <?php
+              }else{
+                ?>
+                <a href="solo.php?id=<?php echo $event_id;?>" class="participate-btn">Participate Now</a>
+                <?php
+              }
+              ?>
     </div>
   </body>
 </html>

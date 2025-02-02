@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EMAIL VER</title>
+    <title>XENESIS-2025</title>
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -74,10 +74,10 @@
   <body>
     <div class="container">
       <img src="frobo.png" alt="Small Animated Image" class="animated-image" />
-      <h1>Request is Send Successfully...</h1>
+      <h1>Your Request is Pending...</h1>
       <p>
-        Your request has been sent successfully, Cheak your Email for Forgot
-        Password
+        Please meet our volunteer and complete the payment to confirm your
+        request.
       </p>
       <button onclick="goHome()">GO TO HOME</button>
     </div>
