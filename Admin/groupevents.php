@@ -13,6 +13,13 @@
     }else{
         header("Location: ../sign-in.php");
     }
+
+    function encryptId($id) {
+        $key = "aryan5636"; // Use a secure key
+        $iv = "1234567891011121"; // IV must be 16 bytes for AES-128-CTR
+    
+        return base64_encode(openssl_encrypt($id, "AES-128-CTR", $key, 0, $iv));
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -219,19 +226,45 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                <?php 
+                                        $sql = "SELECT * FROM `group_master` WHERE `is_confirmed` = 1";
+                                        $result = mysqli_query($conn,$sql);
+                                        if($result->num_rows>1){
+                                        while($row = mysqli_fetch_assoc($result)){
+                                        $event_id = $row['event_id'];
+
+                                        $sql2 = "SELECT * FROM `event_master` WHERE`event_id` = $event_id";
+                                        $result2 = mysqli_query($conn,$sql2);
+                                        if($result2->num_rows>1){
+                                        $row2 = mysqli_fetch_assoc($result2);
+
+                                        $sql3 = "SELECT `Leader_Name`,`Leader_email`,`Leader_mobile` FROM `organizer_master` WHERE `event_id` = $event_id";
+                                        $result3 = mysqli_query($conn,$sql3);
+                                        if($result3->num_rows>1){
+                                        $row3 = mysqli_fetch_assoc($result3);
+                                        $event1_id = encryptId($row['event_id']);
+                                      
+                                    
+                                    ?>
                                     <tr>
-                                        <td>PYS</td>
-                                        <td>PYS</td>
-                                        <td>CE</td>
-                                        <td>25-12-2005</td>
-                                        <td>9978343950</td>
-                                        <td>55</td>
+                                        <td><?php echo $row2['event_name'];?></td>
+                                        <td><?php echo $row3['Leader_Name'];?></td>
+                                        <td><?php echo $row2['department_id']; ?></td>
+                                        <td><?php echo $row2['date'];?></td>
+                                        <td><?php echo $row2['event_leader_no'];?></td>
+                                        <td><?php echo $row3['Leader_email'];?></td>
                                         <td>
                                             <a class='me-3' href='groupeventspdf.php'>
                                                 <img src='../assets/img/icons/pdf.svg' alt='img'>
                                             </a>
                                         </td>
                                     </tr>
+                                    <?php
+                                        }
+                                    }
+                                }
+                            }
+                                    ?>
                                 </tbody>
                             </table>
                         </div>

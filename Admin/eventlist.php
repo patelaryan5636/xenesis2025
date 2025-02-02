@@ -13,6 +13,13 @@
     }else{
         header("Location: ../sign-in.php");
     }
+
+    function encryptId($id) {
+        $key = "xenesis5636"; // Use a secure key
+        $iv = "1234567891011121"; // IV must be 16 bytes for AES-128-CTR
+    
+        return base64_encode(openssl_encrypt($id, "AES-128-CTR", $key, 0, $iv));
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -244,50 +251,66 @@
                                             require "../includes/scripts/connection.php";
                                             $sql = "SELECT * FROM `event_master`";
                                             $result = $conn->query($sql);
+                                            $count1 = 1;
                                             if($result->num_rows > 0){
                                                 while($row = $result->fetch_assoc()){
-                                                    echo "<tr>
-                                                            <td>".
-                                                                $row['event_name']
-                                                            ."</td>
-                                                            <td>".
-                                                                $row['participation_price']
-                                                            ."</td>
-                                                            <td>".
-                                                                $row['team_member_count']
-                                                            ."</td>
-                                                            <td>".
-                                                                $row['max_tickets']  
-                                                            ."</td>
-                                                            <td>".
-                                                                $row['event_leader_no']
-                                                            ."</td>
-                                                            <td>".
-                                                                $row['date']
-                                                            ."</td>
+                                                    ?>
+                                                    <tr>
                                                             <td>
-                                                                <a class=' d-inline-block mb-3'>
-                                                                    <input type='checkbox' id='user4' class='check' checked=''>
-                                                                    <label for='user4' class='checktoggle'>checkbox</label>
-                                                                 </a>
-                                                                 <a class=' d-inline-block mb-3'>
-                                                                    <input type='checkbox' id='user5' class='check' unchecked=''>
-                                                                    <label for='user5' class='checktoggle'>checkbox</label>
-                                                                 </a>
+                                                               <?php echo $row['event_name']; ?>
                                                             </td>
                                                             <td>
+                                                                <?php echo $row['participation_price'];?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo $row['team_member_count'];?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo $row['max_tickets']; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo $row['event_leader_no']; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo $row['date']; ?>
+                                                            </td>
+                                                            <td>
+                                                            <?php 
+                                                                    $event_id = encryptId($row['event_id']);
+                                                                    if($row['is_status'] == 1){
+                                                                ?>
+                                                                <a href="disable_event.php?id=<?php echo $event_id;?>" class=' d-inline-block mb-3'>
+                                                                    <input type='checkbox' id='user<?php echo $count;?>' class='check' checked=''>
+                                                                    <label for='user<?php echo $count;?>' class='checktoggle'>checkbox</label>
+                                                                 </a>
+                                                                 <?php 
+                                                                    }else{
+                                                                 
+                                                                 ?>
+                                                                 <a href="enable_event.php?id=<?php echo $event_id;?>" class=' d-inline-block mb-3'>
+                                                                    <input type='checkbox' id='user<?php echo $count;?>' class='check' unchecked=''>
+                                                                    <label for='user<?php echo $count;?>' class='checktoggle'>checkbox</label>
+                                                                 </a>
+                                                                 <?php 
+                                                                    }
+                                                                 ?>
+                                                            </td>
+                                                            <td>
+                                                                
                                                                 <a class='me-3'
-                                                                    href='eventdetails.php?id=".$row['event_id']."'>
+                                                                    href=eventdetails.php?id=<?php echo $row['event_id'];?>>
                                                                     <img src='../assets/img/icons/eye.svg' alt='img'>
                                                                 </a>
-                                                                <a class='me-3' href='editevent.php?id=".$row['event_id']."'>
+                                                                <a class='me-3' href=editevent.php?id=<?php $row['event_id']?>>
                                                                     <img src='../assets/img/icons/edit.svg' alt='img'>
                                                                 </a>
                                                             </td>
-                                                        </tr>";
+                                                        </tr>
+                                                 <?php           
                                                 }
                                             }
-                                        ?>
+                                            ?>
+                                        
                                 </tbody>
                             </table>
                         </div>

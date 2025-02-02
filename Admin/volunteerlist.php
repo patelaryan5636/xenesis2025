@@ -56,8 +56,9 @@
 
         <div class="header bord">
 
-        <div class="header-left active">
-                <a href="index.php" class="logo" style="font-size:35px; color: rgb(150, 0, 150); font-weight:bold; margin-left:23px;">
+            <div class="header-left active">
+                <a href="index.php" class="logo"
+                    style="font-size:35px; color: rgb(150, 0, 150); font-weight:bold; margin-left:23px;">
                     <span style="color: rgb(0, 0, 102)">X</span>enesis
                 </a>
                 <a href="index.php" class="logo-small" style="font-size:32px; font-weight:bold;">
@@ -100,8 +101,8 @@
                             <hr class="m-0">
                             <a class="dropdown-item" href="profile.php"> <i class="me-2" data-feather="user"></i> My
                                 Profile</a>
-                            <a class="dropdown-item logout pb-0" href="#"><img
-                                    src="../assets/img/icons/log-out.svg" class="me-2" alt="img">Logout</a>
+                            <a class="dropdown-item logout pb-0" href="#"><img src="../assets/img/icons/log-out.svg"
+                                    class="me-2" alt="img">Logout</a>
                         </div>
                     </div>
                 </li>
@@ -131,7 +132,7 @@
                         </li>
                         <li class="submenu">
                             <a href="javascript:void(0);"><img src="../assets/img/icons/product.svg" alt="img"><span>
-                                Events</span> <span class="menu-arrow"></span></a>
+                                    Events</span> <span class="menu-arrow"></span></a>
                             <ul>
                                 <li><a href="eventlist.php">Events</a></li>
                                 <li><a href="grouplist.php">Organizer Groups</a></li>
@@ -141,7 +142,7 @@
                         </li>
                         <li class="submenu">
                             <a href="javascript:void(0);"><img src="../assets/img/icons/product.svg" alt="img"><span>
-                                Events Participers</span> <span class="menu-arrow"></span></a>
+                                    Events Participers</span> <span class="menu-arrow"></span></a>
                             <ul>
                                 <li><a href="soloevents.php">Solo Events</a></li>
                                 <li><a href="groupevents.php">Group Events</a></li>
@@ -154,10 +155,38 @@
         <div class="page-wrapper">
             <div class="content">
                 <!-- alert-box -->
-                <!-- <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>Je lakhvu hoy</strong> te lakho.
+                <?php
+           if(isset( $_SESSION['xenesis_error_message'])){
+            ?>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>
+                        <?php echo  $_SESSION['xenesis_error_message'];
+          
+          ?>
+                        </p>
+                    </strong>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div> -->
+                </div>
+                <?php
+    }
+    unset($_SESSION['xenesis_error_message']);
+    ?>
+                <?php
+           if(isset( $_SESSION['xenesis_success_message'])){
+            ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>
+                        <?php echo  $_SESSION['xenesis_success_message'];
+          
+          ?>
+                        </p>
+                    </strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php
+    }
+    unset($_SESSION['xenesis_success_message']);
+    ?>
                 <!-- alert-box End -->
                 <div class="page-header">
                     <div class="page-title">
@@ -165,8 +194,8 @@
                         <h6>Manage your Volunteers</h6>
                     </div>
                     <div class="page-btn">
-                        <a href="addvolunteer.php" class="btn btn-added"><img src="../assets/img/icons/plus.svg" alt="img"
-                                class="me-1">Add New Volunteer</a>
+                        <a href="addvolunteer.php" class="btn btn-added"><img src="../assets/img/icons/plus.svg"
+                                alt="img" class="me-1">Add New Volunteer</a>
                     </div>
                 </div>
 
@@ -182,8 +211,7 @@
                             <div class="wordset">
                                 <ul>
                                     <li>
-                                        <a href="#"
-                                            data-bs-toggle="tooltip" data-bs-placement="top" title="pdf"><img
+                                        <a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="pdf"><img
                                                 src="../assets/img/icons/pdf.svg" alt="img"></a>
                                     </li>
                                 </ul>
@@ -196,23 +224,50 @@
                                         <th>Volunteer Name</th>
                                         <th>Mobile Number</th>
                                         <th>Wallet</th>
-                                        <th>Volunteer Role</th>
+                                        <th>Volunteer email</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php 
+                                $sql = "SELECT * FROM `user_master` WHERE `user_role` = 2";
+                                $result = mysqli_query($conn,$sql);
+                                $sum = 0;
+                                $total = 0;
+                                while($row = mysqli_fetch_assoc($result)){
+                                    $vol_id = $row['user_id'];
+                                    $sql1 = "SELECT * FROM `participant_master` WHERE `confirmBy` = $vol_id and `is_confirmed` = 1";
+                                    $result2 = mysqli_query($conn,$sql1);
+                                    while($row2 = mysqli_fetch_assoc($result2)){
+                                       $event_id = $row2['event_id'];
+                                        $sql2 = "SELECT `participation_price` FROM `event_master` WHERE `event_id` = $event_id";
+                                        $result3 = mysqli_query($conn,$sql2);
+                                        $row3 = mysqli_fetch_assoc($result3);
+                                        $sum += $row3['participation_price'];
+                                    }
+                                    $sql4 = "SELECT * FROM `group_master` WHERE `confirmBy` = $vol_id and `is_confirmed` = 1";
+                                    $result4 = mysqli_query($conn,$sql4);
+                                    while($row4 = mysqli_fetch_assoc($result4)){
+                                        $event_id = $row4['event_id'];
+                                        $sql7 = "SELECT `participation_price_team` FROM `event_master` WHERE `event_id` = $event_id";
+                                        $result7 = mysqli_query($conn,$sql7);
+                                        $row7 = mysqli_fetch_assoc($result7);
+                                        $total += $row7['participation_price_team'];
+                                    }
+                                    $wallet = $sum + $total;
+                                ?>
                                     <tr>
                                         <td>
-                                            PYS
+                                            <?php echo $row['full_name'];?>
                                         </td>
                                         <td>
-                                           1212
+                                            <?php echo $row['phone'];?>
                                         </td>
                                         <td>
-                                            1212
+                                            <?php echo $wallet ?>
                                         </td>
                                         <td>
-                                            sdfsdf
+                                            <?php echo $row['email'];?>
                                         </td>
                                         <td>
                                             <a class="me-3" href="editvolunteer.php">
@@ -223,6 +278,9 @@
                                             </a>
                                         </td>
                                     </tr>
+                                    <?php
+                                }
+                                    ?>
                                 </tbody>
                             </table>
                         </div>

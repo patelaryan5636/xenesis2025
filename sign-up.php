@@ -278,12 +278,7 @@
            if(isset( $_SESSION['xenesis_error_message'])){
             echo  $_SESSION['xenesis_error_message'];
           }
-           
-  
           unset($_SESSION['xenesis_error_message']);
-      
-          
-  
           ?>
           </p>
         <input type="text" name="user_enrollment"
