@@ -472,7 +472,8 @@ if(isset($_SESSION['xenesis_logedin_user_id']) && (trim ($_SESSION['xenesis_loge
 ?>
       <div class="nft">
         <div class="main">
-          <img class="tokenImage" src="AI2.jpg" alt="NFT" />
+          <img class="tokenImage" src="./assets/img/bg.jpg" alt="NFT" />
+          <div class="text-overlay"><?php echo $row2['event_name'];?></div>
           <h2><?php echo $row2['event_name'];?></h2>
           <p class="description">
             <?php echo $row2['event_description']; ?>
@@ -480,22 +481,22 @@ if(isset($_SESSION['xenesis_logedin_user_id']) && (trim ($_SESSION['xenesis_loge
           <div class="tokenInfo">
             <div class="price">
               <ins></ins>
-              <p><?php echo $row2['participation_price'];?></p>
+              <p>&#x20b9;<?php echo $row2['participation_price'];?></p>
             </div>
             <div class="etype">
               <p><?php echo "solo event";?></p>
             </div>
-            <div class="duration">
-              <ins>◷</ins>
-              <p><?php echo $row2['date'];?></p>
-            </div>
+            
           </div>
+          <div class="duration" style="display: flex; align-items: center; justify-content: center; margin-top: -15px; color: rgb(181, 181, 181);">
+              <p>◷ <?php echo $row2['date'];?></p>
+            </div>
           <hr />
           <div>
             <?php 
             if($row['is_confirmed'] == 0){
             ?>
-            <button class="button">unconfirmed</button>
+            <button class="button">Pending...</button>
             <?php
             }else{
             ?>
@@ -523,7 +524,7 @@ if(isset($_SESSION['xenesis_logedin_user_id']) && (trim ($_SESSION['xenesis_loge
 ?>
       <div class="nft">
         <div class="main">
-          <img class="tokenImage" src="AI2.jpg" alt="NFT" />
+          <img class="tokenImage" src="./assets/img/bg.jpg" alt="NFT" />
           <h2><?php echo $row2['event_name'];?></h2>
           <p class="description">
             <?php echo $row2['event_description']; ?>
