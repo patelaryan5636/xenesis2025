@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->Subject = "🔑 Reset Your Password - Xenesis Event";
 
             // Body content with reset link
-            $resetLink = "http://localhost/xenesis2025/newpassword.php?token=$token"; // Adjust your domain URL accordingly
+            $resetLink = "https://194.163.171.109/xenesis2025/newpassword.php?token=$token"; // Adjust your domain URL accordingly
             $mail->isHTML(true);
             $mail->Body = "
                 <div style='max-width: 600px; margin: auto; font-family: Arial, sans-serif; background: #f9f9f9; padding: 20px; border-radius: 10px; border: 1px solid #ddd;'>
