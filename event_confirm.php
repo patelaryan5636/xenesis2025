@@ -546,7 +546,7 @@ if(isset($_SESSION['xenesis_logedin_user_id']) && (trim ($_SESSION['xenesis_loge
             <?php 
             if($row['is_confirmed'] == 0){
             ?>
-            <button class="button">unconfirmed</button>
+            <button class="button">Pending...</button>
             <?php
             }else{
             ?>
