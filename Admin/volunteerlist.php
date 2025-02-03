@@ -232,9 +232,9 @@
                                     <?php 
                                 $sql = "SELECT * FROM `user_master` WHERE `user_role` = 2";
                                 $result = mysqli_query($conn,$sql);
-                                $sum = 0;
-                                $total = 0;
                                 while($row = mysqli_fetch_assoc($result)){
+                                    $sum = 0;
+                                    $total = 0;
                                     $vol_id = $row['user_id'];
                                     $sql1 = "SELECT * FROM `participant_master` WHERE `confirmBy` = $vol_id and `is_confirmed` = 1";
                                     $result2 = mysqli_query($conn,$sql1);

@@ -4,7 +4,7 @@
 
 $hostname = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'];
 
-$conn = new mysqli("localhost","xenesisldrpac_root","Ldrp@7894","xenesisldrpac_xenesis2025");
+$conn = new mysqli("localhost","root","","xenesisldrpac_xenesis2025");
 
 // Check connection
 if ($conn->connect_error) {

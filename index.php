@@ -9,7 +9,7 @@
       $userdata = mysqli_fetch_assoc($result);
       $user_role = $userdata["user_role"];
       if($user_role == 2){
-        header("Location: Volunteer/registrationlist.php");
+        header("Location: Volunteer/soloevent.php");
       }else if($user_role == 1){
         header("Location: admin/");
       }
