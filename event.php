@@ -40,7 +40,7 @@
         color: #eee;
         user-select: none;
         padding-top: 8px;
-        background: url("AI2.jpg") no-repeat center center fixed;
+        background: url("./assets/img/mainbg.jpg") no-repeat center center fixed;
         background-size: cover;
         overflow: scroll;
       }
@@ -384,6 +384,29 @@
       line-height: 1.5em;
       word-wrap: break-word;
     }
+
+    .text-overlay {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        top: 26%;
+        left: 50%;
+        transform: translate(-45%, -50%);
+
+        color: white;
+        font-size: 23px;
+        font-weight: bolder;
+        padding: 10px 20px;
+        border-radius: 5px;
+        z-index: 10;
+        max-width: 60%;
+        text-align: center;
+        word-wrap: break-word;
+        white-space: normal;
+      }
+
+      .tokenImage {
+        opacity: 0.8;
+      }
     </style>
   </head>
 
@@ -470,7 +493,8 @@
 ?>
       <div class="nft">
         <div class="main">
-          <img class="tokenImage" src="AI.jpg" alt="NFT" />
+          <img class="tokenImage" src="./assets/img/bg.jpg" alt="NFT" />
+          <div class="text-overlay"><?php echo $row['event_name'];?></div>
           <h2><?php echo $row['event_name'];?></h2>
           <p class="description">
             <?php echo $row['event_description']; ?>
