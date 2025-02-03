@@ -507,7 +507,7 @@ if(isset($_SESSION['xenesis_logedin_user_id']) && (trim ($_SESSION['xenesis_loge
           <div class="tokenInfo">
             <div class="price">
               <ins></ins>
-              <p><?php echo $row2['participation_price_team'];?></p>
+              <p>&#x20b9;<?php echo $row2['participation_price_team'];?></p>
             </div>
             <div class="etype">
               <p><?php echo "group event";?></p>

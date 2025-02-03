@@ -123,6 +123,14 @@
           transform: translateY(0);
         }
       }
+
+      .logout{
+        color: #272727;
+    text-decoration: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    width: 100%;
+      }
     </style>
   </head>
   <body>
@@ -137,6 +145,7 @@
         <div class="info-box">Enrollment No : <?php echo $userdata['user_name'];?></div>
         <div class="info-box">Email ID : <?php echo $userdata['email']; ?></div>
         <div class="info-box">Mobile No : +91 <?php echo $userdata['phone'];?></div>
+        <div class="info-box"><a href="logout.php" class="logout">Logout</a></div>
       </div>
     </div>
 

@@ -478,7 +478,7 @@
           <div class="tokenInfo">
             <div class="price">
               <ins></ins>
-              <p><?php
+              <p>&#x20b9;<?php
               if($row['participation_price'] == 0){
                echo $row['participation_price_team'];
                
