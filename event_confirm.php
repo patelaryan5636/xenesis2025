@@ -39,7 +39,7 @@ if(isset($_SESSION['xenesis_logedin_user_id']) && (trim ($_SESSION['xenesis_loge
         color: #eee;
         user-select: none;
         padding-top: 8px;
-        background: url("AI3.jpg") no-repeat center center fixed;
+        background: url("./assets/img/mainbg.jpg") no-repeat center center fixed;
         background-size: cover;
         overflow: scroll;
       }
@@ -372,7 +372,8 @@ if(isset($_SESSION['xenesis_logedin_user_id']) && (trim ($_SESSION['xenesis_loge
         box-shadow: #02f2fe;
         transform: scale(1.03);
       }
-      .description {
+
+    .description {
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
@@ -382,6 +383,29 @@ if(isset($_SESSION['xenesis_logedin_user_id']) && (trim ($_SESSION['xenesis_loge
       line-height: 1.5em;
       word-wrap: break-word;
     }
+
+    .text-overlay {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        top: 26%;
+        left: 50%;
+        transform: translate(-47%, -57%);
+        /* text-transform: uppercase; */
+        color: white;
+        font-size: 30px;
+        font-weight: bolder;
+        padding: 10px 20px;
+        border-radius: 5px;
+        z-index: 10;
+        max-width: 70%;
+        text-align: center;
+        word-wrap: break-word;
+        white-space: normal;
+      }
+
+      .tokenImage {
+        opacity: 0.8;
+      }
     </style>
   </head>
 
@@ -512,10 +536,9 @@ if(isset($_SESSION['xenesis_logedin_user_id']) && (trim ($_SESSION['xenesis_loge
             <div class="etype">
               <p><?php echo "group event";?></p>
             </div>
-            <div class="duration">
-              <ins>◷</ins>
-              <p><?php echo $row2['date'];?></p>
-            </div>
+          </div>
+          <div class="duration" style="display: flex; align-items: center; justify-content: center; margin-top: -15px; color: rgb(181, 181, 181);">
+            <p>◷ <?php echo $row['date'];?></p>
           </div>
           <hr />
           <div>
