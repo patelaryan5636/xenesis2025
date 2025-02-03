@@ -13,6 +13,12 @@
     }else{
         header("Location: ../sign-in.php");
     }
+    function encryptId($id) {
+        $key = "aryan5636"; // Use a secure key
+        $iv = "1234567891011121"; // IV must be 16 bytes for AES-128-CTR
+    
+        return base64_encode(openssl_encrypt($id, "AES-128-CTR", $key, 0, $iv));
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,11 +56,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
     <style>
-        .card * {
+        .card *{
             font-size: 20px !important;
         }
-
-        .btn-searchset {
+        .btn-searchset{
             display: flex;
             justify-content: center;
             align-items: center;
@@ -86,49 +91,6 @@
                     <span></span>
                 </span>
             </a>
-
-            <ul class="nav user-menu">
-
-
-                <li class="nav-item dropdown has-arrow main-drop">
-                    <a href="javascript:void(0);" class="dropdown-toggle nav-link userset" data-bs-toggle="dropdown">
-                        <span class="user-img"><img src="../assets/img/Xenesis2025_logo.png" alt="img">
-                            <span class="status online"></span></span>
-                    </a>
-                    <div class="dropdown-menu menu-drop-user">
-                        <div class="profilename">
-                            <div class="profileset">
-                                <span class="user-img"><img src="../assets/img/Xenesis2025_logo.png" alt="img">
-                                    <span class="status online"></span></span>
-                                <div class="profilesets">
-                                    <h6>
-                                        Priyanshu
-                                    </h6>
-                                    <h5>
-                                        Frontend
-                                    </h5>
-                                </div>
-                            </div>
-                            <hr class="m-0">
-                            <a class="dropdown-item" href="profile.php"> <i class="me-2" data-feather="user"></i> My
-                                Profile</a>
-                            <a class="dropdown-item logout pb-0" href="#"><img src="../assets/img/icons/log-out.svg"
-                                    class="me-2" alt="img">Logout</a>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-
-
-            <div class="dropdown mobile-user-menu">
-                <a href="javascript:void(0);" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
-                    aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="profile.php">My Profile</a>
-                    <!-- <a class="dropdown-item" href="generalsettings.php">Settings</a> -->
-                    <a class="dropdown-item" href="logout.php">Logout</a>
-                </div>
-            </div>
         </div>
 
 
@@ -136,17 +98,27 @@
         <div class="sidebar" id="sidebar">
             <div class="sidebar-inner slimscroll">
                 <div id="sidebar-menu" class="sidebar-menu">
-                    <ul>
-                        <li>
-                            <a href="registrationlist.php" class="active"><i data-feather="user"></i><span>
-                                    Participants</span> </a>
+                <ul>
+                        <li class="submenu">
+                            <a href="#"><i data-feather="user"></i><span>
+                                    Participants</span><span class="menu-arrow"> </a>
+                                    <ul>
+                                <li><a href="soloevent.php">Solo Events</a></li>
+                                <li><a href="groupevent.php" class="active">Group Events</a></li>
+
+                            </ul>
                         </li>
                     </ul>
                     <ul>
-                        <li>
-                            <a href="approvedlist.php" class="active"><img src="../assets/img/icons/enable.svg"
+                        <li class="submenu">
+                            <a href="#"><img src="../assets/img/icons/enable.svg"
                                     alt=""><span>
-                                    Approved</span> </a>
+                                    Approved</span><span class="menu-arrow"> </a>
+                                    <ul>
+                                <li><a href="approvedsoloevent.php">Solo Events</a></li>
+                                <li><a href="approvedgroupevent.php">Group Events</a></li>
+
+                            </ul>
                         </li>
                     </ul>
                 </div>
@@ -188,14 +160,50 @@
                                         <th>Enrollment no.</th>
                                         <th>Event Name</th>
                                         <th>Amount</th>
+                                        <th>team name</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                <?php 
+                                  $sql = "SELECT * FROM `group_master` WHERE `is_confirmed` = 0";
+                                  $result = mysqli_query($conn,$sql);
+                                  while($row = mysqli_fetch_assoc($result)){
+
+                                    $username = $row['leader_id'];
+                                    $sql2 = "SELECT * FROM `user_master` WHERE `user_id` = $username";
+                                    $result2 = mysqli_query($conn,$sql2);
+                                    $row2 = mysqli_fetch_assoc($result2);
+                                    $user_name = $row2['user_name'];
+
+                                    $eventname = $row['event_id'];
+                                    $sql3 = "SELECT * FROM `event_master` WHERE `event_id` = $eventname";
+                                    $result3 = mysqli_query($conn,$sql3);
+                                    $row3 = mysqli_fetch_assoc($result3);
+                                    $event_name = $row3['event_name'];
+                                    $price = $row3['participation_price_team'];
+                                    $p_id = encryptId($row['group_id']);
+                              
+                                  ?>
+                        
                                     <tr>
-                                        <td>224SBECE30055</td>
-                                        <td>BGMI</td>
-                                        <td>1000</td>
+                                        <td><?php echo $user_name;?></td>
+                                        <td><?php echo $event_name;?></td>
+                                        <td><?php echo $price?></td>
+                                        <td><?php echo $row['team_name'];?></td>
+                                        <td>
+                                            <a class='me-3' href='groupregistration.php?id=<?php echo $p_id;?>'>
+                                                <img src='../assets/img/icons/enable.svg' alt='img' style='height: 30px;'>
+                                            </a>
+                                            <a class='me-3' href='#'>
+                                                <img src='../assets/img/icons/disable.svg' alt='img' style='height: 33px;'>
+                                            </a>
+                                        </td>
                                     </tr>
+                                    <?php 
+
+                                  }
+?>
                                 </tbody>
                             </table>
                         </div>
@@ -204,6 +212,7 @@
             </div>
         </div>
     </div>
+    
 
 
     <script src="../assets/js/jquery-3.6.0.min.js"></script>
