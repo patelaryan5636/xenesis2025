@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 03, 2025 at 05:03 AM
+-- Generation Time: Feb 03, 2025 at 08:30 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -11,9 +11,6 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-DROP DATABASE IF EXISTS `xenesisldrpac_xenesis2025`;
-CREATE DATABASE `xenesisldrpac_xenesis2025`;
-USE `xenesisldrpac_xenesis2025`;
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -332,7 +329,12 @@ CREATE TABLE `user_master` (
 INSERT INTO `user_master` (`user_id`, `user_name`, `email`, `password`, `user_role`, `joined_date`, `full_name`, `phone`, `isVerified`) VALUES
 (1, 'RANGAT_@5636#', 'rangatprajapati@gmail.com', '$2y$10$veGYbBpYdBLuQr7QWsBdHummHYocVVbzXpiv5bMgOtLnIg33JNLf2', 1, '2025-02-01 11:31:29', 'RGT', 6358308020, 1),
 (2, 'Sachani_@5636#', 'sachaniaryan675@gmail.com', '$2y$10$uJxGNZI/X0rrxHXthdfgteo.rRzgTPUC.RAFsmvc.USHyjAQCnlOO', 1, '2025-02-01 11:33:47', 'Sachani Aryan', 6353054338, 1),
-(3, 'Admin_ldrp@5636##', 'Patelaryan5636@gmail.com', '$2y$10$/dH84rmDPck1Am1LvcYKSek2.ZEP6zmaiJ/ygoQ.xGCTwuizNBvFS', 1, '2025-02-01 11:36:39', 'LDRP_ADMIN', 6358308020, 1);
+(3, 'Admin_ldrp@5636##', 'Patelaryan5636@gmail.com', '$2y$10$/dH84rmDPck1Am1LvcYKSek2.ZEP6zmaiJ/ygoQ.xGCTwuizNBvFS', 1, '2025-02-01 11:36:39', 'LDRP_ADMIN', 6358308020, 1),
+(19, '080160107044', 'trupesh1991@gmail.com', '$2y$10$A8hHXUx72/KCDLWrmUomAe2rl8MLICRfLKVFT2st5iTFeyuy3CEC6', 3, '2025-02-03 12:07:41', 'testing user', 9714772445, 1),
+(21, '22BEIT30196', 'abhaysuthar6355@gmail.com', '$2y$10$woP6Q62gUaMMz61mTZAzauJRSjvte1RsNmMhuQetJ0mraZAL076Bm', 3, '2025-02-03 12:24:17', 'Suthar ABhay Gautamkukmar', 6354326242, 1),
+(22, 'Swapanil_&07', '22beit30160@gmail.com', '$2y$10$qv/esSEFg7DNlxqE6.Qc9uNU0FwWJ.aBnlKRyEQBu2Y8R2Pk4u4gO', 2, '2025-02-03 12:36:57', 'Swapnil rathod', 7433070550, 1),
+(24, 'Abhay#07', 'krishprajapati1580k@gmail.com', '$2y$10$C0il2WDMIgbZ8icgyu0ZouuZ7u54Z/F0LbR7.tkryr7V2CkG5kiOC', 2, '2025-02-03 12:42:17', 'suthar abhay', 6354326242, 1),
+(25, 'Jaansu#25', 'krish_22160@ldrp.ac.in', '$2y$10$7bR9V.2u7ujMN1KJj89sQehRjc2EjbCqFh/XESSUL.2whG94WgxtK', 2, '2025-02-03 12:44:03', 'Jaansu patel', 7984639276, 1);
 
 -- --------------------------------------------------------
 
@@ -419,7 +421,7 @@ ALTER TABLE `forget_password_master`
 -- AUTO_INCREMENT for table `group_master`
 --
 ALTER TABLE `group_master`
-  MODIFY `group_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `group_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `organizer_master`
@@ -431,13 +433,13 @@ ALTER TABLE `organizer_master`
 -- AUTO_INCREMENT for table `participant_master`
 --
 ALTER TABLE `participant_master`
-  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `user_master`
 --
 ALTER TABLE `user_master`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
