@@ -390,15 +390,15 @@
         position: absolute;
         top: 26%;
         left: 50%;
-        transform: translate(-45%, -53%);
-
+        transform: translate(-47%, -57%);
+        /* text-transform: uppercase; */
         color: white;
-        font-size: 36px;
+        font-size: 30px;
         font-weight: bolder;
         padding: 10px 20px;
         border-radius: 5px;
         z-index: 10;
-        max-width: 60%;
+        max-width: 70%;
         text-align: center;
         word-wrap: break-word;
         white-space: normal;
@@ -521,10 +521,10 @@
               ?>
              </p>
             </div>
-            <div class="duration">
-              <ins>◷</ins>
-              <p><?php echo $row['date'];?></p>
-            </div>
+            
+          </div>
+          <div class="duration" style="display: flex; align-items: center; justify-content: center; margin-top: -15px; color: rgb(181, 181, 181);">
+            <p>◷ <?php echo $row['date'];?></p>
           </div>
           <hr />
           <div>
