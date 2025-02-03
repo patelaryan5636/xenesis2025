@@ -539,7 +539,7 @@ if(isset($_SESSION['xenesis_logedin_user_id']) && (trim ($_SESSION['xenesis_loge
             </div>
           </div>
           <div class="duration" style="display: flex; align-items: center; justify-content: center; margin-top: -15px; color: rgb(181, 181, 181);">
-            <p>◷ <?php echo $row['date'];?></p>
+            <p>◷ <?php echo $row2['date'];?></p>
           </div>
           <hr />
           <div>
