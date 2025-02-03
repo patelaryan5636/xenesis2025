@@ -280,17 +280,18 @@ $row2 = mysqli_fetch_assoc($result1);
           <h4>Date</h4>
           <p><?php echo $row['date']; ?></p>
         </div>
-        <div class="info-box">
-          <h4>Description</h4>
-          <p><?php echo $row['event_description']; ?></p>
-        </div>
-        <div class="info-box">
-          <h4>Rules</h4>
-          <p><?php echo $row['rules']; ?></p>
-        </div>
+        
       </div>
 
       <div class="rounds">
+      <div class="round">
+          <h3>Description</h3>
+          <p><?php echo $row['event_description']; ?></p>
+        </div>
+        <div class="round">
+          <h3>Rules</h3>
+          <p><?php echo $row['rules']; ?></p>
+        </div>
         <div class="round">
           <h3>ROUND 1: <?php echo $row['round1_title']; ?></h3>
           <p><?php echo $row['round1_description'];?></p>
