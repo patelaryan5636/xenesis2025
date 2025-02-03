@@ -390,10 +390,10 @@
         position: absolute;
         top: 26%;
         left: 50%;
-        transform: translate(-45%, -50%);
+        transform: translate(-45%, -53%);
 
         color: white;
-        font-size: 23px;
+        font-size: 36px;
         font-weight: bolder;
         padding: 10px 20px;
         border-radius: 5px;
