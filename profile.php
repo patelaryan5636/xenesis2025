@@ -19,7 +19,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Profile Page</title>
+    <title>XENESIS-2025</title>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap");
 
