@@ -173,7 +173,7 @@ $row2 = mysqli_fetch_assoc($result1);
       .round p {
         font-size: 1.1rem;
         color: #fff;
-        font-family: cursive;
+        font-family: inherit;
       }
 
       .participate-btn {
@@ -187,6 +187,7 @@ $row2 = mysqli_fetch_assoc($result1);
         display: inline-block;
         transition: background-color 0.3s ease;
         position: relative;
+        width: 100%;
         z-index: 1000;
       }
 
@@ -201,7 +202,7 @@ $row2 = mysqli_fetch_assoc($result1);
 
         header img {
           height: 200px;
-          width: auto;
+          width: 100%;
         }
 
         .event-info {
@@ -223,8 +224,8 @@ $row2 = mysqli_fetch_assoc($result1);
   <body>
     <div class="container">
       <header>
-        <img src="AI3.jpg" alt="Event Image" />
-        <div class="event-name">Tech Innovators 2025</div>
+        <img src="./assets/img/bg.jpg" alt="Event Image" />
+        <div class="event-name"><?php echo $row['event_name']; ?></div>
       </header>
 
       <div class="event-info">
