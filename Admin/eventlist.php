@@ -296,14 +296,15 @@
                                                                  ?>
                                                             </td>
                                                             <td>
-                                                                
-                                                                <a class='me-3'
-                                                                    href=eventdetails.php?id=<?php echo $row['event_id'];?>>
+                                                                <?php
+                                                                echo "<a class='me-3'
+                                                                    href=eventdetails.php?id=".$row['event_id'].">
                                                                     <img src='../assets/img/icons/eye.svg' alt='img'>
                                                                 </a>
-                                                                <a class='me-3' href=editevent.php?id=<?php $row['event_id']?>>
+                                                                <a class='me-3' href=editevent.php?id=".$row['event_id'].">
                                                                     <img src='../assets/img/icons/edit.svg' alt='img'>
-                                                                </a>
+                                                                </a>"
+                                                                ?>
                                                             </td>
                                                         </tr>
                                                  <?php           
