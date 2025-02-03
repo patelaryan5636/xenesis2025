@@ -216,54 +216,79 @@
                             <table class="table  datanew">
                                 <thead>
                                     <tr>
-                                        <th>Event Name</th>
+                                    <th>Event Name</th>
                                         <th>Organizer Name</th>
                                         <th>Department</th>
                                         <th>Date</th>
                                         <th>Leader Mo. No.</th>
-                                        <th>Participent number</th>
+                                        <th>Confirmed</th>
+                                        <th>Unconfirmed</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 <?php 
-                                        $sql = "SELECT * FROM `group_master` WHERE `is_confirmed` = 1";
-                                        $result = mysqli_query($conn,$sql);
-                                        if($result->num_rows>1){
-                                        while($row = mysqli_fetch_assoc($result)){
-                                        $event_id = $row['event_id'];
 
-                                        $sql2 = "SELECT * FROM `event_master` WHERE`event_id` = $event_id";
+
+                                        $sql2 = "SELECT * FROM `event_master` WHERE team_member_count > 1";
                                         $result2 = mysqli_query($conn,$sql2);
-                                        if($result2->num_rows>1){
-                                        $row2 = mysqli_fetch_assoc($result2);
+                                        while($row = mysqli_fetch_assoc($result2)){
+                                        $eventid = $row['event_id'];
+                                        $department_id = $row['department_id'];
 
-                                        $sql3 = "SELECT `Leader_Name`,`Leader_email`,`Leader_mobile` FROM `organizer_master` WHERE `event_id` = $event_id";
-                                        $result3 = mysqli_query($conn,$sql3);
-                                        if($result3->num_rows>1){
-                                        $row3 = mysqli_fetch_assoc($result3);
-                                        $event1_id = encryptId($row['event_id']);
+                                        $sql6 = "SELECT `department_name` FROM `department_master` WHERE `department_id` = $department_id";
+                                        $result = mysqli_query($conn,$sql6);
+                                        $row8 = mysqli_fetch_assoc($result);
+                                        $department_name = $row8['department_name'];
+
+                                        $sql7 = "SELECT `Leader_Name` FROM `organizer_master` WHERE `event_id` = $eventid";
+                                        $result = mysqli_query($conn,$sql7);
+                                        $row9 = mysqli_fetch_assoc($result);
+                                        $leadername = $row9['Leader_Name'];
+                                        $sql1 = "SELECT COUNT(*) AS confirm FROM `group_master` WHERE `event_id` = $eventid and `is_confirmed` = 1";
+                                        $result1 = mysqli_query($conn,$sql1);
+                                        $row4= mysqli_fetch_assoc($result1);
+                                        $isconfirmed = $row4['confirm'];
+                                        $sql5 = "SELECT COUNT(*) AS unconfirm FROM `group_master` WHERE `event_id` = $eventid and `is_confirmed` = 0";
+                                        $result5 = mysqli_query($conn,$sql5);
+                                        $row5= mysqli_fetch_assoc($result5);
+                                        $isunconfirmed = $row5['unconfirm'];
+                                        // $sql = "SELECT * FROM `group_master` WHERE `is_confirmed` = 1";
+                                        // $result = mysqli_query($conn,$sql);
+                                        // if($result->num_rows>1){
+                                        // while($row = mysqli_fetch_assoc($result)){
+                                        // $event_id = $row['event_id'];
+
+                                        // $sql2 = "SELECT * FROM `event_master` WHERE`event_id` = $event_id";
+                                        // $result2 = mysqli_query($conn,$sql2);
+                                        // if($result2->num_rows>1){
+                                        // $row2 = mysqli_fetch_assoc($result2);
+
+                                        // $sql3 = "SELECT `Leader_Name`,`Leader_email`,`Leader_mobile` FROM `organizer_master` WHERE `event_id` = $event_id";
+                                        // $result3 = mysqli_query($conn,$sql3);
+                                        // if($result3->num_rows>1){
+                                        // $row3 = mysqli_fetch_assoc($result3);
+                                        // $event1_id = encryptId($row['event_id']);
                                       
                                     
                                     ?>
                                     <tr>
-                                        <td><?php echo $row2['event_name'];?></td>
-                                        <td><?php echo $row3['Leader_Name'];?></td>
-                                        <td><?php echo $row2['department_id']; ?></td>
-                                        <td><?php echo $row2['date'];?></td>
-                                        <td><?php echo $row2['event_leader_no'];?></td>
-                                        <td><?php echo $row3['Leader_email'];?></td>
+                                    <td><?php echo $row['event_name'];?></td>
+                                        <td><?php echo $leadername;?></td>
+                                        <td><?php echo $department_name; ?></td>
+                                        <td><?php echo $row['date'];?></td>
+                                        <td><?php echo $row['event_leader_no'];?></td>
+                                        <td><?php echo $isconfirmed;?></td>
+                                        <td><?php echo $isunconfirmed;?></td>
                                         <td>
-                                            <a class='me-3' href='groupeventspdf.php'>
+                                            <a class='me-3' target="_BLANK" href='groupeventspdf.php'>
                                                 <img src='../assets/img/icons/pdf.svg' alt='img'>
                                             </a>
                                         </td>
-                                    </tr>
+                                        </tr>
                                     <?php
                                         }
-                                    }
-                                }
-                            }
+                                  
                                     ?>
                                 </tbody>
                             </table>

@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Send Email
         $mail->send();
-        echo "Email sent successfully!";
+        // echo "Email sent successfully!";
     } catch (Exception $e) {
         echo "Error: {$mail->ErrorInfo}";
     }
