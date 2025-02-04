@@ -23,10 +23,12 @@ function decryptId($encryptedId) {
 $encryptedId = $_GET['id'];
 $id = decryptId($encryptedId);
 
-$sql = "SELECT * FROM `event_master` WHERE `event_id` = $id";
+$sql = "SELECT * FROM event_master WHERE event_id = $id";
 $result1 = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result1);
-$team_member_count = $row['team_member_count']; 
+
+// Split the team_member_count "2-3" into min and max
+list($minMembers, $maxMembers) = explode("-", $row['team_member_count']);
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +45,7 @@ $team_member_count = $row['team_member_count'];
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            height: auto;
             color: #fff;
         }
         .container {
@@ -73,17 +75,12 @@ $team_member_count = $row['team_member_count'];
             cursor: pointer;
         }
         button:hover { background-color: #3c57589e; }
-        .suggestion-box {
-            position: absolute;
-            background: #31363f;
-            border: 1px solid #76abae;
-            border-radius: 4px;
-            max-height: 150px;
-            overflow-y: auto;
-            z-index: 1000;
+
+        .suggestion-box{
+            background-color: #ab4141;
+            border-radius: 15px;
+            padding: 2px 11px;
         }
-        .suggestion-item { padding: 10px; cursor: pointer; }
-        .not-registered { background-color: rgba(255, 0, 0, 0.428); }
     </style>
 </head>
 <body>
@@ -91,9 +88,9 @@ $team_member_count = $row['team_member_count'];
 <div class="container">
     <h1>Registration Form</h1>
     <form id="team-form" action="group_insert.php" method="post">
+        <input type="hidden" name="event_id" value="<?php echo $id; ?>">
+        <input type="hidden" name="leader_id" value="<?php echo $userdata['user_id']; ?>">
 
-    <input type="hidden" name="event_id" value="<?php echo $id; ?>">
-    <input type="hidden" name="leader_id" value="<?php echo $userdata['user_id']; ?>">
         <div class="form-group">
             <label for="team-name">Team Name:</label>
             <input type="text" id="team-name" name="team_name" required placeholder="Enter Team Name">
@@ -109,13 +106,6 @@ $team_member_count = $row['team_member_count'];
             <input type="text" id="team-leader-name" name="team_leader_name" value="<?php echo $userdata['full_name'];?>" readonly>
         </div>
 
-        <div class="form-group">
-            <label for="num-members">Number of Team Members:</label>
-            <select id="num-members" required disabled>
-                <option value="<?php echo $team_member_count; ?>"><?php echo $team_member_count; ?></option>
-            </select>
-        </div>
-
         <div id="team-members-container"></div>
 
         <button type="submit">Submit</button>
@@ -123,16 +113,21 @@ $team_member_count = $row['team_member_count'];
 </div>
 
 <script>
-// Get the number of members from PHP
-const numMembers = <?php echo $team_member_count; ?>;
+// PHP Variables
+let minMembers, maxMembers;
+if ("<?php echo $row['team_member_count']; ?>".includes("-")) {
+    [minMembers, maxMembers] = "<?php echo $row['team_member_count']; ?>".split("-").map(Number);
+} else {
+    minMembers = maxMembers = Number("<?php echo $row['team_member_count']; ?>");
+}
 const teamMembersContainer = document.getElementById("team-members-container");
-const leaderName = "<?php echo $userdata['user_name']; ?>"; // Predefined leader
+const leaderName = "<?php echo $userdata['user_name']; ?>";
 
-// Enrollment List (fetch from PHP)
+// Enrollment List from Database
 const enrollmentList = [
     <?php
     $user_id = $userdata['user_id'];
-    $sql = "SELECT user_name FROM `user_master` WHERE user_id != $user_id and user_role=3";
+    $sql = "SELECT user_name FROM user_master WHERE user_id != $user_id and user_role=3";
     $result = mysqli_query($conn, $sql);
     $names = [];
     while($row = mysqli_fetch_assoc($result)){
@@ -142,11 +137,11 @@ const enrollmentList = [
     ?>
 ];
 
-// Function to create fields dynamically
-function createMemberFields(num) {
-    teamMembersContainer.innerHTML = ""; 
+// Create team member fields dynamically
+function createMemberFields(min, max) {
+    teamMembersContainer.innerHTML = "";
 
-    // Leader (Member 1) is fixed
+    // Fixed Leader Field
     const leaderField = document.createElement("div");
     leaderField.classList.add("form-group");
     leaderField.innerHTML = `
@@ -155,8 +150,7 @@ function createMemberFields(num) {
     `;
     teamMembersContainer.appendChild(leaderField);
 
-    // Remaining members
-    for (let i = 2; i <= num; i++) {
+    for (let i = 2; i <= max; i++) {
         const memberField = document.createElement("div");
         memberField.classList.add("form-group");
 
@@ -170,7 +164,11 @@ function createMemberFields(num) {
         input.name = `member-${i}`;
         input.placeholder = `Enrollment No of Member ${i}`;
         input.setAttribute("oninput", `suggestEnrollment(${i})`);
-        input.setAttribute("required", "true");
+
+        // Required for only min members
+        if (i <= min) {
+            input.setAttribute("required", "true");
+        }
 
         memberField.appendChild(label);
         memberField.appendChild(input);
@@ -178,27 +176,34 @@ function createMemberFields(num) {
     }
 }
 
-// Generate fields when page loads
-createMemberFields(numMembers);
+// Generate the fields based on min and max members
+createMemberFields(minMembers, maxMembers);
 
-// Suggest Enrollment
 function suggestEnrollment(memberId) {
     const inputField = document.getElementById(`team-member-${memberId}`);
+    const value = inputField.value.trim().toLowerCase();
+
+    // Case-insensitive filtering
     const suggestions = enrollmentList.filter((enroll) =>
-        enroll.toLowerCase().includes(inputField.value.toLowerCase())
+        enroll.toLowerCase().includes(value)
     );
 
+    // Remove existing suggestion box
     const existingSuggestionBox = inputField.nextElementSibling;
     if (existingSuggestionBox) {
         existingSuggestionBox.remove();
     }
 
-    if (suggestions.length === 0 && inputField.value.trim() !== "") {
+    if (suggestions.length === 0 && value !== "") {
+        inputField.style.border = "2px solid red";
+
         const suggestionBox = document.createElement("div");
         suggestionBox.classList.add("suggestion-box", "not-registered");
         suggestionBox.innerText = "Enrollment not registered. Please register first.";
         inputField.parentElement.appendChild(suggestionBox);
     } else if (suggestions.length > 0) {
+        inputField.style.border = "2px solid #76abae";
+
         const suggestionBox = document.createElement("div");
         suggestionBox.classList.add("suggestion-box");
         inputField.parentElement.appendChild(suggestionBox);
@@ -209,6 +214,7 @@ function suggestEnrollment(memberId) {
             suggestionItem.innerText = suggestion;
             suggestionItem.addEventListener("click", () => {
                 inputField.value = suggestion;
+                inputField.style.border = "2px solid #76abae";
                 suggestionBox.remove();
             });
             suggestionBox.appendChild(suggestionItem);
@@ -216,22 +222,38 @@ function suggestEnrollment(memberId) {
     }
 }
 
-// Validate on submit
+//Submit Validation
 document.getElementById("team-form").addEventListener("submit", function (event) {
     let valid = true;
-    let enrollments = [];
+    let enrollments = new Set(); // Store unique enrollments
+    let filledMembers = 0; // Count how many members are filled
 
-    for (let i = 2; i <= numMembers; i++) {
+    for (let i = 2; i <= maxMembers; i++) {
         const memberInput = document.getElementById(`team-member-${i}`);
-        let value = memberInput.value.trim();
+        if (!memberInput) continue;
 
-        if (!value || !enrollmentList.includes(value) || enrollments.includes(value)) {
+        let value = memberInput.value.trim().toLowerCase();
+
+        // If the input is not empty, count it as a filled member
+        if (value) filledMembers++;
+
+        // Case-insensitive validation for valid enrollment and uniqueness
+        if (
+            (value && !enrollmentList.map(e => e.toLowerCase()).includes(value)) || 
+            (value && enrollments.has(value))
+        ) {
             valid = false;
             memberInput.style.border = "2px solid red";
-        } else {
+        } else if (value) {
             memberInput.style.border = "2px solid #76abae";
+            enrollments.add(value);
         }
-        enrollments.push(value);
+    }
+
+    // Ensure at least `minMembers` members are filled
+    if (filledMembers < minMembers-1) {
+        valid = false;
+        alert(`You must add at least ${minMembers} members.`);
     }
 
     if (!valid) {
@@ -239,6 +261,9 @@ document.getElementById("team-form").addEventListener("submit", function (event)
         alert("Ensure all enrollments are valid, registered, and unique.");
     }
 });
+
+
+
 </script>
 
 </body>
