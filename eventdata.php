@@ -314,15 +314,23 @@ $row2 = mysqli_fetch_assoc($result1);
         </div>
         <div class="round">
           <h3>ROUND 1: <?php echo $row['round1_title']; ?></h3>
-          <p><?php echo nl2br(formatText($row['round1_description']));?></p>
+          <p><?php echo nl2br(formatText(preg_replace('/\?/', ' ', $row['round1_description']))) ;?></p>
         </div>
         <div class="round">
           <h3>ROUND 2: <?php echo $row['round2_title'];?></h3>
-          <p><?php echo nl2br(formatText($row['round2_description']));?></p>
+          <p><?php echo nl2br(formatText(preg_replace('/\?/', ' ', $row['round2_description']))) ;?></p>
         </div>
         <div class="round">
           <h3>ROUND 3: <?php echo $row['round3_title'];?></h3>
-          <p><?php echo nl2br(formatText($row['round3_description']))?></p>
+          <p><?php echo nl2br(formatText(preg_replace('/\?/', ' ', $row['round3_description']))) ;?></p>
+        </div>
+        <div class="round">
+          <h3>ROUND 4: <?php echo $row['round4_title'];?></h3>
+          <p><?php echo nl2br(formatText(preg_replace('/\?/', ' ', $row['round4_description']))) ;?></p>
+        </div>
+        <div class="round">
+          <h3>ROUND 5: <?php echo $row['round5_title'];?></h3>
+          <p><?php echo nl2br(formatText(preg_replace('/\?/', ' ', $row['round5_description']))) ;?></p>
         </div>
       </div>
 
