@@ -479,10 +479,10 @@ if(isset($_SESSION['xenesis_logedin_user_id']) && (trim ($_SESSION['xenesis_loge
     $row2 = mysqli_fetch_assoc($result1);
 ?>
       <div class="nft">
-        <div class="main">
+        <div class="main" style="height: 95%; justify-content: space-between;">
           <img class="tokenImage" src="./assets/img/bg.jpg" alt="NFT" />
-          <div class="text-overlay"><?php echo $row2['event_name'];?></div>
-          <h2><?php echo $row2['event_name'];?></h2>
+          <div class="text-overlay" style="text-transform: uppercase"><?php echo $row2['event_name'];?></div>
+          <h2 style="text-transform: uppercase"><?php echo $row2['event_name'];?></h2>
           <p class="description">
             <?php echo $row2['event_description']; ?>
           </p>

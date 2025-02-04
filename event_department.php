@@ -499,10 +499,10 @@ $id = decryptId($encryptedId);
     // $category_id = encryptId($row['']);
 ?>
       <div class="nft">
-        <div class="main">
+        <div class="main" style="height: 95%; justify-content: space-between;">
           <img class="tokenImage" src="./assets/img/bg.jpg" alt="NFT" />
-          <div class="text-overlay"><?php echo $row['event_name'];?></div>
-          <h2><?php echo $row['event_name'];?></h2>
+          <div class="text-overlay" style="text-transform: uppercase"><?php echo $row['event_name'];?></div>
+          <h2 style="text-transform: uppercase"><?php echo $row['event_name'];?></h2>
           <p class="description">
             <?php echo $row['event_description']; ?>
           </p>
