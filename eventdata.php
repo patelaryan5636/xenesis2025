@@ -293,19 +293,24 @@ $row2 = mysqli_fetch_assoc($result1);
                 return preg_replace('/(?<!\d)\. (?!\d)/', ".<br>", $text);
               }
               function formatEventDescription($text) {
-                // Remove unintended new lines but preserve single spaces
-                $text = preg_replace("/\s*\n\s*/", " ", $text); 
-
+                // Normalize line breaks (replace multiple new lines with a single space)
+                $text = preg_replace('/\s*\n\s*/', ' ', trim($text));  
+            
                 // Add <br> only after full stops, ensuring no break after numbers
-                return preg_replace('/(?<!\d)\. (?!\d)/', ".<br>", $text);
-              }
-              echo formatEventDescription($row['event_description']); 
+                $text = preg_replace('/(?<!\d)\.\s(?!\d)/', ".<br>", $text);
+            
+                return $text;
+            }
+            
+            echo formatEventDescription($row['event_description']);
+            
             ?>
           </p>
         </div>
         <div class="round">
           <h3>Rules</h3>
-          <p><?php echo nl2br(formatText($row['rules'])); ?></p>
+          <p><?php echo nl2br(formatText(preg_replace('/\?/', ' ', $row['rules']))); ?></p>
+
         </div>
         <div class="round">
           <h3>ROUND 1: <?php echo $row['round1_title']; ?></h3>

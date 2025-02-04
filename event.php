@@ -425,7 +425,7 @@
         <a href="aboutus.php">ABOUT US</a>
         <a href="event.php">EVENTS</a>
         <a href="event_confirm.php">REGISTERED EVENTS</a>
-        <a href="profile.php" style="text-transform: Uppercase;" class='far fa-user-circle'> <?php echo strtoupper(trim(strtok($full_name, ' '))); ?></a>
+        <a href="profile.php" style="text-transform: Uppercase;"> <?php echo strtoupper(trim(strtok($full_name, ' '))); ?></a>
         
       </div>
       <?php

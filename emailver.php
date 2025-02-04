@@ -1,3 +1,19 @@
+<?php
+require 'includes/scripts/connection.php';  
+session_start();
+if(isset($_SESSION['xenesis_logedin_user_id']) && (trim ($_SESSION['xenesis_logedin_user_id']) !== '')){
+    $user_id = $_SESSION['xenesis_logedin_user_id'];
+    $query = "SELECT * FROM user_master WHERE user_id = $user_id";
+    $result = mysqli_query($conn, $query);
+    $userdata = mysqli_fetch_assoc($result);
+    $user_role = $userdata["user_role"];
+    if($user_role != 3){
+        header("Location: 404.php");
+    }
+} else {
+    header("Location: sign-in.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -76,8 +92,7 @@
       <img src="frobo.png" alt="Small Animated Image" class="animated-image" />
       <h1>Request is Send Successfully...</h1>
       <p>
-        Your request has been sent successfully, Cheak your Email for Forgot
-        Password
+        Request sent successfully! Please check your email for the next steps to reset your password.
       </p>
       <button onclick="goHome()">GO TO HOME</button>
     </div>

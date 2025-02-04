@@ -431,7 +431,7 @@ if(isset($_SESSION['xenesis_logedin_user_id']) && (trim ($_SESSION['xenesis_loge
         <a href="aboutus.php">ABOUT US</a>
         <a href="event.php">EVENTS</a>
         <a href="event_confirm.php">REGISTERED EVENTS</a>
-        <a href="profile.php" style="text-transform: Uppercase;" class='far fa-user-circle'> <?php echo strtoupper(trim(strtok($full_name, ' '))); ?></a>
+        <a href="profile.php" style="text-transform: Uppercase;"> <?php echo strtoupper(trim(strtok($full_name, ' '))); ?></a>
         
       </div>
       <?php
@@ -504,7 +504,8 @@ if(isset($_SESSION['xenesis_logedin_user_id']) && (trim ($_SESSION['xenesis_loge
             <?php 
             if($row['is_confirmed'] == 0){
             ?>
-            <button class="button">Pending...</button>
+            <p style="color: #75e8ee; margin: 0; padding: 0; width: 100%; font-size: 0.9rem;">* Your Registration is successful, Please confirm it by completing payment to Registration volunteers.</p>
+            <button class="button">Registered</button>
             <?php
             }else{
             ?>
@@ -533,6 +534,7 @@ if(isset($_SESSION['xenesis_logedin_user_id']) && (trim ($_SESSION['xenesis_loge
       <div class="nft">
         <div class="main">
           <img class="tokenImage" src="./assets/img/bg.jpg" alt="NFT" />
+          <div class="text-overlay"><?php echo $row2['event_name'];?></div>
           <h2><?php echo $row2['event_name'];?></h2>
           <p class="description">
             <?php echo $row2['event_description']; ?>
@@ -554,7 +556,8 @@ if(isset($_SESSION['xenesis_logedin_user_id']) && (trim ($_SESSION['xenesis_loge
             <?php 
             if($row['is_confirmed'] == 0){
             ?>
-            <button class="button">Pending...</button>
+            <p style="color: #75e8ee; margin: 0; padding: 0; width: 100%; font-size: 0.9rem;">* Your Registration is successful, Please confirm it by completing payment to Registration volunteers.</p>
+            <button class="button">Registered</button>
             <?php
             }else{
             ?>
