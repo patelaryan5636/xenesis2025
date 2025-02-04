@@ -90,9 +90,9 @@ if(isset($_SESSION['xenesis_logedin_user_id']) && (trim ($_SESSION['xenesis_loge
   <body>
     <div class="container">
       <img src="frobo.png" alt="Small Animated Image" class="animated-image" />
-      <h1>Request is Send Successfully...</h1>
+      <h1>Request is Send Successfully !</h1>
       <p>
-        Request sent successfully! Please check your email for the next steps to reset your password.
+        Please check your email for the next steps to reset your password.
       </p>
       <button onclick="goHome()">GO TO HOME</button>
     </div>
