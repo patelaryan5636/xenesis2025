@@ -13,6 +13,24 @@
     }else{
         header("Location: ../sign-in.php");
     }
+
+    function decryptId($encryptedId) {
+        $key = "aryan5636"; // Use the same key as encryption
+        $iv = "1234567891011121"; // Same IV as encryption
+    
+        return openssl_decrypt(base64_decode($encryptedId), "AES-128-CTR", $key, 0, $iv);
+    }
+
+    $encryptedId = $_GET['id'];
+    $id = decryptId($encryptedId);
+
+    $sql= "SELECT * FROM user_master WHERE user_id = $id";
+    $result = mysqli_query($conn,$sql);
+    $row=mysqli_fetch_assoc($result);
+    $sname = $row['full_name'];
+    $senroll = $row['user_name'];
+    $mobile = $row['phone'];
+    $email = $row['email'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +43,7 @@
         content="admin, estimates, bootstrap, business, corporate, creative, invoice, html5, responsive, Projects">
     <meta name="author" content="Dreamguys - Bootstrap Admin Template">
     <meta name="robots" content="noindex, nofollow">
-    <title>Edit Student</title>
+    <title>Edit Volunteer</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="../assets/img/Xenesis2025_logo.png">
 
@@ -134,7 +152,7 @@
                                 <li><a href="eventlist.php">Events</a></li>
                                 <li><a href="grouplist.php">Organizer Groups</a></li>
                                 <li><a href="studentlist.php" class="active">Students</a></li>
-                                <li><a href="volunteerlist.php">Volunteer</a></li>
+                                <li><a href="volunteerlist.php" >Volunteer</a></li>
                             </ul>
                         </li>
                         <li class="submenu">
@@ -161,24 +179,43 @@
                 <div class="page-header">
                     <div class="page-title">
                         <h4>Edit Student</h4>
-                        <h6>Update your Student's info</h6>
+                        <h6>Update Student's info</h6>
                     </div>
                 </div>
 
-                <form action="#" method="post" enctype="multipart/form-data">
-                    <input type="hidden" name="id" value="PYS">
+                <form action="updatestudent.php" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="id" value="<?php echo $id;?>">
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-lg-12 col-sm-6 col-12">
+                                <div class="col-lg-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label>Product Name</label>
-                                        <input type="text" name="txt_product_name" value="PYS" required>
+                                        <label>Student Name</label>
+                                        <input type="text" name="s_name" value="<?php echo $sname;?>">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label>Student Enrollment</label>
+                                        <input type="text" name="s_enroll" value="<?php echo $senroll;?>">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label>Student Mobile Number</label>
+                                        <input type="tel" name="s_number" class="form-control" pattern="^[0-9]{10}$" title="Mobile number must be 10 digits"  value="<?php echo $mobile;?>">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label>Student email</label>
+                                        <input type="email" name="s_email" class="form-control"  value="<?php echo $email;?>">
+                                        
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <input type="submit" value="Update" class="btn btn-submit me-2">
-                                    <a href="productlist.php" class="btn btn-cancel">Cancel</a>
+                                    <a href="studentlist.php" class="btn btn-cancel">Cancel</a>
                                 </div>
                             </div>
                         </div>

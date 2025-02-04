@@ -13,6 +13,12 @@
     }else{
         header("Location: ../sign-in.php");
     }
+    function encryptId($id) {
+        $key = "aryan5636"; // Use a secure key
+        $iv = "1234567891011121"; // IV must be 16 bytes for AES-128-CTR
+    
+        return base64_encode(openssl_encrypt($id, "AES-128-CTR", $key, 0, $iv));
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -153,12 +159,38 @@
         </div>
         <div class="page-wrapper">
             <div class="content">
-                <!-- alert-box -->
-                <!-- <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>Je lakhvu hoy</strong> te lakho.
+            <?php
+           if(isset( $_SESSION['xenesis_error_message'])){
+            ?>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>
+                        <?php echo  $_SESSION['xenesis_error_message'];
+          
+          ?>
+                        </p>
+                    </strong>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div> -->
-                <!-- alert-box End -->
+                </div>
+                <?php
+    }
+    unset($_SESSION['xenesis_error_message']);
+    ?>
+                <?php
+           if(isset( $_SESSION['xenesis_success_message'])){
+            ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>
+                        <?php echo  $_SESSION['xenesis_success_message'];
+          
+          ?>
+                        </p>
+                    </strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php
+    }
+    unset($_SESSION['xenesis_success_message']);
+    ?>
                 <div class="page-header">
                     <div class="page-title">
                         <h4>Students List</h4>
@@ -189,33 +221,49 @@
                             <table class="table  datanew">
                                 <thead>
                                     <tr>
-                                        <th>Participent Name</th>
-                                        <th>P_ID</th>
-                                        <th>Group_ID</th>
-                                        <th>Event</th>
+                                        <th>#</th>
+                                        <th>Student Enrollment</th>
+                                        <th>Student Name</th>
+                                        <th>Email</th>
+                                        <th>Mobile no</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php 
+                                    $count=1;
+                                $query = "SELECT * FROM user_master WHERE user_role = 3";
+                                $result = mysqli_query($conn,$query);
+                                while($row = mysqli_fetch_assoc($result)){
+                                    $user_id = encryptId($row['user_id']);
+                                    ?>
                                     <tr>
                                         <td>
-                                            PYS
+                                            <?php echo $count;?>
                                         </td>
                                         <td>
-                                           112
+                                            <?php echo $row['user_name'];?>
                                         </td>
                                         <td>
-                                            1
+                                           <?php echo $row['full_name']?>
                                         </td>
                                         <td>
-                                            PUBG
+                                            <?php echo $row['email'];?>
                                         </td>
                                         <td>
-                                            <a href="#">
-                                                <img src="../assets/img/icons/delete.svg" alt="img">
+                                            <?php echo $row['phone'];?>
+                                        </td>
+                                        <td>
+                                            <a class="me-3" href="editstudent.php?id=<?php echo $user_id;?>">
+                                                <img src="../assets/img/icons/edit.svg" alt="img">
                                             </a>
+                                            
                                         </td>
                                     </tr>
+                                    <?php
+                                    $count++;
+                                }
+                                    ?>
                                 </tbody>
                             </table>
                         </div>
