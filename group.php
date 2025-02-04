@@ -77,7 +77,7 @@ list($minMembers, $maxMembers) = explode("-", $row['team_member_count']);
         button:hover { background-color: #3c57589e; }
 
         .suggestion-box{
-            background-color: #ab4141;
+            background-color: #222831;
             border-radius: 15px;
             padding: 2px 11px;
         }
@@ -180,6 +180,16 @@ function createMemberFields(min, max) {
 createMemberFields(minMembers, maxMembers);
 
 function suggestEnrollment(memberId) {
+    document.addEventListener("click", function (e) {
+        const suggestionBox = document.querySelector(".suggestion-box");
+        if (
+          suggestionBox &&
+          !e.target.closest(".form-group") &&
+          !e.target.closest(".suggestion-box")
+        ) {
+          suggestionBox.remove();
+        }
+      });
     const inputField = document.getElementById(`team-member-${memberId}`);
     const value = inputField.value.trim().toLowerCase();
 

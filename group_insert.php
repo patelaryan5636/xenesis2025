@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Collecting all members
     $members = [];
-    for ($i = 2; $i <= 7; $i++) {
+    for ($i = 2; $i <= 8; $i++) {
         if (isset($_POST["member-$i"]) && !empty($_POST["member-$i"])) {
             $members[] = $_POST["member-$i"];
         }
