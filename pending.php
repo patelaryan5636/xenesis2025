@@ -92,11 +92,11 @@ if(isset($_SESSION['xenesis_logedin_user_id']) && (trim ($_SESSION['xenesis_loge
   <body>
     <div class="container">
       <img src="frobo.png" alt="Small Animated Image" class="animated-image" />
-      <h1>Your Request is Pending...</h1>
-      <p>
-        Please meet our volunteer and complete the payment to confirm your
+      <h1>Your Request Is Pending...</h1>
+      <h2 style="text-transform: capitalize;">
+        Please meet Registration volunteer and complete the payment to confirm your
         request.
-      </p>
+      </h3>
       <button onclick="goHome()">GO TO HOME</button>
     </div>
 

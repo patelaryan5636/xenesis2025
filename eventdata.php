@@ -285,25 +285,39 @@ $row2 = mysqli_fetch_assoc($result1);
       </div>
 
       <div class="rounds">
-      <div class="round">
+        <div class="round">
           <h3>Description</h3>
-          <p><?php echo $row['event_description']; ?></p>
+          <p>
+            <?php 
+              function formatText($text) {
+                return preg_replace('/(?<!\d)\. (?!\d)/', ".<br>", $text);
+              }
+              function formatEventDescription($text) {
+                // Remove unintended new lines but preserve single spaces
+                $text = preg_replace("/\s*\n\s*/", " ", $text); 
+
+                // Add <br> only after full stops, ensuring no break after numbers
+                return preg_replace('/(?<!\d)\. (?!\d)/', ".<br>", $text);
+              }
+              echo formatEventDescription($row['event_description']); 
+            ?>
+          </p>
         </div>
         <div class="round">
           <h3>Rules</h3>
-          <p><?php echo $row['rules']; ?></p>
+          <p><?php echo nl2br(formatText($row['rules'])); ?></p>
         </div>
         <div class="round">
           <h3>ROUND 1: <?php echo $row['round1_title']; ?></h3>
-          <p><?php echo $row['round1_description'];?></p>
+          <p><?php echo nl2br(formatText($row['round1_description']));?></p>
         </div>
         <div class="round">
           <h3>ROUND 2: <?php echo $row['round2_title'];?></h3>
-          <p><?php echo $row['round2_description'];?></p>
+          <p><?php echo nl2br(formatText($row['round2_description']));?></p>
         </div>
         <div class="round">
           <h3>ROUND 3: <?php echo $row['round3_title'];?></h3>
-          <p><?php echo $row['round3_description']?></p>
+          <p><?php echo nl2br(formatText($row['round3_description']))?></p>
         </div>
       </div>
 

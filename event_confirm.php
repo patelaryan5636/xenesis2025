@@ -8,6 +8,7 @@ if(isset($_SESSION['xenesis_logedin_user_id']) && (trim ($_SESSION['xenesis_loge
     $userdata = mysqli_fetch_assoc($result);
     $user_role = $userdata["user_role"];
     $user_id = $userdata['user_id'];
+    $full_name = $userdata['full_name'];
     if($user_role != 3){
         header("Location: 404.php");
     }
@@ -26,6 +27,7 @@ if(isset($_SESSION['xenesis_logedin_user_id']) && (trim ($_SESSION['xenesis_loge
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 
     <title>XENESIS-2025</title>
     <style>
@@ -406,6 +408,12 @@ if(isset($_SESSION['xenesis_logedin_user_id']) && (trim ($_SESSION['xenesis_loge
       .tokenImage {
         opacity: 0.8;
       }
+
+      @media(max-width: 768px){
+        h1.title{
+          font-size: 3rem !important; 
+        }
+      }
     </style>
   </head>
 
@@ -422,8 +430,8 @@ if(isset($_SESSION['xenesis_logedin_user_id']) && (trim ($_SESSION['xenesis_loge
         <a href="index.php">HOME</a>
         <a href="aboutus.php">ABOUT US</a>
         <a href="event.php">EVENTS</a>
-        <a href="event_confirm.php">EVENTS CONFIRM</a>
-        <a href="profile.php">PROFILE</a>
+        <a href="event_confirm.php">REGISTERED EVENTS</a>
+        <a href="profile.php" style="text-transform: Uppercase;" class='far fa-user-circle'> <?php echo strtoupper(trim(strtok($full_name, ' '))); ?></a>
         
       </div>
       <?php
@@ -449,14 +457,14 @@ if(isset($_SESSION['xenesis_logedin_user_id']) && (trim ($_SESSION['xenesis_loge
         <div class="line"></div>
       </div>
     </div>
-    <h1 class="title">EVENTS CONFIRM</h1>
+    <h1 class="title">REGISTERED EVENTS</h1>
     <div class="bg">
       <h1>XENESIS</h1>
     </div>
 
     <div class="search-box">
       <i class="fas fa-search"></i>
-      <input type="text" id="search" placeholder="Search for events..." />
+      <input type="text" id="search" placeholder="Search For Events..." />
     </div>
 
     <div class="nft-wrapper">
@@ -484,7 +492,7 @@ if(isset($_SESSION['xenesis_logedin_user_id']) && (trim ($_SESSION['xenesis_loge
               <p>&#x20b9;<?php echo $row2['participation_price'];?></p>
             </div>
             <div class="etype">
-              <p><?php echo "solo event";?></p>
+              <p><?php echo "Solo Event";?></p>
             </div>
             
           </div>
@@ -500,7 +508,7 @@ if(isset($_SESSION['xenesis_logedin_user_id']) && (trim ($_SESSION['xenesis_loge
             <?php
             }else{
             ?>
-            <button class="button">confirmed</button>
+            <button class="button">Confirmed</button>
             <?php
             }
             ?>
@@ -535,7 +543,7 @@ if(isset($_SESSION['xenesis_logedin_user_id']) && (trim ($_SESSION['xenesis_loge
               <p>&#x20b9;<?php echo $row2['participation_price_team'];?></p>
             </div>
             <div class="etype">
-              <p><?php echo "group event";?></p>
+              <p><?php echo "Group Event";?></p>
             </div>
           </div>
           <div class="duration" style="display: flex; align-items: center; justify-content: center; margin-top: -15px; color: rgb(181, 181, 181);">
@@ -550,7 +558,7 @@ if(isset($_SESSION['xenesis_logedin_user_id']) && (trim ($_SESSION['xenesis_loge
             <?php
             }else{
             ?>
-            <button class="button">confirmed</button>
+            <button class="button">Confirmed</button>
             <?php
             }
             ?>

@@ -8,6 +8,7 @@
       $result = mysqli_query($conn, $query);
       $userdata = mysqli_fetch_assoc($result);
       $user_role = $userdata["user_role"];
+      $full_name = $userdata['full_name'];
       if($user_role == 2){
         header("Location: Volunteer/registrationlist.php");
       }else if($user_role == 1){
@@ -434,8 +435,8 @@ $id = decryptId($encryptedId);
         <a href="index.php">HOME</a>
         <a href="aboutus.php">ABOUT US</a>
         <a href="event.php">EVENTS</a>
-        <!-- <a href="event_confirm.php">EVENTS CONFIRM</a> -->
-        <a href="profile.php">PROFILE</a>
+       <a href="event_confirm.php">REGISTERED EVENTS</a> 
+       <a href="profile.php" style="text-transform: Uppercase;" class='far fa-user-circle'> <?php echo strtoupper(trim(strtok($full_name, ' '))); ?></a>
         <!-- <a href="sign-up">REGISTER</a>
         <a href="sign-in">LOGIN</a> -->
       </div>
@@ -469,7 +470,7 @@ $id = decryptId($encryptedId);
 
     <div class="search-box">
       <i class="fas fa-search"></i>
-      <input type="text" id="search" placeholder="Search for events..." />
+      <input type="text" id="search" placeholder="Search For Events..." />
     </div>
 
     <div class="nft-wrapper">
@@ -520,9 +521,9 @@ $id = decryptId($encryptedId);
             <div class="etype">
               <p><?php 
               if($row['team_member_count'] > 1){
-                ?> group event <?php
+                ?> Group Event <?php
               }else{
-                ?> solo Events<?php
+                ?> Solo Event<?php
               }
               ?>
              </p>
@@ -537,7 +538,7 @@ $id = decryptId($encryptedId);
                 $event_id = encryptId($row['event_id']);
             ?>
             <a href="eventdata?id= <?php echo $event_id?>">
-            <button class="button">more details</button>
+            <button class="button">More Details</button>
             </a>
           </div>
         </div>

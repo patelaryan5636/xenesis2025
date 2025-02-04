@@ -8,6 +8,7 @@
       $result = mysqli_query($conn, $query);
       $userdata = mysqli_fetch_assoc($result);
       $user_role = $userdata["user_role"];
+      $full_name = $userdata['full_name'];
       if($user_role == 2){
         header("Location: Volunteer/soloevent.php");
       }else if($user_role == 1){
@@ -31,8 +32,8 @@
       rel="stylesheet"
     />
     <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <link rel="stylesheet" href="text.css" />
     <style>
@@ -523,8 +524,8 @@
       <a href="index.php">HOME</a>
         <a href="aboutus.php">ABOUT US</a>
         <a href="event.php">EVENTS</a>
-        <a href="event_confirm.php">EVENTS CONFIRM</a>
-        <a href="profile.php">PROFILE</a>
+        <a href="event_confirm.php">REGISTERED EVENTS</a>
+        <a href="profile.php" style="text-transform: Uppercase;"> <?php echo strtoupper(trim(strtok($full_name, ' '))); ?></a>
         <?php
          }
         }else{?>

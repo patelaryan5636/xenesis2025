@@ -7,6 +7,7 @@
         $result = mysqli_query($conn, $query);
         $userdata = mysqli_fetch_assoc($result);
         $user_role = $userdata["user_role"];
+        $full_name = $userdata['full_name'];
         if($user_role != 3){
             header("Location: 404.php");
         }
