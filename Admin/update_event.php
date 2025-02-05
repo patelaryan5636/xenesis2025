@@ -32,7 +32,6 @@ if(isset($_POST['submit'])){
     $round5_title = mysqli_real_escape_string($conn, $_POST['e_round5_title']);
     $round5_desc = mysqli_real_escape_string($conn, $_POST['e_round5_desc']);
     $max_tickets = mysqli_real_escape_string($conn, $_POST['e_max_ticket']);
-    $date = mysqli_real_escape_string($conn, $_POST['e_date']);
 
     // Upload Handling
     $uploadDir = "uploads/";
@@ -71,7 +70,6 @@ if(isset($_POST['submit'])){
                 `winner_price2`='$winner_prize2',
                 `winner_price3`='$winner_prize3',
                 `location`='$location',
-                `date`='$date',
                 `event_description`='$event_description',
                 `rules`='$rules',
                 `round1_title`='$round1_title',

@@ -295,23 +295,7 @@
                                 <div class="col-lg-4 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label>Total members</label>
-                                        <select class="select" name="e_total_member">
-                                            <option value="1">
-                                                1
-                                            </option>
-                                            <option value="2">
-                                                2
-                                            </option>
-                                            <option value="3">
-                                                3
-                                            </option>
-                                            <option value="4">
-                                                4
-                                            </option>
-                                            <option value="5">
-                                                5
-                                            </option>
-                                        </select>
+                                        <input type="text" name="e_total_member" value="<?php echo $total_members; ?>" readonly>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-sm-6 col-12">
@@ -338,19 +322,19 @@
                                         <?php echo "<input type='text' name='e_location' value='$location'>"; ?>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-sm-6 col-12">
+                                <!-- <div class="col-lg-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label>Event Date</label>
-                                        <?php echo "<input type='date' name='e_date' class='form-control' value='$date'>"; ?>
+                                        <?php //echo "<input type='date' name='e_date' class='form-control' value='$date'>"; ?>
                                     </div>
-                                </div>
-                                <div class="col-lg4 col-sm-6 col-12">
+                                </div> -->
+                                <div class="col-lg-12 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label>Event Discription</label>
                                         <textarea name="e_desc" class="form-control"><?php echo "$event_desc";?></textarea>
                                     </div>
                                 </div>
-                                <div class="col-lg4 col-sm-6 col-12">
+                                <div class="col-lg-12 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label>Event Rules</label>
                                         <textarea name="e_rules" class="form-control"><?php echo "$rules"; ?></textarea>
