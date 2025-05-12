@@ -21,6 +21,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->Password = 'xarq luyb tkix qwey'; // Your Gmail App Password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;
+        $mail->CharSet = 'UTF-8';
+        $mail->Encoding = 'base64';
+        
 
         // Email settings
         $mail->setFrom('patelaryan5636@gmail.com', 'Event Team'); 
