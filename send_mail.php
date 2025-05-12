@@ -32,6 +32,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         );
         // Set email format to HTML
         $mail->isHTML(true);
+        $mail->CharSet = 'UTF-8';
+        $mail->Encoding = 'base64';
+        $mail->SMTPDebug = 0; // Set to 2 for debugging
 
         // Email settings
         $mail->setFrom('patelaryan5636@gmail.com', 'Event Team'); 
