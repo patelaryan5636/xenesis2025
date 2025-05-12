@@ -30,6 +30,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 'allow_self_signed' => true
             )
         );
+        // Set email format to HTML
+        $mail->isHTML(true);
 
         // Email settings
         $mail->setFrom('patelaryan5636@gmail.com', 'Event Team'); 
