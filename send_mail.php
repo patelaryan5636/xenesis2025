@@ -39,6 +39,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->setLanguage('en', 'phpmailer/language/');
         $mail->setLanguage('en', 'phpmailer/language/');
         $mail->setLanguage('en', 'phpmailer/language/');
+        $mail->setLanguage('en', 'phpmailer/language/');
+        $mail->setLanguage('en', 'phpmailer/language/');
+        $mail->setLanguage('en', 'phpmailer/language/');
+        $mail->setLanguage('en', 'phpmailer/language/');
 
         // Email settings
         $mail->setFrom('patelaryan5636@gmail.com', 'Event Team'); 
