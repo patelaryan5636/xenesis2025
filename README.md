@@ -10,7 +10,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Tech%20Fest-XENESIS%202025-7A46FF?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/Built%20With-PHP%20%7C%20MySQL%20%7C%20PixiJS-0db7ed?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Status-Live%20Soon-FFBB00?style=for-the-badge"/>
+
 </p>
 
 ---
