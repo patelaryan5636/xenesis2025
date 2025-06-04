@@ -17,7 +17,7 @@
 
 <p align="center">
   <em>
-    <b>✨ Revolutionizing event management, volunteer coordination, and food distribution for the largest tech fest of the year.</b>
+    <b>✨ Revolutionizing event management, volunteer coordination, and food distribution for the largest tech fest of the year./b>
   </em>
 </p>
 
