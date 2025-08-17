@@ -30,7 +30,7 @@ Thanks to these amazing people for their contributions:
 <table>
   <tr>
     <td align="center">
-      <a href="https://github.com/Sachani">
+      <a href="https://github.com/patelaryan5636">
         <img src="https://avatars.githubusercontent.com/u/132159758?v=4" width="80px;" alt="Sachani"/>
         <br /><sub><b>Sachani</b></sub>
       </a>
