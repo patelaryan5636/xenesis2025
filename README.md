@@ -1,4 +1,4 @@
-<p align="center">
+ <p align="center">
   <img src="/Banner.png" alt="XENESIS 2025 Official Banner" style="width:100%;max-width:900px;">
 </p>
 
