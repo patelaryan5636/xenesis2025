@@ -553,8 +553,8 @@
     <div class="container1">
       <div class="left-container">
         <div class="content">
-          <h2>XENESiS</h2>
-          <h2>XENESiS</h2>
+          <h2>XENESIS</h2>
+          <h2>XENESIS</h2>
           <h3>
             "Artificial Intelligence for Aspirational India" <br />
             20<sup>th</sup>, 21<sup>st</sup> FEB
